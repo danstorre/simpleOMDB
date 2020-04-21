@@ -6,7 +6,8 @@
 //  Copyright © 2020 dansTeam. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import GoogleSignIn
 
 protocol SessionProtocol: class{
     var user: User {get set}
@@ -18,7 +19,7 @@ protocol PropertyObserver : class {
     func didChange(propertyName: String, oldPropertyValue: Any?)
 }
 
-final class Session: SessionProtocol{
+final class Session: NSObject, SessionProtocol{
     
     init(user: User) {
         self.user = user
@@ -40,12 +41,45 @@ final class Session: SessionProtocol{
     }
 }
 
+extension Session: GIDSignInDelegate{
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+               GIDSignIn.sharedInstance().clientID = "215368444628-j924tqlejb6b6a0bl6u3iu47dbegjo2d.apps.googleusercontent.com"
+               GIDSignIn.sharedInstance().delegate = self
+               
+               if let error = error {
+                 if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                   print("The user has not signed in before or they have since signed out.")
+                 } else {
+                   print("\(error.localizedDescription)")
+                 }
+                 return
+               }
+               // Perform any operations on signed in user here.
+       //        let userId = user.userID                  // For client-side use only!
+       //        let idToken = user.authentication.idToken // Safe to send to the server
+       //        let fullName = user.profile.name
+       //        let givenName = user.profile.givenName
+       //        let familyName = user.profile.familyName
+       //        let email = user.profile.email
+           }
+           
+           func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+                     withError error: Error!) {
+             // Perform any operations when the user disconnects from app here.
+             // ...
+           }
+
+}
+
 protocol ObserverCollection {
     func addObserver(observer: PropertyObserver)
     func removeAll()
 }
 
-final class SessionObserverMediator: PropertyObserver, ObserverCollection {
+protocol ObserverMediator: PropertyObserver & ObserverCollection {
+}
+
+final class SessionObserverMediator: ObserverMediator {
     
     var sessionObservers: [PropertyObserver]
     init(){

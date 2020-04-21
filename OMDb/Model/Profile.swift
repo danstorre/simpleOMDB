@@ -25,4 +25,10 @@ class Profile: NSObject, User{
     }
 }
 
+class UserNotLogged: NSObject, User {
+    var id: String = "none"
+    var email: String = "none"
+    var name: String = "none"
+}
+
 
