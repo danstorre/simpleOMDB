@@ -152,7 +152,59 @@
                     <view key="view" contentMode="scaleToFill" id="wnZ-ic-Xao">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="KR6-Qh-beV">
+                                <rect key="frame" x="20" y="84" width="374" height="709"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSy-tA-xS8">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MnW-Hv-A9J">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome! If you like you can login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvk-XN-bYd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User has not logged In yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JX8-Uy-2VH">
+                                                        <rect key="frame" x="0.0" y="35.5" width="374" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="MnW-Hv-A9J" firstAttribute="top" secondItem="kSy-tA-xS8" secondAttribute="top" id="Mc0-3C-md4"/>
+                                            <constraint firstAttribute="bottom" secondItem="MnW-Hv-A9J" secondAttribute="bottom" constant="72" id="STw-E3-Tdo"/>
+                                            <constraint firstItem="MnW-Hv-A9J" firstAttribute="leading" secondItem="kSy-tA-xS8" secondAttribute="leading" id="U9k-V8-n86"/>
+                                            <constraint firstAttribute="trailing" secondItem="MnW-Hv-A9J" secondAttribute="trailing" id="ajt-57-hUu"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgL-GB-fpF">
+                                        <rect key="frame" x="0.0" y="643" width="374" height="66"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="66" id="amq-YB-D1R"/>
+                                        </constraints>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="vlV-Wv-qu4" eventType="touchUpInside" id="bdo-Gb-oBV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KR6-Qh-beV" firstAttribute="leading" secondItem="RMX-cY-CYb" secondAttribute="leading" constant="20" id="37K-jN-CwA"/>
+                            <constraint firstItem="RMX-cY-CYb" firstAttribute="trailing" secondItem="KR6-Qh-beV" secondAttribute="trailing" constant="20" id="Bdb-Sw-W5H"/>
+                            <constraint firstItem="RMX-cY-CYb" firstAttribute="bottom" secondItem="UgL-GB-fpF" secondAttribute="bottom" constant="20" id="Nny-qb-38D"/>
+                            <constraint firstItem="KR6-Qh-beV" firstAttribute="top" secondItem="RMX-cY-CYb" secondAttribute="top" constant="40" id="rZu-hh-EFn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RMX-cY-CYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="25u-sj-AsM"/>
@@ -164,7 +216,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="PRO-SL-Tq3">
             <objects>
-                <tabBarController id="4Ev-yA-35Z" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ev-yA-35Z" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qey-r0-Bdt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
