@@ -13,6 +13,7 @@
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
 		FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52A244F9847004BCB30 /* ProfileViewController.swift */; };
+		FB78A52D244F9988004BCB30 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52C244F9988004BCB30 /* Profile.swift */; };
 		FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AE82439370D00966925 /* UpdaterResults.swift */; };
 		FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */; };
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
@@ -58,6 +59,7 @@
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = credentials.plist; sourceTree = SOURCE_ROOT; };
 		FB78A52A244F9847004BCB30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FB78A52C244F9988004BCB30 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FB835AE82439370D00966925 /* UpdaterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterResults.swift; sourceTree = "<group>"; };
 		FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OMDB+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				FBE7E0212438F1F3007514C1 /* Network */,
 				FBE7E01F2438F125007514C1 /* Media.swift */,
+				FB78A52C244F9988004BCB30 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */,
 				FBE7E01A2438E5B8007514C1 /* API_Interface.swift in Sources */,
 				FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */,
+				FB78A52D244F9988004BCB30 /* Profile.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
 				FBE7E01C2438E653007514C1 /* OMBDB_API.swift in Sources */,
 			);
