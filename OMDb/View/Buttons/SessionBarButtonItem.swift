@@ -14,8 +14,10 @@ class SessionBarButtonItem: UIBarButtonItem , PropertyObserver {
     
     func willChange(propertyName: String, newPropertyValue: Any?) {
         if propertyName == Session.SessionKeys.userKey, let user = newPropertyValue as? User {
-            title = user.name
+            let userpresenter = UserPresenterFactory.userPresenter(for: .uibaritem(user: user))
+            title = userpresenter?.userName
             print("a user has logged in.. \(user.name)")
         }
     }
+    
 }

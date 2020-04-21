@@ -51,11 +51,20 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         navigationItem.rightBarButtonItem = layoutButtonItem
         
         let sessionBarButton = SessionBarButtonItem()
-        sessionBarButton.title = "Login"
+        if let user = session?.user {
+            let userpresenter = UserPresenterFactory.userPresenter(for: .uibaritem(user: user))
+            sessionBarButton.title = userpresenter?.userName
+        }
+        
         if let sessionObserverMediator = session?.observer as? ObserverCollection {
             sessionObserverMediator.addObserver(observer: sessionBarButton)
         }
         navigationItem.leftBarButtonItem = sessionBarButton
+    }
+    
+    @objc
+    func login(){
+        
     }
     
     func setUpSearchBar(){

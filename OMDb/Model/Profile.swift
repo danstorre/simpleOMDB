@@ -6,7 +6,7 @@
 //  Copyright © 2020 dansTeam. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol User {
     var email: String {get set}

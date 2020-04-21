@@ -16,6 +16,7 @@
 		FB78A52D244F9988004BCB30 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52C244F9988004BCB30 /* Profile.swift */; };
 		FB78A52F244F9A22004BCB30 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52E244F9A22004BCB30 /* Session.swift */; };
 		FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */; };
+		FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A534244FB9CA004BCB30 /* UserPresenters.swift */; };
 		FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AE82439370D00966925 /* UpdaterResults.swift */; };
 		FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */; };
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
@@ -64,6 +65,7 @@
 		FB78A52C244F9988004BCB30 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FB78A52E244F9A22004BCB30 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBarButtonItem.swift; sourceTree = "<group>"; };
+		FB78A534244FB9CA004BCB30 /* UserPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenters.swift; sourceTree = "<group>"; };
 		FB835AE82439370D00966925 /* UpdaterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterResults.swift; sourceTree = "<group>"; };
 		FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OMDB+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 				FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		FB78A533244FB9B9004BCB30 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				FB78A534244FB9CA004BCB30 /* UserPresenters.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
@@ -256,6 +266,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB78A530244FA101004BCB30 /* Buttons */,
 				FB3AA5A424391A5900905753 /* Tools */,
 				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
@@ -458,6 +469,7 @@
 				FB78A52F244F9A22004BCB30 /* Session.swift in Sources */,
 				FB2360212439815B00601D8E /* MapSearcher.swift in Sources */,
 				FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */,
+				FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */,
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
 				FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */,

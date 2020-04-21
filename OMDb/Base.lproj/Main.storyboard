@@ -185,30 +185,45 @@
                                             <constraint firstAttribute="trailing" secondItem="MnW-Hv-A9J" secondAttribute="trailing" id="ajt-57-hUu"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgL-GB-fpF">
-                                        <rect key="frame" x="0.0" y="643" width="374" height="66"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COe-Mf-5Iz">
+                                        <rect key="frame" x="0.0" y="593" width="374" height="66"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="66" id="amq-YB-D1R"/>
+                                            <constraint firstAttribute="height" constant="66" id="SZv-aZ-0Hs"/>
                                         </constraints>
-                                        <state key="normal" title="Login"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
-                                            <action selector="loginButtonPressed:" destination="vlV-Wv-qu4" eventType="touchUpInside" id="bdo-Gb-oBV"/>
+                                            <action selector="logoutButtonPressed:" destination="vlV-Wv-qu4" eventType="touchUpInside" id="lSl-Er-e8d"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyg-Nd-TpD" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="659" width="374" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9G3-0u-ASK"/>
+                                            <constraint firstAttribute="width" constant="374" id="kVx-fv-zdJ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Yyg-Nd-TpD" firstAttribute="top" secondItem="COe-Mf-5Iz" secondAttribute="bottom" id="FtX-gk-r4z"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KR6-Qh-beV" firstAttribute="leading" secondItem="RMX-cY-CYb" secondAttribute="leading" constant="20" id="37K-jN-CwA"/>
                             <constraint firstItem="RMX-cY-CYb" firstAttribute="trailing" secondItem="KR6-Qh-beV" secondAttribute="trailing" constant="20" id="Bdb-Sw-W5H"/>
-                            <constraint firstItem="RMX-cY-CYb" firstAttribute="bottom" secondItem="UgL-GB-fpF" secondAttribute="bottom" constant="20" id="Nny-qb-38D"/>
+                            <constraint firstItem="RMX-cY-CYb" firstAttribute="bottom" secondItem="Yyg-Nd-TpD" secondAttribute="bottom" constant="20" id="k1P-jq-fzR"/>
                             <constraint firstItem="KR6-Qh-beV" firstAttribute="top" secondItem="RMX-cY-CYb" secondAttribute="top" constant="40" id="rZu-hh-EFn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RMX-cY-CYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="25u-sj-AsM"/>
                     <connections>
+                        <outlet property="logoutButton" destination="COe-Mf-5Iz" id="pJv-Xz-MxB"/>
+                        <outlet property="signInButton" destination="Yyg-Nd-TpD" id="HJ3-KX-trv"/>
                         <outlet property="userNameLabel" destination="JX8-Uy-2VH" id="8ZU-65-SF8"/>
                     </connections>
                 </viewController>

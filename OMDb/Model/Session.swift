@@ -20,7 +20,6 @@ protocol PropertyObserver : class {
 }
 
 final class Session: NSObject, SessionProtocol{
-    
     init(user: User) {
         self.user = user
     }
@@ -43,8 +42,7 @@ final class Session: NSObject, SessionProtocol{
 
 extension Session: GIDSignInDelegate{
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        GIDSignIn.sharedInstance().clientID = "215368444628-j924tqlejb6b6a0bl6u3iu47dbegjo2d.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().delegate = self
+        
         
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
