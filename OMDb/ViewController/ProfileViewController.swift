@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
+        session?.user = Profile(id: "1", email: "q@gmail.com", name: "Daniel")
     }
     
 }

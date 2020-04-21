@@ -208,6 +208,9 @@
                         <viewLayoutGuide key="safeArea" id="RMX-cY-CYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="25u-sj-AsM"/>
+                    <connections>
+                        <outlet property="userNameLabel" destination="JX8-Uy-2VH" id="8ZU-65-SF8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7w-jy-BEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,26 +13,8 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate {
    
     // MARK: UISceneSession Lifecycle
-    var sessionObservers: ObserverMediator?
-    var session: SessionProtocol?
-
+  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        session = Session(user: UserNotLogged())
-        sessionObservers = SessionObserverMediator()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let mainTabBarViewController = storyboard
-            .instantiateViewController(withIdentifier: "MainTabBarVC") as? UITabBarController,
-            let searchVc = mainTabBarViewController.viewControllers?[0] as? ViewController,
-            let profileVC = mainTabBarViewController.viewControllers?[0] as? ProfileViewController {
-            
-            searchVc.session = session
-            profileVC.session = session
-            sessionObservers?.addObserver(observer: profileVC)
-            session?.observer = sessionObservers
-            application.windows[0].rootViewController = mainTabBarViewController
-            application.windows[0].makeKeyAndVisible()
-        }
         
         return true
     }
