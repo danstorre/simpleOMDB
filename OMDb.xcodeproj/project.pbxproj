@@ -14,6 +14,8 @@
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
 		FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52A244F9847004BCB30 /* ProfileViewController.swift */; };
 		FB78A52D244F9988004BCB30 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52C244F9988004BCB30 /* Profile.swift */; };
+		FB78A52F244F9A22004BCB30 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52E244F9A22004BCB30 /* Session.swift */; };
+		FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */; };
 		FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AE82439370D00966925 /* UpdaterResults.swift */; };
 		FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */; };
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
@@ -60,6 +62,8 @@
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = credentials.plist; sourceTree = SOURCE_ROOT; };
 		FB78A52A244F9847004BCB30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FB78A52C244F9988004BCB30 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		FB78A52E244F9A22004BCB30 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBarButtonItem.swift; sourceTree = "<group>"; };
 		FB835AE82439370D00966925 /* UpdaterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterResults.swift; sourceTree = "<group>"; };
 		FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OMDB+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
@@ -145,6 +149,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FB78A530244FA101004BCB30 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				FB835AEC243952CD00966925 /* LayoutBarButton.swift */,
+				FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +221,7 @@
 				FBE7E0212438F1F3007514C1 /* Network */,
 				FBE7E01F2438F125007514C1 /* Media.swift */,
 				FB78A52C244F9988004BCB30 /* Profile.swift */,
+				FB78A52E244F9A22004BCB30 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,11 +256,11 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB78A530244FA101004BCB30 /* Buttons */,
 				FB3AA5A424391A5900905753 /* Tools */,
 				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
 				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
 				FBE7E02E24390AD9007514C1 /* MediaCollectionViewCell.swift */,
-				FB835AEC243952CD00966925 /* LayoutBarButton.swift */,
 				FB23601E243971F000601D8E /* PropertyCollectionViewCell.swift */,
 			);
 			path = View;
@@ -441,7 +455,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB78A52F244F9A22004BCB30 /* Session.swift in Sources */,
 				FB2360212439815B00601D8E /* MapSearcher.swift in Sources */,
+				FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */,
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
 				FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */,

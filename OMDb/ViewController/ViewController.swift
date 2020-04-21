@@ -15,6 +15,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     var updater : UpdaterResults!
     var mediaArray: [Media]? = [Media]()
     var layoutButtonItem: LayoutBarButton!
+    var session: SessionProtocol?
     private let api = OMBDB_API()
     private let cellIdentifier = "MediaViewCollectionViewCell"
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         setupNavigationBar()
         setUpSearchBar()
         
-        collectionView.register(UINib(nibName: "MediaViewCollectionViewCell", bundle: nil),
+        collectionView.register(UINib(nibName: cellIdentifier, bundle: nil),
                                 forCellWithReuseIdentifier: cellIdentifier)
         changeLayout()
         collectionView.dataSource = self
@@ -43,8 +44,18 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     }
     
     func setupNavigationBar() {
-        layoutButtonItem = LayoutBarButton(title: "Toggle Layout", style: .done, target: self, action: #selector(self.changeLayout))
+        layoutButtonItem = LayoutBarButton(title: "Toggle Layout",
+                                           style: .done,
+                                           target: self,
+                                           action: #selector(self.changeLayout))
         navigationItem.rightBarButtonItem = layoutButtonItem
+        
+        let sessionBarButton = SessionBarButtonItem()
+        sessionBarButton.title = "Login"
+        if let sessionObserverMediator = session?.observer as? ObserverCollection {
+            sessionObserverMediator.addObserver(observer: sessionBarButton)
+        }
+        navigationItem.leftBarButtonItem = sessionBarButton
     }
     
     func setUpSearchBar(){
