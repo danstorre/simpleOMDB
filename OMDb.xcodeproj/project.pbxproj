@@ -60,7 +60,7 @@
 		FB23601E243971F000601D8E /* PropertyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB2360202439815B00601D8E /* MapSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearcher.swift; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
-		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = credentials.plist; sourceTree = SOURCE_ROOT; };
+		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
 		FB78A52A244F9847004BCB30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FB78A52C244F9988004BCB30 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FB78A52E244F9A22004BCB30 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -132,25 +132,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		FB3AA5A424391A5900905753 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				FB3AA5A224391A1A00905753 /* ImageProvider.swift */,
-				FB835AE82439370D00966925 /* UpdaterResults.swift */,
-				FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */,
-				FB2360202439815B00601D8E /* MapSearcher.swift */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		FB78A527244F7889004BCB30 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FB78A528244F7898004BCB30 /* credentials.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		FB78A530244FA101004BCB30 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,9 +144,22 @@
 		FB78A533244FB9B9004BCB30 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				FB3AA5A224391A1A00905753 /* ImageProvider.swift */,
+				FB835AE82439370D00966925 /* UpdaterResults.swift */,
+				FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */,
+				FB2360202439815B00601D8E /* MapSearcher.swift */,
 				FB78A534244FB9CA004BCB30 /* UserPresenters.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		FB78A5362450856F004BCB30 /* BusinessModel */ = {
+			isa = PBXGroup;
+			children = (
+				FB78A52E244F9A22004BCB30 /* Session.swift */,
+				FBE7E0212438F1F3007514C1 /* Network */,
+			);
+			path = BusinessModel;
 			sourceTree = "<group>";
 		};
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
@@ -201,7 +195,6 @@
 		FBE7DFF22438E488007514C1 /* OMDb */ = {
 			isa = PBXGroup;
 			children = (
-				FB78A527244F7889004BCB30 /* Resources */,
 				FBE7E0162438E577007514C1 /* Utilities */,
 				FBE7E0152438E56F007514C1 /* Model */,
 				FBE7E027243907AA007514C1 /* View */,
@@ -228,10 +221,9 @@
 		FBE7E0152438E56F007514C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FBE7E0212438F1F3007514C1 /* Network */,
+				FB78A5362450856F004BCB30 /* BusinessModel */,
 				FBE7E01F2438F125007514C1 /* Media.swift */,
 				FB78A52C244F9988004BCB30 /* Profile.swift */,
-				FB78A52E244F9A22004BCB30 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +250,7 @@
 		FBE7E024243903C0007514C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FB78A528244F7898004BCB30 /* credentials.plist */,
 				FBE7E0252439044A007514C1 /* sampleMedia.json */,
 			);
 			path = Resources;
@@ -268,7 +261,6 @@
 			children = (
 				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB78A530244FA101004BCB30 /* Buttons */,
-				FB3AA5A424391A5900905753 /* Tools */,
 				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
 				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
 				FBE7E02E24390AD9007514C1 /* MediaCollectionViewCell.swift */,
