@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>215368444628-j924tqlejb6b6a0bl6u3iu47dbegjo2d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.215368444628-j924tqlejb6b6a0bl6u3iu47dbegjo2d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDLYkHlB0mL7-7RklaijIhr152icUb8ENo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>215368444628</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dansTeam.OMDb</string>
+	<key>PROJECT_ID</key>
+	<string>omdbapp-1587494724546</string>
+	<key>STORAGE_BUCKET</key>
+	<string>omdbapp-1587494724546.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:215368444628:ios:44ae9447e8d049e1aca941</string>
+	<key>DATABASE_URL</key>
+	<string>https://omdbapp-1587494724546.firebaseio.com</string>
+</dict>
+</plist>
