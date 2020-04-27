@@ -8,6 +8,7 @@
 
 import Foundation
 import GoogleSignIn
+import Firebase
 
 protocol SessionProtocol: class{
     var user: User {get set}
@@ -52,26 +53,47 @@ extension Session: GIDSignInDelegate{
             }
             return
         }
-        // Perform any operations on signed in user here.
-        let userId = user.userID                  // For client-side use only!
-        //        let idToken = user.authentication.idToken // Safe to send to the server
-        //        let fullName = user.profile.name
-        //        let familyName = user.profile.familyName
-        guard let givenName = user.profile.givenName,
-            let email = user.profile.email else{
-                print("couldn't retrieve user info")
-                self.user = UserNotLogged()
-                return
-        }
         
-        let profileFromUserLoggedIn = Profile(id: userId ?? "1", email: email, name: givenName)
-        self.user = profileFromUserLoggedIn
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        print("===auth with firebase===")
+        Auth.auth().signIn(with: credential) {[weak self] (authResult, error) in
+            guard let sSelf = self else {
+                return
+            }
+            if let error = error {
+                print("couldn't retrieve user info")
+                print(error.localizedDescription)
+                sSelf.user = UserNotLogged()
+                return
+            }
+            // User is signed in
+            // Perform any operations on signed in user here.
+            let userId = user.userID
+            guard let givenName = user.profile.givenName,
+                let email = user.profile.email else{
+                    print("couldn't retrieve user info")
+                    sSelf.user = UserNotLogged()
+                    return
+            }
+            
+            let profileFromUserLoggedIn = Profile(id: userId ?? "1", email: email, name: givenName)
+            sSelf.user = profileFromUserLoggedIn
+        }
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
               withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
-        // ...
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+          
         self.user = UserNotLogged()
     }
 }
