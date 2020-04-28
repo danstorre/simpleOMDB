@@ -35,6 +35,30 @@ struct HeaderTextPresenter: TextPresenter {
     }
 }
 
+
+struct Header2TextPresenter: TextPresenter {
+    
+    let string: String
+    
+    var attributedText: NSAttributedString {
+        
+        let mutuableAttString = NSMutableAttributedString(string: string)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.07
+        
+        let attributes = [NSAttributedString.Key.kern: 0.38,
+                        NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                        NSAttributedString.Key.foregroundColor: UIColor.init(named: "Text")!,
+                        NSAttributedString.Key.font: UIFont(name: "DINAlternate-Bold", size: 20)!] as [NSAttributedString.Key : Any]
+        
+        mutuableAttString.addAttributes(attributes, range: NSRange(location: 0,
+                                                                   length: string.count))
+        return mutuableAttString
+    }
+}
+
+
 struct BodyTextPresenter: TextPresenter {
     
     let string: String
@@ -73,7 +97,7 @@ struct ColorTextPresenter: TextPresenter {
 
 enum TextPresenterOptions {
     case body(string: String)
-    case header2(string: String)
+    case header2(string: String, withColor: UIColor? = nil)
     case headerDualColor(string1: String, string2: String, color: UIColor)
 }
 
@@ -84,8 +108,14 @@ enum TextFactory {
         switch option {
         case .body(let string):
             return BodyTextPresenter(string: string).attributedText
-        case .header2(let string):
-            return HeaderTextPresenter(string: string).attributedText
+        case .header2(let string, withColor: let color):
+            let headerText = Header2TextPresenter(string: string).attributedText
+            if let color = color {
+                let mutableString = NSMutableAttributedString(attributedString: headerText)
+                let coloredHeader = ColorTextPresenter(attString: mutableString, color: color).attributedText
+                return coloredHeader
+            }
+            return headerText
         case .headerDualColor(let string1, let string2, let color):
             let mutableString = NSMutableAttributedString(attributedString: HeaderTextPresenter(string: string1)
                 .attributedText)

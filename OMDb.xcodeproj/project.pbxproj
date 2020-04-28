@@ -12,6 +12,9 @@
 		FB2360212439815B00601D8E /* MapSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2360202439815B00601D8E /* MapSearcher.swift */; };
 		FB346479245787BC008C4E1B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB346478245787BC008C4E1B /* IntroViewController.swift */; };
 		FB34647C24579AFD008C4E1B /* TextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34647B24579AFD008C4E1B /* TextFactory.swift */; };
+		FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB34647F2457AE64008C4E1B /* FeatureTextBox.xib */; };
+		FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464812457B13F008C4E1B /* FeatureTextBox.swift */; };
+		FB3464842457B335008C4E1B /* TextFactoryTextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464832457B335008C4E1B /* TextFactoryTextBox.swift */; };
 		FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */; };
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
@@ -64,6 +67,9 @@
 		FB2360202439815B00601D8E /* MapSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearcher.swift; sourceTree = "<group>"; };
 		FB346478245787BC008C4E1B /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		FB34647B24579AFD008C4E1B /* TextFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFactory.swift; sourceTree = "<group>"; };
+		FB34647F2457AE64008C4E1B /* FeatureTextBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTextBox.xib; sourceTree = "<group>"; };
+		FB3464812457B13F008C4E1B /* FeatureTextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTextBox.swift; sourceTree = "<group>"; };
+		FB3464832457B335008C4E1B /* TextFactoryTextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFactoryTextBox.swift; sourceTree = "<group>"; };
 		FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
@@ -145,6 +151,16 @@
 				FB34647B24579AFD008C4E1B /* TextFactory.swift */,
 			);
 			path = Text;
+			sourceTree = "<group>";
+		};
+		FB34647E2457AE2A008C4E1B /* Text Box */ = {
+			isa = PBXGroup;
+			children = (
+				FB34647F2457AE64008C4E1B /* FeatureTextBox.xib */,
+				FB3464812457B13F008C4E1B /* FeatureTextBox.swift */,
+				FB3464832457B335008C4E1B /* TextFactoryTextBox.swift */,
+			);
+			path = "Text Box";
 			sourceTree = "<group>";
 		};
 		FB78A530244FA101004BCB30 /* Buttons */ = {
@@ -277,6 +293,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB34647E2457AE2A008C4E1B /* Text Box */,
 				FB34647A24579AB6008C4E1B /* Text */,
 				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB78A530244FA101004BCB30 /* Buttons */,
@@ -378,6 +395,7 @@
 				FBE7E0002438E489007514C1 /* LaunchScreen.storyboard in Resources */,
 				FBE7DFFD2438E489007514C1 /* Assets.xcassets in Resources */,
 				FBE7E0262439044A007514C1 /* sampleMedia.json in Resources */,
+				FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */,
 				FBE7DFFB2438E488007514C1 /* Main.storyboard in Resources */,
 				FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */,
 			);
@@ -485,8 +503,10 @@
 				FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */,
 				FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */,
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
+				FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
 				FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */,
+				FB3464842457B335008C4E1B /* TextFactoryTextBox.swift in Sources */,
 				FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */,
 				FBE7E029243907DC007514C1 /* ColumnFlowLayout.swift in Sources */,
 				FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */,
