@@ -263,17 +263,26 @@
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mg-8m-RRl">
-                                <rect key="frame" x="20" y="294" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search your favorite movies and series. Add them to your library to see them later." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mg-8m-RRl">
+                                <rect key="frame" x="20" y="294" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="qzv-DN-Z1X">
+                                <rect key="frame" x="20" y="377" width="374" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="700" constant="100" id="ERt-SS-qf1"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Rfx-sg-t72" firstAttribute="leading" secondItem="jds-HK-px5" secondAttribute="leading" constant="20" id="6dE-w7-TQr"/>
+                            <constraint firstItem="qzv-DN-Z1X" firstAttribute="leading" secondItem="3Mg-8m-RRl" secondAttribute="leading" id="E3f-pz-E3a"/>
+                            <constraint firstItem="3Mg-8m-RRl" firstAttribute="trailing" secondItem="qzv-DN-Z1X" secondAttribute="trailing" id="LcJ-C0-S5Y"/>
                             <constraint firstItem="3Mg-8m-RRl" firstAttribute="top" secondItem="Rfx-sg-t72" secondAttribute="bottom" constant="68" id="Uhq-ub-TJs"/>
+                            <constraint firstItem="qzv-DN-Z1X" firstAttribute="top" secondItem="3Mg-8m-RRl" secondAttribute="bottom" constant="42" id="dwT-ry-T3E"/>
                             <constraint firstItem="Rfx-sg-t72" firstAttribute="trailing" secondItem="jds-HK-px5" secondAttribute="trailing" constant="-20" id="hFV-q1-w8e"/>
                             <constraint firstItem="3Mg-8m-RRl" firstAttribute="trailing" secondItem="Rfx-sg-t72" secondAttribute="trailing" id="hdF-z4-bhR"/>
                             <constraint firstItem="3Mg-8m-RRl" firstAttribute="leading" secondItem="Rfx-sg-t72" secondAttribute="leading" id="kKu-we-e3V"/>
@@ -284,6 +293,7 @@
                     <connections>
                         <outlet property="bodyLabel" destination="3Mg-8m-RRl" id="WLj-cG-xe4"/>
                         <outlet property="headLabel" destination="Rfx-sg-t72" id="o0Q-S2-3Ut"/>
+                        <outlet property="stackView" destination="qzv-DN-Z1X" id="Fa3-nJ-ldP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQr-Qb-Pcx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
