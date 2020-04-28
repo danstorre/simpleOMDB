@@ -19,7 +19,7 @@ struct NormalButtonPresenter: ButtonPresenterProtocol {
         let normalButton = NormalButton(frame: .zero)
         
         normalButton.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: title,
-                                                                                     withColor: UIColor(named: "Text")!)),
+                                                                                     withColor: .white)),
                                                for: .normal)
         normalButton.button.backgroundColor = UIColor(named: "ButtonColor")
         

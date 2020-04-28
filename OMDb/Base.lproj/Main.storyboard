@@ -252,7 +252,7 @@
         <!--Intro View Controller-->
         <scene sceneID="NXr-cR-ytA">
             <objects>
-                <viewController id="kdy-Qp-FIC" customClass="IntroViewController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kdy-Qp-FIC" customClass="IntroViewController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="us3-N0-1Hf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
