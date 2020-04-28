@@ -10,6 +10,8 @@
 		EB31FA0328D6B0083FF77AAC /* Pods_OMDb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D296A0F2D56196C2D1767F8 /* Pods_OMDb.framework */; };
 		FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23601E243971F000601D8E /* PropertyCollectionViewCell.swift */; };
 		FB2360212439815B00601D8E /* MapSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2360202439815B00601D8E /* MapSearcher.swift */; };
+		FB346479245787BC008C4E1B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB346478245787BC008C4E1B /* IntroViewController.swift */; };
+		FB34647C24579AFD008C4E1B /* TextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34647B24579AFD008C4E1B /* TextFactory.swift */; };
 		FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */; };
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
@@ -60,6 +62,8 @@
 		F992DAE4978C5FA12596E141 /* Pods_OMDbTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OMDbTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB23601E243971F000601D8E /* PropertyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB2360202439815B00601D8E /* MapSearcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearcher.swift; sourceTree = "<group>"; };
+		FB346478245787BC008C4E1B /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		FB34647B24579AFD008C4E1B /* TextFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFactory.swift; sourceTree = "<group>"; };
 		FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
@@ -135,6 +139,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FB34647A24579AB6008C4E1B /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				FB34647B24579AFD008C4E1B /* TextFactory.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		FB78A530244FA101004BCB30 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,7 @@
 				FBE7DFF72438E488007514C1 /* ViewController.swift */,
 				FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */,
 				FB78A52A244F9847004BCB30 /* ProfileViewController.swift */,
+				FB346478245787BC008C4E1B /* IntroViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -264,6 +277,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB34647A24579AB6008C4E1B /* Text */,
 				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB78A530244FA101004BCB30 /* Buttons */,
 				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
@@ -464,6 +478,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB346479245787BC008C4E1B /* IntroViewController.swift in Sources */,
+				FB34647C24579AFD008C4E1B /* TextFactory.swift in Sources */,
 				FB78A52F244F9A22004BCB30 /* Session.swift in Sources */,
 				FB2360212439815B00601D8E /* MapSearcher.swift in Sources */,
 				FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */,
@@ -660,7 +676,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "AEWQUX8MPM-Omdb-iOS-Dev";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -683,7 +699,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "AEWQUX8MPM-Omdb-iOS-Dev";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

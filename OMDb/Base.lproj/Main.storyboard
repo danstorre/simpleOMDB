@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Ev-yA-35Z">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kdy-Qp-FIC">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -248,6 +248,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCI-7N-NOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-867" y="125"/>
+        </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="NXr-cR-ytA">
+            <objects>
+                <viewController id="kdy-Qp-FIC" customClass="IntroViewController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="us3-N0-1Hf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Movio" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfx-sg-t72">
+                                <rect key="frame" x="20" y="114" width="374" height="112"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Heavy" family="SF Pro Display" pointSize="48"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mg-8m-RRl">
+                                <rect key="frame" x="20" y="294" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Rfx-sg-t72" firstAttribute="leading" secondItem="jds-HK-px5" secondAttribute="leading" constant="20" id="6dE-w7-TQr"/>
+                            <constraint firstItem="3Mg-8m-RRl" firstAttribute="top" secondItem="Rfx-sg-t72" secondAttribute="bottom" constant="68" id="Uhq-ub-TJs"/>
+                            <constraint firstItem="Rfx-sg-t72" firstAttribute="trailing" secondItem="jds-HK-px5" secondAttribute="trailing" constant="-20" id="hFV-q1-w8e"/>
+                            <constraint firstItem="3Mg-8m-RRl" firstAttribute="trailing" secondItem="Rfx-sg-t72" secondAttribute="trailing" id="hdF-z4-bhR"/>
+                            <constraint firstItem="3Mg-8m-RRl" firstAttribute="leading" secondItem="Rfx-sg-t72" secondAttribute="leading" id="kKu-we-e3V"/>
+                            <constraint firstItem="Rfx-sg-t72" firstAttribute="top" secondItem="jds-HK-px5" secondAttribute="top" constant="70" id="rjo-lw-hrj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jds-HK-px5"/>
+                    </view>
+                    <connections>
+                        <outlet property="bodyLabel" destination="3Mg-8m-RRl" id="WLj-cG-xe4"/>
+                        <outlet property="headLabel" destination="Rfx-sg-t72" id="o0Q-S2-3Ut"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQr-Qb-Pcx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1242" y="925"/>
         </scene>
     </scenes>
     <resources>
