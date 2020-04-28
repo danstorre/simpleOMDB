@@ -13,7 +13,7 @@ class IntroViewController: UIViewController {
     @IBOutlet var headLabel: UILabel!
     @IBOutlet var bodyLabel: UILabel!
     @IBOutlet var stackView: UIStackView!
-    @IBOutlet var normalButton: NormalButton!
+    @IBOutlet var normalButton: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,19 +52,16 @@ class IntroViewController: UIViewController {
             normalButton.addSubview(button)
             button.frame = normalButton.bounds
             button.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            button.button.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
         }
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc
+    func continueButtonPressed(){
+        dismiss(animated: true, completion: nil)
     }
-    */
 
 }
+
+

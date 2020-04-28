@@ -42,6 +42,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
              window = UIWindow(windowScene: windowScene)
              window?.rootViewController = mainTabBarViewController
              window?.makeKeyAndVisible()
+
+            
+            if let introVC = storyboard
+                .instantiateViewController(withIdentifier: "IntroVC") as? IntroViewController {
+                mainTabBarViewController.modalPresentationStyle = .overFullScreen
+                mainTabBarViewController.present(introVC, animated: true, completion: nil)
+            }
         }
         
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
