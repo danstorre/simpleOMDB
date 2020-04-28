@@ -15,6 +15,9 @@
 		FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB34647F2457AE64008C4E1B /* FeatureTextBox.xib */; };
 		FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464812457B13F008C4E1B /* FeatureTextBox.swift */; };
 		FB3464842457B335008C4E1B /* TextFactoryTextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464832457B335008C4E1B /* TextFactoryTextBox.swift */; };
+		FB3464862457CD87008C4E1B /* NormalButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3464852457CD87008C4E1B /* NormalButton.xib */; };
+		FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464892457CDED008C4E1B /* NormalButton.swift */; };
+		FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34648B2457CE4F008C4E1B /* FactoryButton.swift */; };
 		FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */; };
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
@@ -70,6 +73,9 @@
 		FB34647F2457AE64008C4E1B /* FeatureTextBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeatureTextBox.xib; sourceTree = "<group>"; };
 		FB3464812457B13F008C4E1B /* FeatureTextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTextBox.swift; sourceTree = "<group>"; };
 		FB3464832457B335008C4E1B /* TextFactoryTextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFactoryTextBox.swift; sourceTree = "<group>"; };
+		FB3464852457CD87008C4E1B /* NormalButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalButton.xib; sourceTree = "<group>"; };
+		FB3464892457CDED008C4E1B /* NormalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalButton.swift; sourceTree = "<group>"; };
+		FB34648B2457CE4F008C4E1B /* FactoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryButton.swift; sourceTree = "<group>"; };
 		FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
@@ -168,6 +174,9 @@
 			children = (
 				FB835AEC243952CD00966925 /* LayoutBarButton.swift */,
 				FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */,
+				FB3464852457CD87008C4E1B /* NormalButton.xib */,
+				FB3464892457CDED008C4E1B /* NormalButton.swift */,
+				FB34648B2457CE4F008C4E1B /* FactoryButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -391,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBE7E02D24390A6D007514C1 /* MediaViewCollectionViewCell.xib in Resources */,
+				FB3464862457CD87008C4E1B /* NormalButton.xib in Resources */,
 				FB78A529244F7899004BCB30 /* credentials.plist in Resources */,
 				FBE7E0002438E489007514C1 /* LaunchScreen.storyboard in Resources */,
 				FBE7DFFD2438E489007514C1 /* Assets.xcassets in Resources */,
@@ -513,6 +523,7 @@
 				FBE7DFF82438E488007514C1 /* ViewController.swift in Sources */,
 				FBE7E0232439002C007514C1 /* OmdbRequestsFactory.swift in Sources */,
 				FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */,
+				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,
 				FBE7E02F24390AD9007514C1 /* MediaCollectionViewCell.swift in Sources */,
@@ -521,6 +532,7 @@
 				FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */,
 				FB78A52D244F9988004BCB30 /* Profile.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
+				FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */,
 				FBE7E01C2438E653007514C1 /* OMBDB_API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

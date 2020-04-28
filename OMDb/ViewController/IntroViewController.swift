@@ -13,6 +13,7 @@ class IntroViewController: UIViewController {
     @IBOutlet var headLabel: UILabel!
     @IBOutlet var bodyLabel: UILabel!
     @IBOutlet var stackView: UIStackView!
+    @IBOutlet var normalButton: NormalButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,13 @@ class IntroViewController: UIViewController {
                                                                             iconColor: UIColor(named: "Text")!)))
         stackView.setNeedsLayout()
         stackView.layoutIfNeeded()
+        
+        
+        if let button = ButtonFactory.button(for: .normalButton(text: "Continue")) as? NormalButton {
+            normalButton.addSubview(button)
+            button.frame = normalButton.bounds
+            button.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
         // Do any additional setup after loading the view.
     }
     

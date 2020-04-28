@@ -96,7 +96,7 @@ struct ColorTextPresenter: TextPresenter {
 }
 
 enum TextPresenterOptions {
-    case body(string: String)
+    case body(string: String, withColor: UIColor? = nil)
     case header2(string: String, withColor: UIColor? = nil)
     case headerDualColor(string1: String, string2: String, color: UIColor)
 }
@@ -106,8 +106,14 @@ enum TextFactory {
     static func attributedText(for option: TextPresenterOptions) -> NSAttributedString {
 
         switch option {
-        case .body(let string):
-            return BodyTextPresenter(string: string).attributedText
+        case .body(let string, withColor: let color):
+            let bodyText = BodyTextPresenter(string: string).attributedText
+            if let color = color {
+                let mutableString = NSMutableAttributedString(attributedString: bodyText)
+                let coloredHeader = ColorTextPresenter(attString: mutableString, color: color).attributedText
+                return coloredHeader
+            }
+            return bodyText
         case .header2(let string, withColor: let color):
             let headerText = Header2TextPresenter(string: string).attributedText
             if let color = color {
