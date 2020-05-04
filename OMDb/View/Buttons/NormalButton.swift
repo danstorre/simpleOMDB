@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol NormalButtonProtocol {
+protocol NormalButtonProtocol: UIView {
     var button: UIButton {get}
 }
 

@@ -47,14 +47,11 @@ class IntroViewController: UIViewController {
         stackView.setNeedsLayout()
         stackView.layoutIfNeeded()
         
-        
-        if let button = ButtonFactory.button(for: .normalButton(text: "Continue")) as? NormalButton {
-            normalButton.addSubview(button)
-            button.frame = normalButton.bounds
-            button.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            button.button.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
-        }
-        // Do any additional setup after loading the view.
+        let buttonView = ButtonFactory.button(for: .normalButton(text: "Continue"))
+        normalButton.addSubview(buttonView)
+        buttonView.frame = normalButton.bounds
+        buttonView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        buttonView.button.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
     }
     
     @objc
