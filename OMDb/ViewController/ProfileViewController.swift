@@ -16,6 +16,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet var contentView: UIView!
 
     lazy var profileNotLoggedView: ProfileNotLoggedProtocol = ProfileUserNotLogged(frame: .zero)
+    lazy var profile: ProfileLoggedProtocol = ProfileLoggedView(frame: .zero)
+    
     var profileNotLoggedViewLoaded: Bool = false
     
     override func viewDidLoad() {
@@ -28,9 +30,20 @@ class ProfileViewController: UIViewController {
     private func prepareContentView(for user: User) {
         switch user  {
         case let x where x is UserNotLogged: prepareUserNotLoggedView()
-        case let x where x is Profile: prepareUserNotLoggedView()
+        case let x where x is Profile: prepareUserLoggedView(for: user)
         default: break
         }
+    }
+    
+    private func prepareUserLoggedView(for user: User) {
+        guard let contentView = contentView else {
+            return
+        }
+        for subViews in contentView.subviews {
+            subViews.removeFromSuperview()
+        }
+        
+        
     }
     
     private func prepareUserNotLoggedView(){

@@ -28,9 +28,11 @@
 		FB78A52F244F9A22004BCB30 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52E244F9A22004BCB30 /* Session.swift */; };
 		FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */; };
 		FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A534244FB9CA004BCB30 /* UserPresenters.swift */; };
+		FB7E21F42460B6FB00F0BD6D /* ProfileLoggedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */; };
 		FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AE82439370D00966925 /* UpdaterResults.swift */; };
 		FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */; };
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
+		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
 		FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */; };
 		FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF32438E488007514C1 /* AppDelegate.swift */; };
 		FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF52438E488007514C1 /* SceneDelegate.swift */; };
@@ -88,9 +90,11 @@
 		FB78A52E244F9A22004BCB30 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBarButtonItem.swift; sourceTree = "<group>"; };
 		FB78A534244FB9CA004BCB30 /* UserPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenters.swift; sourceTree = "<group>"; };
+		FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileLoggedView.xib; sourceTree = "<group>"; };
 		FB835AE82439370D00966925 /* UpdaterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterResults.swift; sourceTree = "<group>"; };
 		FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OMDB+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
+		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
 		FBD3BECD2450F59300E420D1 /* OMDb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OMDb.entitlements; sourceTree = "<group>"; };
 		FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		FBE7DFF02438E488007514C1 /* OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +182,8 @@
 			children = (
 				FB34648E2458A3CE008C4E1B /* ProfileUserNotLogged.xib */,
 				FB3464902458A3DF008C4E1B /* ProfileUserNotLogged.swift */,
+				FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */,
+				FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -213,6 +219,13 @@
 				FBE7E0212438F1F3007514C1 /* Network */,
 			);
 			path = BusinessModel;
+			sourceTree = "<group>";
+		};
+		FBAB3F4F2460B4B40082E933 /* Headers  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Headers ";
 			sourceTree = "<group>";
 		};
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
@@ -316,6 +329,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBAB3F4F2460B4B40082E933 /* Headers  */,
 				FB34647E2457AE2A008C4E1B /* Text Box */,
 				FB34647A24579AB6008C4E1B /* Text */,
 				FB78A533244FB9B9004BCB30 /* Presenters */,
@@ -415,6 +429,7 @@
 			files = (
 				FBE7E02D24390A6D007514C1 /* MediaViewCollectionViewCell.xib in Resources */,
 				FB3464862457CD87008C4E1B /* NormalButton.xib in Resources */,
+				FB7E21F42460B6FB00F0BD6D /* ProfileLoggedView.xib in Resources */,
 				FB78A529244F7899004BCB30 /* credentials.plist in Resources */,
 				FBE7E0002438E489007514C1 /* LaunchScreen.storyboard in Resources */,
 				FBE7DFFD2438E489007514C1 /* Assets.xcassets in Resources */,
@@ -538,6 +553,7 @@
 				FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */,
 				FBE7DFF82438E488007514C1 /* ViewController.swift in Sources */,
 				FBE7E0232439002C007514C1 /* OmdbRequestsFactory.swift in Sources */,
+				FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */,
 				FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */,
 				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
