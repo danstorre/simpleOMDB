@@ -18,6 +18,8 @@
 		FB3464862457CD87008C4E1B /* NormalButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB3464852457CD87008C4E1B /* NormalButton.xib */; };
 		FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464892457CDED008C4E1B /* NormalButton.swift */; };
 		FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34648B2457CE4F008C4E1B /* FactoryButton.swift */; };
+		FB34648F2458A3CE008C4E1B /* ProfileUserNotLogged.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB34648E2458A3CE008C4E1B /* ProfileUserNotLogged.xib */; };
+		FB3464912458A3DF008C4E1B /* ProfileUserNotLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464902458A3DF008C4E1B /* ProfileUserNotLogged.swift */; };
 		FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */; };
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
@@ -76,6 +78,8 @@
 		FB3464852457CD87008C4E1B /* NormalButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalButton.xib; sourceTree = "<group>"; };
 		FB3464892457CDED008C4E1B /* NormalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalButton.swift; sourceTree = "<group>"; };
 		FB34648B2457CE4F008C4E1B /* FactoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryButton.swift; sourceTree = "<group>"; };
+		FB34648E2458A3CE008C4E1B /* ProfileUserNotLogged.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileUserNotLogged.xib; sourceTree = "<group>"; };
+		FB3464902458A3DF008C4E1B /* ProfileUserNotLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLogged.swift; sourceTree = "<group>"; };
 		FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
@@ -169,6 +173,15 @@
 			path = "Text Box";
 			sourceTree = "<group>";
 		};
+		FB34648D2458A3B3008C4E1B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FB34648E2458A3CE008C4E1B /* ProfileUserNotLogged.xib */,
+				FB3464902458A3DF008C4E1B /* ProfileUserNotLogged.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		FB78A530244FA101004BCB30 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +218,7 @@
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FB34648D2458A3B3008C4E1B /* Profile */,
 				FBE7DFF72438E488007514C1 /* ViewController.swift */,
 				FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */,
 				FB78A52A244F9847004BCB30 /* ProfileViewController.swift */,
@@ -405,6 +419,7 @@
 				FBE7E0002438E489007514C1 /* LaunchScreen.storyboard in Resources */,
 				FBE7DFFD2438E489007514C1 /* Assets.xcassets in Resources */,
 				FBE7E0262439044A007514C1 /* sampleMedia.json in Resources */,
+				FB34648F2458A3CE008C4E1B /* ProfileUserNotLogged.xib in Resources */,
 				FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */,
 				FBE7DFFB2438E488007514C1 /* Main.storyboard in Resources */,
 				FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */,
@@ -519,6 +534,7 @@
 				FB3464842457B335008C4E1B /* TextFactoryTextBox.swift in Sources */,
 				FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */,
 				FBE7E029243907DC007514C1 /* ColumnFlowLayout.swift in Sources */,
+				FB3464912458A3DF008C4E1B /* ProfileUserNotLogged.swift in Sources */,
 				FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */,
 				FBE7DFF82438E488007514C1 /* ViewController.swift in Sources */,
 				FBE7E0232439002C007514C1 /* OmdbRequestsFactory.swift in Sources */,

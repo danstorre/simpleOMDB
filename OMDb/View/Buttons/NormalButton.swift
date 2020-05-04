@@ -13,13 +13,13 @@ protocol NormalButtonProtocol {
 }
 
 class NormalButton: UIView, NormalButtonProtocol {
-    var button: UIButton {
-        return buttonControl
-    }
-    
     
     @IBOutlet var buttonControl: UIButton!
     @IBOutlet var contentView: UIView!
+    
+    var button: UIButton {
+        return buttonControl
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
