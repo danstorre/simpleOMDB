@@ -153,78 +153,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="KR6-Qh-beV">
-                                <rect key="frame" x="20" y="84" width="374" height="709"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSy-tA-xS8">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="128"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MnW-Hv-A9J">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome! If you like you can login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvk-XN-bYd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User is not logged In yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JX8-Uy-2VH">
-                                                        <rect key="frame" x="0.0" y="35.5" width="374" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="MnW-Hv-A9J" firstAttribute="top" secondItem="kSy-tA-xS8" secondAttribute="top" id="Mc0-3C-md4"/>
-                                            <constraint firstAttribute="bottom" secondItem="MnW-Hv-A9J" secondAttribute="bottom" constant="72" id="STw-E3-Tdo"/>
-                                            <constraint firstItem="MnW-Hv-A9J" firstAttribute="leading" secondItem="kSy-tA-xS8" secondAttribute="leading" id="U9k-V8-n86"/>
-                                            <constraint firstAttribute="trailing" secondItem="MnW-Hv-A9J" secondAttribute="trailing" id="ajt-57-hUu"/>
-                                        </constraints>
-                                    </view>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COe-Mf-5Iz">
-                                        <rect key="frame" x="0.0" y="593" width="374" height="66"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="66" id="SZv-aZ-0Hs"/>
-                                        </constraints>
-                                        <state key="normal" title="Logout">
-                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logoutButtonPressed:" destination="vlV-Wv-qu4" eventType="touchUpInside" id="lSl-Er-e8d"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyg-Nd-TpD" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="659" width="374" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="9G3-0u-ASK"/>
-                                            <constraint firstAttribute="width" constant="374" id="kVx-fv-zdJ"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Yyg-Nd-TpD" firstAttribute="top" secondItem="COe-Mf-5Iz" secondAttribute="bottom" id="FtX-gk-r4z"/>
-                                </constraints>
-                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlU-Dn-blw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="KR6-Qh-beV" firstAttribute="leading" secondItem="RMX-cY-CYb" secondAttribute="leading" constant="20" id="37K-jN-CwA"/>
-                            <constraint firstItem="RMX-cY-CYb" firstAttribute="trailing" secondItem="KR6-Qh-beV" secondAttribute="trailing" constant="20" id="Bdb-Sw-W5H"/>
-                            <constraint firstItem="RMX-cY-CYb" firstAttribute="bottom" secondItem="Yyg-Nd-TpD" secondAttribute="bottom" constant="20" id="k1P-jq-fzR"/>
-                            <constraint firstItem="KR6-Qh-beV" firstAttribute="top" secondItem="RMX-cY-CYb" secondAttribute="top" constant="40" id="rZu-hh-EFn"/>
+                            <constraint firstItem="mlU-Dn-blw" firstAttribute="top" secondItem="RMX-cY-CYb" secondAttribute="top" id="Joh-a5-UMA"/>
+                            <constraint firstItem="mlU-Dn-blw" firstAttribute="leading" secondItem="RMX-cY-CYb" secondAttribute="leading" id="ctS-pO-8Iz"/>
+                            <constraint firstItem="RMX-cY-CYb" firstAttribute="bottom" secondItem="mlU-Dn-blw" secondAttribute="bottom" id="ecP-C6-vQE"/>
+                            <constraint firstItem="RMX-cY-CYb" firstAttribute="trailing" secondItem="mlU-Dn-blw" secondAttribute="trailing" id="yah-0t-e8f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RMX-cY-CYb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="25u-sj-AsM"/>
                     <connections>
-                        <outlet property="logoutButton" destination="COe-Mf-5Iz" id="pJv-Xz-MxB"/>
-                        <outlet property="signInButton" destination="Yyg-Nd-TpD" id="HJ3-KX-trv"/>
-                        <outlet property="userNameLabel" destination="JX8-Uy-2VH" id="8ZU-65-SF8"/>
+                        <outlet property="contentView" destination="mlU-Dn-blw" id="62o-xl-Iyc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7w-jy-BEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
