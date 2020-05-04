@@ -15,13 +15,77 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var contentView: UIView!
 
+    lazy var profileNotLoggedView: ProfileNotLoggedProtocol = ProfileUserNotLogged(frame: .zero)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let user = session?.user {
+            prepareContentView(for: user)
         }
         GIDSignIn.sharedInstance()?.presentingViewController = self
     }
+    
+    private func prepareContentView(for user: User) {
+        switch user  {
+        case let x where x is UserNotLogged: prepareUserNotLoggedView()
+        case let x where x is Profile: prepareUserNotLoggedView()
+        default: break
+        }
+    }
+    
+    private func prepareUserNotLoggedView(){
+        for subViews in contentView.subviews {
+            subViews.removeFromSuperview()
+        }
+        profileNotLoggedView.headLabel.attributedText = TextFactory.attributedText(for: .headerDualColor(string1: "Save here",
+                                                                    string2: "\nuse it anywhere.",
+                                                                    color: UIColor(named: "Blue1")!))
+        profileNotLoggedView.headLabel.numberOfLines = 0
+        profileNotLoggedView.headLabel.lineBreakMode = .byWordWrapping
+        profileNotLoggedView.headLabel.backgroundColor = .clear
+        
+        
+        profileNotLoggedView.featuresView.addArrangedSubview(TextFactoryTextBox.textBox(for: .featureTextBox(title: "Take them with you",
+                                                                titleColor: UIColor(named: "Blue1")!,
+                                                                description:
+                                                    "Login with google and save your favorite media, Then, login in any devices to retrieve your saved media.",
+                                                                                        image: UIImage(systemName: "folder")!,
+                                                                                        iconColor: UIColor(named: "Yellow")!)))
+        
+        profileNotLoggedView.featuresView.setNeedsLayout()
+        profileNotLoggedView.featuresView.layoutIfNeeded()
+        
+        profileNotLoggedView.descriptionLabel.attributedText = TextFactory.attributedText(for: .body(string: "Login or sign up by clicking the button above."))
+        profileNotLoggedView.descriptionLabel.numberOfLines = 0
+        profileNotLoggedView.descriptionLabel.lineBreakMode = .byWordWrapping
+        profileNotLoggedView.descriptionLabel.backgroundColor = .clear
+        
+        profileNotLoggedView.descriptionLabel.numberOfLines = 0
+        profileNotLoggedView.descriptionLabel.lineBreakMode = .byWordWrapping
+        profileNotLoggedView.descriptionLabel.backgroundColor = .clear
+        profileNotLoggedView.descriptionLabel.textAlignment = .center
+        
+        let googleButton = ButtonFactory.button(for: .normalButton(text: "Login with Google")).button
+        googleButton.addTarget(self, action: #selector(loginWithGoogleButton), for: .touchUpInside)
+        googleButton.translatesAutoresizingMaskIntoConstraints = false
+        googleButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        
+        profileNotLoggedView.loginButtons.addArrangedSubview(googleButton)
+        
+        profileNotLoggedView.loginButtons.setNeedsLayout()
+        profileNotLoggedView.loginButtons.layoutIfNeeded()
+        
+        contentView.addSubview(profileNotLoggedView)
+        profileNotLoggedView.frame = contentView.bounds
+        profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    @objc
+    func loginWithGoogleButton(_ sender: UIButton) {
+        //login with google here
+    }
+    
     
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
         GIDSignIn.sharedInstance()?.disconnect()

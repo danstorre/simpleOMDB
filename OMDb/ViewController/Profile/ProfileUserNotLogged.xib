@@ -34,10 +34,9 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g9R-ec-FwG">
-                    <rect key="frame" x="27" y="346" width="362" height="61"/>
+                    <rect key="frame" x="27" y="307" width="362" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="700" constant="61" id="nEl-bx-FOW"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="ri9-kV-ODl"/>
+                        <constraint firstAttribute="height" priority="700" constant="100" id="won-9b-0c6"/>
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login or sign up by clicking the button above." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-MH-hli">
@@ -56,7 +55,6 @@
                 <constraint firstItem="0WE-hP-OwD" firstAttribute="leading" secondItem="08t-hW-LHS" secondAttribute="leading" id="6Br-kI-xTg"/>
                 <constraint firstItem="jpq-MH-hli" firstAttribute="top" secondItem="g9R-ec-FwG" secondAttribute="bottom" constant="21" id="AsJ-Rn-sE7"/>
                 <constraint firstAttribute="bottom" secondItem="jpq-MH-hli" secondAttribute="bottom" constant="22" id="Ekg-1S-aJq"/>
-                <constraint firstItem="g9R-ec-FwG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0WE-hP-OwD" secondAttribute="bottom" id="IHi-Bs-xHW"/>
                 <constraint firstItem="08t-hW-LHS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="Qmk-Ka-aav"/>
                 <constraint firstItem="g9R-ec-FwG" firstAttribute="trailing" secondItem="08t-hW-LHS" secondAttribute="trailing" id="QuF-B5-C80"/>
                 <constraint firstItem="08t-hW-LHS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="Rrm-02-jtX"/>

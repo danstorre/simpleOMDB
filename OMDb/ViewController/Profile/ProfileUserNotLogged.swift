@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ProfileNotLoggedProtocol{
+protocol ProfileNotLoggedProtocol: UIView {
     var headLabel: UILabel {get}
     var featuresView: UIStackView {get}
     var loginButtons: UIStackView {get}
