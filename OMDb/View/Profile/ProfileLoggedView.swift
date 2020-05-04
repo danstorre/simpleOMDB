@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol ProfileLoggedProtocol: UIView {
+protocol ProfileLoggedViewProtocol: UIView {
     var tableView: UITableView { get }
 }
 
-class ProfileLoggedView: UIView, ProfileLoggedProtocol {
+class ProfileLoggedView: UIView, ProfileLoggedViewProtocol {
     @IBOutlet var contentView: UITableView!
     @IBOutlet var contentTableView: UITableView!
     

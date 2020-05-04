@@ -15,10 +15,11 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var contentView: UIView!
 
-    lazy var profileNotLoggedView: ProfileNotLoggedProtocol = ProfileUserNotLogged(frame: .zero)
-    lazy var profile: ProfileLoggedProtocol = ProfileLoggedView(frame: .zero)
+    //views
+    lazy var profile: ProfileLoggedViewProtocol = ProfileLoggedView(frame: .zero)
     
-    var profileNotLoggedViewLoaded: Bool = false
+    //presenters
+    lazy var profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol = ProfileUserNotLoggedPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class ProfileViewController: UIViewController {
     private func prepareContentView(for user: User) {
         switch user  {
         case let x where x is UserNotLogged: prepareUserNotLoggedView()
-        case let x where x is Profile: prepareUserLoggedView(for: user)
+        case let x where x is Profile: prepareUserNotLoggedView()
         default: break
         }
     }
@@ -43,7 +44,11 @@ class ProfileViewController: UIViewController {
             subViews.removeFromSuperview()
         }
         
-        
+        //prepare cell
+        //prepare header
+        //prepare delegate
+        //prepare datasource
+        //prepare logout button
     }
     
     private func prepareUserNotLoggedView(){
@@ -53,53 +58,18 @@ class ProfileViewController: UIViewController {
         for subViews in contentView.subviews {
             subViews.removeFromSuperview()
         }
-        
-        defer {
-            contentView.addSubview(profileNotLoggedView)
-            profileNotLoggedView.frame = contentView.bounds
-            profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        }
-        
-        guard profileNotLoggedViewLoaded == false else {
-            return
-        }
-        profileNotLoggedView.headLabel.attributedText = TextFactory.attributedText(for: .headerDualColor(string1: "Save here",
-                                                                    string2: "\nuse it anywhere.",
-                                                                    color: UIColor(named: "Blue1")!))
-        profileNotLoggedView.headLabel.numberOfLines = 0
-        profileNotLoggedView.headLabel.lineBreakMode = .byWordWrapping
-        profileNotLoggedView.headLabel.backgroundColor = .clear
-        
-        profileNotLoggedView.featuresView.addArrangedSubview(TextFactoryTextBox.textBox(for: .featureTextBox(title: "Take them with you",
-                                                                titleColor: UIColor(named: "Blue1")!,
-                                                                description:
-                                                    "Login with google and save your favorite media, Then, login in any devices to retrieve your saved media.",
-                                                                                        image: UIImage(systemName: "folder")!,
-                                                                                        iconColor: UIColor(named: "Yellow")!)))
-        
-        profileNotLoggedView.featuresView.setNeedsLayout()
-        profileNotLoggedView.featuresView.layoutIfNeeded()
-        
-        profileNotLoggedView.descriptionLabel.attributedText = TextFactory.attributedText(for: .body(string: "Login or sign up by clicking the button above."))
-        profileNotLoggedView.descriptionLabel.numberOfLines = 0
-        profileNotLoggedView.descriptionLabel.lineBreakMode = .byWordWrapping
-        profileNotLoggedView.descriptionLabel.backgroundColor = .clear
-        
-        profileNotLoggedView.descriptionLabel.numberOfLines = 0
-        profileNotLoggedView.descriptionLabel.lineBreakMode = .byWordWrapping
-        profileNotLoggedView.descriptionLabel.backgroundColor = .clear
-        profileNotLoggedView.descriptionLabel.textAlignment = .center
-        
         let googleButton = ButtonFactory.button(for: .normalButton(text: "Login with Google")).button
         googleButton.addTarget(self, action: #selector(loginWithGoogleButton), for: .touchUpInside)
         googleButton.translatesAutoresizingMaskIntoConstraints = false
         googleButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        profileNotLoggedView.loginButtons.addArrangedSubview(googleButton)
+        profileUserNotloggedPresenter.addButtons([googleButton])
         
-        profileNotLoggedView.loginButtons.setNeedsLayout()
-        profileNotLoggedView.loginButtons.layoutIfNeeded()
+        profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.setNeedsLayout()
+        profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.layoutIfNeeded()
         
-        profileNotLoggedViewLoaded = true
+        contentView.addSubview(profileUserNotloggedPresenter.profileNotLoggedView)
+        profileUserNotloggedPresenter.profileNotLoggedView.frame = contentView.bounds
+        profileUserNotloggedPresenter.profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     @objc

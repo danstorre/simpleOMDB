@@ -29,9 +29,14 @@
 		FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */; };
 		FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A534244FB9CA004BCB30 /* UserPresenters.swift */; };
 		FB7E21F42460B6FB00F0BD6D /* ProfileLoggedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */; };
+		FB8203A82460BE23006648E1 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8203A72460BE23006648E1 /* ProfileHeader.xib */; };
+		FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203A92460BE34006648E1 /* ProfileHeader.swift */; };
+		FB8203AC2460C45F006648E1 /* ProfileHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */; };
+		FB8203AE2460C9E0006648E1 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203AD2460C9E0006648E1 /* ProfilePresenter.swift */; };
 		FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AE82439370D00966925 /* UpdaterResults.swift */; };
 		FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */; };
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
+		FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */; };
 		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
 		FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */; };
 		FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF32438E488007514C1 /* AppDelegate.swift */; };
@@ -91,9 +96,14 @@
 		FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBarButtonItem.swift; sourceTree = "<group>"; };
 		FB78A534244FB9CA004BCB30 /* UserPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenters.swift; sourceTree = "<group>"; };
 		FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileLoggedView.xib; sourceTree = "<group>"; };
+		FB8203A72460BE23006648E1 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
+		FB8203A92460BE34006648E1 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderPresenter.swift; sourceTree = "<group>"; };
+		FB8203AD2460C9E0006648E1 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FB835AE82439370D00966925 /* UpdaterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterResults.swift; sourceTree = "<group>"; };
 		FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OMDB+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
+		FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLoggedPresenter.swift; sourceTree = "<group>"; };
 		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
 		FBD3BECD2450F59300E420D1 /* OMDb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OMDb.entitlements; sourceTree = "<group>"; };
 		FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +190,7 @@
 		FB34648D2458A3B3008C4E1B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FB88E4322460CCA500A4E0EC /* Presenters */,
 				FB34648E2458A3CE008C4E1B /* ProfileUserNotLogged.xib */,
 				FB3464902458A3DF008C4E1B /* ProfileUserNotLogged.swift */,
 				FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */,
@@ -203,6 +214,7 @@
 		FB78A533244FB9B9004BCB30 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				FB88E4312460CC9A00A4E0EC /* Profil */,
 				FB3AA5A224391A1A00905753 /* ImageProvider.swift */,
 				FB835AE82439370D00966925 /* UpdaterResults.swift */,
 				FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */,
@@ -221,9 +233,28 @@
 			path = BusinessModel;
 			sourceTree = "<group>";
 		};
+		FB88E4312460CC9A00A4E0EC /* Profil */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profil;
+			sourceTree = "<group>";
+		};
+		FB88E4322460CCA500A4E0EC /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */,
+				FB8203AD2460C9E0006648E1 /* ProfilePresenter.swift */,
+				FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		FBAB3F4F2460B4B40082E933 /* Headers  */ = {
 			isa = PBXGroup;
 			children = (
+				FB8203A72460BE23006648E1 /* ProfileHeader.xib */,
+				FB8203A92460BE34006648E1 /* ProfileHeader.swift */,
 			);
 			path = "Headers ";
 			sourceTree = "<group>";
@@ -231,7 +262,6 @@
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FB34648D2458A3B3008C4E1B /* Profile */,
 				FBE7DFF72438E488007514C1 /* ViewController.swift */,
 				FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */,
 				FB78A52A244F9847004BCB30 /* ProfileViewController.swift */,
@@ -329,10 +359,11 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB78A533244FB9B9004BCB30 /* Presenters */,
+				FB34648D2458A3B3008C4E1B /* Profile */,
 				FBAB3F4F2460B4B40082E933 /* Headers  */,
 				FB34647E2457AE2A008C4E1B /* Text Box */,
 				FB34647A24579AB6008C4E1B /* Text */,
-				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB78A530244FA101004BCB30 /* Buttons */,
 				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
 				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
@@ -435,6 +466,7 @@
 				FBE7DFFD2438E489007514C1 /* Assets.xcassets in Resources */,
 				FBE7E0262439044A007514C1 /* sampleMedia.json in Resources */,
 				FB34648F2458A3CE008C4E1B /* ProfileUserNotLogged.xib in Resources */,
+				FB8203A82460BE23006648E1 /* ProfileHeader.xib in Resources */,
 				FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */,
 				FBE7DFFB2438E488007514C1 /* Main.storyboard in Resources */,
 				FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */,
@@ -545,7 +577,9 @@
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
 				FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
+				FB8203AC2460C45F006648E1 /* ProfileHeaderPresenter.swift in Sources */,
 				FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */,
+				FB8203AE2460C9E0006648E1 /* ProfilePresenter.swift in Sources */,
 				FB3464842457B335008C4E1B /* TextFactoryTextBox.swift in Sources */,
 				FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */,
 				FBE7E029243907DC007514C1 /* ColumnFlowLayout.swift in Sources */,
@@ -559,9 +593,11 @@
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,
 				FBE7E02F24390AD9007514C1 /* MediaCollectionViewCell.swift in Sources */,
+				FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */,
 				FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */,
 				FBE7E01A2438E5B8007514C1 /* API_Interface.swift in Sources */,
 				FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */,
+				FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */,
 				FB78A52D244F9988004BCB30 /* Profile.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
 				FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */,

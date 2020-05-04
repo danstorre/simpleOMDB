@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileHeader" customModule="OMDb" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="hjb-Cb-UYg"/>
+                <outlet property="descriptionLabelFromProfile" destination="LJ5-Ea-NwS" id="E0Y-4B-8Ry"/>
+                <outlet property="profileImageViewFromProfile" destination="HV9-Vd-ghb" id="4e7-K0-yla"/>
+                <outlet property="titleLabelFromProfile" destination="bxd-oJ-5Ya" id="geg-qR-WAi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="511" height="373"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DeD-Y2-IUG">
+                    <rect key="frame" x="20" y="134.5" width="471" height="104"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HV9-Vd-ghb">
+                            <rect key="frame" x="0.0" y="0.0" width="104" height="104"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="HV9-Vd-ghb" secondAttribute="height" multiplier="1:1" id="bWj-VH-gfU"/>
+                                <constraint firstAttribute="width" constant="104" id="uLX-lj-qL8"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZH-Jf-5hC">
+                            <rect key="frame" x="134" y="0.0" width="337" height="104"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LSe-dQ-VYT">
+                                    <rect key="frame" x="0.0" y="31.5" width="337" height="41"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jacob Hawkins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxd-oJ-5Ya">
+                                            <rect key="frame" x="0.0" y="0.0" width="337" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="jacob.hawkins@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-Ea-NwS">
+                                            <rect key="frame" x="0.0" y="20.5" width="337" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="LSe-dQ-VYT" firstAttribute="leading" secondItem="GZH-Jf-5hC" secondAttribute="leading" id="7uT-wm-BPB"/>
+                                <constraint firstAttribute="trailing" secondItem="LSe-dQ-VYT" secondAttribute="trailing" id="xIE-ps-7eo"/>
+                                <constraint firstItem="LSe-dQ-VYT" firstAttribute="centerY" secondItem="GZH-Jf-5hC" secondAttribute="centerY" id="zrR-iJ-9kM"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="DeD-Y2-IUG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="Xlr-37-D1V"/>
+                <constraint firstAttribute="trailing" secondItem="DeD-Y2-IUG" secondAttribute="trailing" constant="20" id="Zeq-ZU-YuW"/>
+                <constraint firstItem="DeD-Y2-IUG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="agb-R6-hGT"/>
+                <constraint firstItem="DeD-Y2-IUG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="iBH-nS-Xpu"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DeD-Y2-IUG" secondAttribute="bottom" id="xHL-hL-fuI"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="207.97101449275365" y="299.66517857142856"/>
+        </view>
+    </objects>
+</document>
