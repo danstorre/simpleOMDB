@@ -16,14 +16,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet var contentView: UIView!
 
     lazy var profileNotLoggedView: ProfileNotLoggedProtocol = ProfileUserNotLogged(frame: .zero)
-    
+    var profileNotLoggedViewLoaded: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let user = session?.user {
             prepareContentView(for: user)
         }
-        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
     private func prepareContentView(for user: User) {
@@ -35,8 +34,21 @@ class ProfileViewController: UIViewController {
     }
     
     private func prepareUserNotLoggedView(){
+        guard let contentView = contentView else {
+            return
+        }
         for subViews in contentView.subviews {
             subViews.removeFromSuperview()
+        }
+        
+        defer {
+            contentView.addSubview(profileNotLoggedView)
+            profileNotLoggedView.frame = contentView.bounds
+            profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
+        
+        guard profileNotLoggedViewLoaded == false else {
+            return
         }
         profileNotLoggedView.headLabel.attributedText = TextFactory.attributedText(for: .headerDualColor(string1: "Save here",
                                                                     string2: "\nuse it anywhere.",
@@ -44,7 +56,6 @@ class ProfileViewController: UIViewController {
         profileNotLoggedView.headLabel.numberOfLines = 0
         profileNotLoggedView.headLabel.lineBreakMode = .byWordWrapping
         profileNotLoggedView.headLabel.backgroundColor = .clear
-        
         
         profileNotLoggedView.featuresView.addArrangedSubview(TextFactoryTextBox.textBox(for: .featureTextBox(title: "Take them with you",
                                                                 titleColor: UIColor(named: "Blue1")!,
@@ -70,20 +81,18 @@ class ProfileViewController: UIViewController {
         googleButton.addTarget(self, action: #selector(loginWithGoogleButton), for: .touchUpInside)
         googleButton.translatesAutoresizingMaskIntoConstraints = false
         googleButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        
         profileNotLoggedView.loginButtons.addArrangedSubview(googleButton)
         
         profileNotLoggedView.loginButtons.setNeedsLayout()
         profileNotLoggedView.loginButtons.layoutIfNeeded()
         
-        contentView.addSubview(profileNotLoggedView)
-        profileNotLoggedView.frame = contentView.bounds
-        profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        profileNotLoggedViewLoaded = true
     }
     
     @objc
     func loginWithGoogleButton(_ sender: UIButton) {
-        //login with google here
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
     }
     
     
@@ -103,7 +112,7 @@ extension ProfileViewController: PropertyObserver {
     func willChange(propertyName: String, newPropertyValue: Any?) {
         if propertyName == Session.SessionKeys.userKey, let user = newPropertyValue as? User {
             print("userNameLabel as changed to \(user.name)")
-            toggleLogoutButton(user: user)
+            prepareContentView(for: user)
         }
         
     }
