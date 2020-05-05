@@ -74,7 +74,7 @@ extension Session: GIDSignInDelegate{
             let userId = user.userID
             guard let givenName = user.profile.givenName,
                 let email = user.profile.email,
-                let image = user.profile.imageURL(withDimension: 104) else{
+                let image = user.profile.imageURL(withDimension: 104*3) else{
                     print("couldn't retrieve user info")
                     sSelf.user = UserNotLogged()
                     return

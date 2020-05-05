@@ -42,13 +42,21 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate {
             return
         }
         for subViews in contentView.subviews {
-            subViews.removeFromSuperview()
+            UIView.animate(withDuration: 0.3, animations: {
+                subViews.alpha = 0
+            }) { (true) in
+                subViews.removeFromSuperview()
+            }
         }
-        
+        profileUserloggedPresenter.profileView.alpha = 0
         contentView.addSubview(profileUserloggedPresenter.profileView)
         profileUserloggedPresenter.profileView.frame = contentView.bounds
         profileUserloggedPresenter.profileView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         profileUserloggedPresenter.updateProfile(with: user)
+        
+        UIView.animate(withDuration: 0.6) {
+            self.profileUserloggedPresenter.profileView.alpha = 1
+        }
         //prepare cell
         //prepare delegate
         //prepare datasource
@@ -60,8 +68,13 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate {
             return
         }
         for subViews in contentView.subviews {
-            subViews.removeFromSuperview()
+            UIView.animate(withDuration: 0.3, animations: {
+                subViews.alpha = 0
+            }) { (true) in
+                subViews.removeFromSuperview()
+            }
         }
+        profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
         let googleButton = ButtonFactory.button(for: .normalButton(text: "Login with Google")).button
         googleButton.addTarget(self, action: #selector(loginWithGoogleButton), for: .touchUpInside)
         googleButton.translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +87,10 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate {
         contentView.addSubview(profileUserNotloggedPresenter.profileNotLoggedView)
         profileUserNotloggedPresenter.profileNotLoggedView.frame = contentView.bounds
         profileUserNotloggedPresenter.profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        UIView.animate(withDuration: 0.6) {
+            self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
+        }
     }
     
     @objc

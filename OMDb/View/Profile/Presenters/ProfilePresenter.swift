@@ -49,12 +49,13 @@ class ProfilePresenter: NSObject, ProfilePresenterProtocol {
     }
     
     func updateProfile(with user: User) {
-        profileHeader.titleLabel.attributedText = TextFactory.attributedText(for: .body2(string: user.name))
+        profileHeader.titleLabel.attributedText = TextFactory.attributedText(for: .body(string: user.name))
         profileHeader.descriptionLabel.attributedText = TextFactory.attributedText(for: .body2(string: user.email))
         if let profileImage = try? ImageDownloader.getImageFrom(urllink: user.urlImageProfile) {
             profileHeader.profileImageView.image = profileImage
         }
         profileHeader.bounds.size.height = 127
+        profileHeader.profileImageView.contentMode = .scaleAspectFit
         profileHeader.profileImageView.layer.cornerRadius = profileHeader.profileImageView.bounds.size.height / 2
         profileView.tableView.tableHeaderView = profileHeader
         
