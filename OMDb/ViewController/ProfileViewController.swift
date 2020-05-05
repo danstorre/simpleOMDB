@@ -99,9 +99,6 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate {
                 self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
             }
         }
-        
-        
-        
     }
     
     @objc

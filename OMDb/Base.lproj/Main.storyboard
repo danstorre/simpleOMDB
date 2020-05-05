@@ -153,32 +153,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf8-k1-aQg">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlU-Dn-blw">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlU-Dn-blw">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="mlU-Dn-blw" secondAttribute="trailing" id="2dn-K4-cRO"/>
-                                    <constraint firstItem="mlU-Dn-blw" firstAttribute="top" secondItem="Hf8-k1-aQg" secondAttribute="top" id="fC4-HS-zxf"/>
-                                    <constraint firstAttribute="bottom" secondItem="mlU-Dn-blw" secondAttribute="bottom" id="vrA-T2-3VY"/>
-                                    <constraint firstItem="mlU-Dn-blw" firstAttribute="leading" secondItem="Hf8-k1-aQg" secondAttribute="leading" id="zSR-dU-siO"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="CtY-Rr-rIs"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="I7A-bc-RZg"/>
-                            </scrollView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="mlU-Dn-blw" firstAttribute="width" secondItem="RMX-cY-CYb" secondAttribute="width" id="3yk-8w-52B"/>
-                            <constraint firstItem="Hf8-k1-aQg" firstAttribute="top" secondItem="RMX-cY-CYb" secondAttribute="top" id="40Q-gj-tVc"/>
-                            <constraint firstItem="mlU-Dn-blw" firstAttribute="height" secondItem="wnZ-ic-Xao" secondAttribute="height" multiplier="0.858259" priority="700" id="OkI-su-e9f"/>
-                            <constraint firstItem="RMX-cY-CYb" firstAttribute="bottom" secondItem="Hf8-k1-aQg" secondAttribute="bottom" id="e6H-Jk-Yyh"/>
-                            <constraint firstItem="RMX-cY-CYb" firstAttribute="trailing" secondItem="Hf8-k1-aQg" secondAttribute="trailing" id="eGF-TF-m7S"/>
-                            <constraint firstItem="Hf8-k1-aQg" firstAttribute="leading" secondItem="RMX-cY-CYb" secondAttribute="leading" id="rak-Fh-OYd"/>
+                            <constraint firstItem="mlU-Dn-blw" firstAttribute="trailing" secondItem="RMX-cY-CYb" secondAttribute="trailing" id="PNF-bl-C0S"/>
+                            <constraint firstItem="mlU-Dn-blw" firstAttribute="leading" secondItem="RMX-cY-CYb" secondAttribute="leading" id="XLC-nU-niv"/>
+                            <constraint firstItem="mlU-Dn-blw" firstAttribute="bottom" secondItem="RMX-cY-CYb" secondAttribute="bottom" id="giQ-we-h6c"/>
+                            <constraint firstItem="RMX-cY-CYb" firstAttribute="top" secondItem="mlU-Dn-blw" secondAttribute="top" id="n7I-UR-bi3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RMX-cY-CYb"/>
                     </view>

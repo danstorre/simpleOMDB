@@ -58,6 +58,7 @@ class ProfilePresenter: NSObject, ProfilePresenterProtocol {
         profileHeader.profileImageView.contentMode = .scaleAspectFit
         profileHeader.profileImageView.layer.cornerRadius = profileHeader.profileImageView.bounds.size.height / 2
         profileView.tableView.tableHeaderView = profileHeader
+        profileView.tableView.tableFooterView = UIView()
         
         logOutButton.bounds.size.height = 56
         
@@ -66,7 +67,7 @@ class ProfilePresenter: NSObject, ProfilePresenterProtocol {
         let heightLCFromlogOutButton = logOutButton.heightAnchor.constraint(equalToConstant: 48)
         let leadingLClogOutButton = logOutButton.leadingAnchor.constraint(equalTo: profileView.leadingAnchor, constant: 20)
         let trailingLClogOutButton = logOutButton.trailingAnchor.constraint(equalTo: profileView.trailingAnchor, constant: -20)
-        let bottomLCFromlogOutButton = logOutButton.bottomAnchor.constraint(equalTo: profileView.bottomAnchor, constant: -50)
+        let bottomLCFromlogOutButton = logOutButton.bottomAnchor.constraint(equalTo: profileView.bottomAnchor, constant: -36)
         let topLCfromlogOutButton = logOutButton.topAnchor.constraint(equalTo: profileView.tableView.bottomAnchor, constant: 0)
         
         NSLayoutConstraint.activate([heightLCFromlogOutButton,
