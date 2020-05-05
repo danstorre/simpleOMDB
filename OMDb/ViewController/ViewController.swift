@@ -35,7 +35,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         collectionView.register(MediaViewCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     
         changeLayout()
-        dataSource = MediaCollectionDataSource(withArray: mediaArray!)
+        dataSource = MediaCollectionDataSource(withArray: mediaArray!, withCellIdentifier: cellIdentifier)
         collectionView.dataSource = dataSource
         delegate = MediaCollectionViewDelegate(with: navigationController)
         collectionView.delegate = delegate

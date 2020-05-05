@@ -16,7 +16,10 @@ final class MediaCollectionDataSource: NSObject, MediaCollectionDataSourceProtoc
 
     var mediaArray: [Media]?
     
-    init(withArray medias: [Media]) {
+    private let cellIdentifier: String
+    
+    init(withArray medias: [Media], withCellIdentifier cellIdentifier: String) {
+        self.cellIdentifier = cellIdentifier
         super.init()
         mediaArray = medias
     }
@@ -26,7 +29,7 @@ final class MediaCollectionDataSource: NSObject, MediaCollectionDataSourceProtoc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaViewViewCellProtocol",
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
                                                       for: indexPath) as! MediaViewViewCellProtocol
         
         guard let mediaArray = mediaArray else {
