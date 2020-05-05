@@ -214,7 +214,6 @@
 		FB78A533244FB9B9004BCB30 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				FB88E4312460CC9A00A4E0EC /* Profil */,
 				FB3AA5A224391A1A00905753 /* ImageProvider.swift */,
 				FB835AE82439370D00966925 /* UpdaterResults.swift */,
 				FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */,
@@ -231,13 +230,6 @@
 				FBE7E0212438F1F3007514C1 /* Network */,
 			);
 			path = BusinessModel;
-			sourceTree = "<group>";
-		};
-		FB88E4312460CC9A00A4E0EC /* Profil */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profil;
 			sourceTree = "<group>";
 		};
 		FB88E4322460CCA500A4E0EC /* Presenters */ = {

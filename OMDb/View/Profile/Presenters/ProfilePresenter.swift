@@ -44,7 +44,7 @@ class ProfilePresenter: NSObject, ProfilePresenterProtocol {
     }
     
     @objc
-    private func logOutButtonPressed(){
+    private func logOutButtonPressed() {
         delegate.pressedButtonLogout()
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 
 class ViewController: UIViewController, UpdaterResultsDelegate {
@@ -14,7 +15,6 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     @IBOutlet var collectionView: UICollectionView!
     var updater : UpdaterResults!
     var mediaArray: [Media]? = [Media]()
-    var layoutButtonItem: LayoutBarButton!
     var session: SessionProtocol?
     private let api = OMBDB_API()
     private let cellIdentifier = "MediaViewCollectionViewCell"
@@ -35,36 +35,50 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     @objc
     func changeLayout(){
         let layout = ColumnFlowLayout()
-        layoutButtonItem.toggle()
-        layout.layoutType = layoutButtonItem.selected
-        
-        UIView.animate(withDuration: 0.3) {
-            self.collectionView.collectionViewLayout = layout
-        }
+        self.collectionView.collectionViewLayout = layout
     }
     
     func setupNavigationBar() {
-        layoutButtonItem = LayoutBarButton(title: "Toggle Layout",
-                                           style: .done,
-                                           target: self,
-                                           action: #selector(self.changeLayout))
-        navigationItem.rightBarButtonItem = layoutButtonItem
-        
-        let sessionBarButton = SessionBarButtonItem()
         if let user = session?.user {
-            let userpresenter = UserPresenterFactory.userPresenter(for: .uibaritem(user: user))
-            sessionBarButton.title = userpresenter?.userName
+            let profileBarItem = ProfileImageBarButtonItem(title: "", style: .plain, target: self, action: #selector(login))
+            profileBarItem.setStateFor(user: user)
+            navigationItem.rightBarButtonItem = profileBarItem
+            
+            if let sessionObserverMediator = session?.observer as? ObserverCollection {
+                sessionObserverMediator.addObserver(observer: profileBarItem)
+            }
         }
-        
-        if let sessionObserverMediator = session?.observer as? ObserverCollection {
-            sessionObserverMediator.addObserver(observer: sessionBarButton)
-        }
-        navigationItem.leftBarButtonItem = sessionBarButton
     }
     
     @objc
     func login(){
+        let messageLogin = "Would you like to login?"
+        let messageLogout = "Would you like to logout?"
+        let alertController = UIAlertController(title: "Login",
+                                                message: "",
+                                                preferredStyle: .actionSheet)
+        let LoginGoogle = UIAlertAction(title: "Login with Google", style: .default) { (action) in
+            GIDSignIn.sharedInstance()?.presentingViewController = self
+            GIDSignIn.sharedInstance()?.signIn()
+        }
         
+        let LogoutGoogle = UIAlertAction(title: "Logout", style: .default) {  (action) in
+            GIDSignIn.sharedInstance()?.disconnect()
+        }
+        
+        let cancel = UIAlertAction(title: "cancel", style: .default) {  (action) in
+        }
+        
+        if let user = session?.user, user is UserNotLogged {
+            alertController.addAction(LoginGoogle)
+            alertController.addAction(cancel)
+            alertController.message = messageLogin
+        } else {
+            alertController.addAction(LogoutGoogle)
+            alertController.addAction(cancel)
+            alertController.message = messageLogout
+        }
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func setUpSearchBar(){
@@ -106,7 +120,6 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         detailVC.mediaImage = cellSelected.posterImage.image
         detailVC.api = api
     }
-    
 }
 
 extension ViewController: UICollectionViewDelegate {
