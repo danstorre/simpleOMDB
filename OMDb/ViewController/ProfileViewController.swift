@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         if let user = session?.user {
             prepareContentView(for: user)
         }
@@ -41,22 +42,28 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate {
         guard let contentView = contentView else {
             return
         }
-        for subViews in contentView.subviews {
-            UIView.animate(withDuration: 0.3, animations: {
-                subViews.alpha = 0
-            }) { (true) in
-                subViews.removeFromSuperview()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
+            
+        }) { (true) in
+            self.profileUserNotloggedPresenter.profileNotLoggedView.removeFromSuperview()
+            
+            self.profileUserloggedPresenter.profileView.alpha = 0
+            self.navigationController?.navigationBar.alpha = 0
+            contentView.addSubview(self.profileUserloggedPresenter.profileView)
+            self.profileUserloggedPresenter.profileView.frame = contentView.bounds
+            self.profileUserloggedPresenter.profileView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.profileUserloggedPresenter.updateProfile(with: user)
+            
+            self.navigationController?.isNavigationBarHidden = false
+            
+            UIView.animate(withDuration: 0.6) {
+                self.navigationController?.navigationBar.alpha = 1
+                self.profileUserloggedPresenter.profileView.alpha = 1
             }
         }
-        profileUserloggedPresenter.profileView.alpha = 0
-        contentView.addSubview(profileUserloggedPresenter.profileView)
-        profileUserloggedPresenter.profileView.frame = contentView.bounds
-        profileUserloggedPresenter.profileView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        profileUserloggedPresenter.updateProfile(with: user)
         
-        UIView.animate(withDuration: 0.6) {
-            self.profileUserloggedPresenter.profileView.alpha = 1
-        }
         //prepare cell
         //prepare delegate
         //prepare datasource
@@ -67,30 +74,34 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate {
         guard let contentView = contentView else {
             return
         }
-        for subViews in contentView.subviews {
-            UIView.animate(withDuration: 0.3, animations: {
-                subViews.alpha = 0
-            }) { (true) in
-                subViews.removeFromSuperview()
+        UIView.animate(withDuration: 0.3, animations: {
+            self.profileUserloggedPresenter.profileView.alpha = 0
+            self.navigationController?.navigationBar.alpha = 0
+        }) { (true) in
+            self.profileUserloggedPresenter.profileView.removeFromSuperview()
+            self.navigationController?.isNavigationBarHidden = true
+            
+            self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
+            let googleButton = ButtonFactory.button(for: .normalButton(text: "Login with Google")).button
+            googleButton.addTarget(self, action: #selector(self.loginWithGoogleButton), for: .touchUpInside)
+            googleButton.translatesAutoresizingMaskIntoConstraints = false
+            googleButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+            self.profileUserNotloggedPresenter.addButtons([googleButton])
+            
+            self.profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.setNeedsLayout()
+            self.profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.layoutIfNeeded()
+            
+            contentView.addSubview(self.profileUserNotloggedPresenter.profileNotLoggedView)
+            self.profileUserNotloggedPresenter.profileNotLoggedView.frame = contentView.bounds
+            self.profileUserNotloggedPresenter.profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            UIView.animate(withDuration: 0.6) {
+                self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
             }
         }
-        profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
-        let googleButton = ButtonFactory.button(for: .normalButton(text: "Login with Google")).button
-        googleButton.addTarget(self, action: #selector(loginWithGoogleButton), for: .touchUpInside)
-        googleButton.translatesAutoresizingMaskIntoConstraints = false
-        googleButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        profileUserNotloggedPresenter.addButtons([googleButton])
         
-        profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.setNeedsLayout()
-        profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.layoutIfNeeded()
         
-        contentView.addSubview(profileUserNotloggedPresenter.profileNotLoggedView)
-        profileUserNotloggedPresenter.profileNotLoggedView.frame = contentView.bounds
-        profileUserNotloggedPresenter.profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        UIView.animate(withDuration: 0.6) {
-            self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
-        }
     }
     
     @objc

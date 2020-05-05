@@ -31,7 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .instantiateViewController(withIdentifier: "MainTabBarVC") as? UITabBarController,
             let navVCForSearchVc = mainTabBarViewController.viewControllers?[0] as? UINavigationController,
             let searchVc = navVCForSearchVc.viewControllers[0] as? ViewController,
-            let profileVC = mainTabBarViewController.viewControllers?[1] as? ProfileViewController {
+            let profileNav = mainTabBarViewController.viewControllers?[1] as? UINavigationController,
+            let profileVC = profileNav.viewControllers[0] as? ProfileViewController {
             
             searchVc.session = sessionUser
             profileVC.session = sessionUser
