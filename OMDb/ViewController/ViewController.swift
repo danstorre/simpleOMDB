@@ -14,10 +14,17 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     var updater : UpdaterResults!
-    var mediaArray: [Media]? = [Media]()
+    var mediaArray: [Media]? = [Media]() {
+        didSet{
+            dataSource?.mediaArray = mediaArray
+        }
+    }
     var session: SessionProtocol?
     private let api = OMBDB_API()
-    private let cellIdentifier = "MediaViewCollectionViewCell"
+    private let cellIdentifier = "MediaViewViewCellProtocol"
+    
+    var dataSource: MediaCollectionDataSourceProtocol?
+    var delegate: UICollectionViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +35,10 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         collectionView.register(MediaViewCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     
         changeLayout()
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        dataSource = MediaCollectionDataSource(withArray: mediaArray!)
+        collectionView.dataSource = dataSource
+        delegate = MediaCollectionViewDelegate(with: navigationController)
+        collectionView.delegate = delegate
     }
     
     @objc
@@ -123,45 +132,5 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
-        
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        selectedIndexPath = indexPath
-        self.performSegue(withIdentifier: "detail", sender: nil)
-    }
-}
 
 
-extension ViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mediaArray?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MediaViewViewCellProtocol
-        
-        guard let mediaArray = mediaArray else {
-            return cell
-        }
-        let media = mediaArray[indexPath.row]
-        cell.titleLabel.text = media.name
-        cell.yearLabel.text = media.year
-        cell.typeLabel.text = media.type?.rawValue
-        cell.tag = indexPath.row
-        
-        ImageProvider.getImage(media: media,
-                               indexPath: indexPath) { [weak cell] (image, indexPath) in
-            DispatchQueue.main.async {
-                guard let cell = cell else {
-                    return
-                }
-                if cell.tag == indexPath.row {
-                    cell.posterImage.image = image
-                }
-            }
-        }
-        return cell
-    }
-    
-}

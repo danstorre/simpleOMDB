@@ -29,6 +29,8 @@
 		FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */; };
 		FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A534244FB9CA004BCB30 /* UserPresenters.swift */; };
 		FB7E21F42460B6FB00F0BD6D /* ProfileLoggedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */; };
+		FB7F9A1A24621943003470DE /* MediaCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A1924621943003470DE /* MediaCollectionDataSource.swift */; };
+		FB7F9A1C24621AB1003470DE /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A1B24621AB1003470DE /* MediaCollectionViewDelegate.swift */; };
 		FB8203A82460BE23006648E1 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8203A72460BE23006648E1 /* ProfileHeader.xib */; };
 		FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203A92460BE34006648E1 /* ProfileHeader.swift */; };
 		FB8203AC2460C45F006648E1 /* ProfileHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */; };
@@ -96,6 +98,8 @@
 		FB78A531244FA124004BCB30 /* SessionBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionBarButtonItem.swift; sourceTree = "<group>"; };
 		FB78A534244FB9CA004BCB30 /* UserPresenters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenters.swift; sourceTree = "<group>"; };
 		FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileLoggedView.xib; sourceTree = "<group>"; };
+		FB7F9A1924621943003470DE /* MediaCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionDataSource.swift; sourceTree = "<group>"; };
+		FB7F9A1B24621AB1003470DE /* MediaCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		FB8203A72460BE23006648E1 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
 		FB8203A92460BE34006648E1 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderPresenter.swift; sourceTree = "<group>"; };
@@ -232,13 +236,24 @@
 			path = BusinessModel;
 			sourceTree = "<group>";
 		};
-		FB7F9A17246208B3003470DE /* Cells */ = {
+		FB7F9A17246208B3003470DE /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				FB7F9A1824621804003470DE /* Presenters */,
 				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
 				FBE7E02E24390AD9007514C1 /* MediaViewCollectionViewCell.swift */,
 			);
-			path = Cells;
+			path = Media;
+			sourceTree = "<group>";
+		};
+		FB7F9A1824621804003470DE /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				FB7F9A1924621943003470DE /* MediaCollectionDataSource.swift */,
+				FB7F9A1B24621AB1003470DE /* MediaCollectionViewDelegate.swift */,
+			);
+			name = Presenters;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		FB88E4322460CCA500A4E0EC /* Presenters */ = {
@@ -360,7 +375,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FB7F9A17246208B3003470DE /* Cells */,
+				FB7F9A17246208B3003470DE /* Media */,
 				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB34648D2458A3B3008C4E1B /* Profile */,
 				FBAB3F4F2460B4B40082E933 /* Headers  */,
@@ -590,6 +605,7 @@
 				FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */,
 				FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */,
 				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
+				FB7F9A1C24621AB1003470DE /* MediaCollectionViewDelegate.swift in Sources */,
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,
 				FBE7E02F24390AD9007514C1 /* MediaViewCollectionViewCell.swift in Sources */,
@@ -600,6 +616,7 @@
 				FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */,
 				FB78A52D244F9988004BCB30 /* Profile.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
+				FB7F9A1A24621943003470DE /* MediaCollectionDataSource.swift in Sources */,
 				FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */,
 				FBE7E01C2438E653007514C1 /* OMBDB_API.swift in Sources */,
 			);
