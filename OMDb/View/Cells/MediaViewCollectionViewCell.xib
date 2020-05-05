@@ -2,13 +2,21 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaViewCollectionViewCell" customModule="OMDb" customModuleProvider="target">
+            <connections>
+                <outlet property="cellContentView" destination="iN0-l3-epB" id="TOn-7W-b4A"/>
+                <outlet property="posterImage" destination="PMw-uF-Axy" id="cQT-Qo-kki"/>
+                <outlet property="titleLabel" destination="84O-82-9Wd" id="hIR-GI-AgG"/>
+                <outlet property="typeLabel" destination="Myg-r4-OSQ" id="MRX-Cs-zr0"/>
+                <outlet property="yearLabel" destination="UCV-2R-6Xe" id="7iU-yV-MRy"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" interfaceStyle="light" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="MediaCollectionViewCell" customModule="OMDb" customModuleProvider="target">
+        <view contentMode="scaleToFill" interfaceStyle="light" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="155" height="369"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -71,12 +79,6 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="posterImage" destination="PMw-uF-Axy" id="noL-hh-06i"/>
-                <outlet property="titleLabel" destination="84O-82-9Wd" id="wO9-xN-Nac"/>
-                <outlet property="typeLabel" destination="Myg-r4-OSQ" id="Avy-dE-LRS"/>
-                <outlet property="yearLabel" destination="UCV-2R-6Xe" id="mBk-L1-XrL"/>
-            </connections>
             <point key="canvasLocation" x="-47.10144927536232" y="122.20982142857142"/>
         </view>
     </objects>

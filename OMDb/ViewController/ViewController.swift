@@ -25,8 +25,8 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         setupNavigationBar()
         setUpSearchBar()
         
-        collectionView.register(UINib(nibName: cellIdentifier, bundle: nil),
-                                forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(MediaViewCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+    
         changeLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -117,7 +117,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         }
         let detailVC = segue.destination as! DetailMediaViewController
         detailVC.media = mediaArray[selectedIndexPath.row]
-        let cellSelected = collectionView.cellForItem(at: selectedIndexPath) as! MediaCollectionViewCell
+        let cellSelected = collectionView.cellForItem(at: selectedIndexPath) as! MediaViewCollectionViewCell
         detailVC.mediaImage = cellSelected.posterImage.image
         detailVC.api = api
     }
@@ -139,7 +139,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MediaCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MediaViewCollectionViewCell
         
         guard let mediaArray = mediaArray else {
             return cell

@@ -54,7 +54,7 @@
 		FBE7E0262439044A007514C1 /* sampleMedia.json in Resources */ = {isa = PBXBuildFile; fileRef = FBE7E0252439044A007514C1 /* sampleMedia.json */; };
 		FBE7E029243907DC007514C1 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */; };
 		FBE7E02D24390A6D007514C1 /* MediaViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */; };
-		FBE7E02F24390AD9007514C1 /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7E02E24390AD9007514C1 /* MediaCollectionViewCell.swift */; };
+		FBE7E02F24390AD9007514C1 /* MediaViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7E02E24390AD9007514C1 /* MediaViewCollectionViewCell.swift */; };
 		FED40BAEB8B5BB511FBB9667 /* Pods_OMDbTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F992DAE4978C5FA12596E141 /* Pods_OMDbTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,7 +126,7 @@
 		FBE7E0252439044A007514C1 /* sampleMedia.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sampleMedia.json; sourceTree = "<group>"; };
 		FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaViewCollectionViewCell.xib; sourceTree = "<group>"; };
-		FBE7E02E24390AD9007514C1 /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
+		FBE7E02E24390AD9007514C1 /* MediaViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +230,15 @@
 				FBE7E0212438F1F3007514C1 /* Network */,
 			);
 			path = BusinessModel;
+			sourceTree = "<group>";
+		};
+		FB7F9A17246208B3003470DE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
+				FBE7E02E24390AD9007514C1 /* MediaViewCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FB88E4322460CCA500A4E0EC /* Presenters */ = {
@@ -351,6 +360,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB7F9A17246208B3003470DE /* Cells */,
 				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB34648D2458A3B3008C4E1B /* Profile */,
 				FBAB3F4F2460B4B40082E933 /* Headers  */,
@@ -358,8 +368,6 @@
 				FB34647A24579AB6008C4E1B /* Text */,
 				FB78A530244FA101004BCB30 /* Buttons */,
 				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
-				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
-				FBE7E02E24390AD9007514C1 /* MediaCollectionViewCell.swift */,
 				FB23601E243971F000601D8E /* PropertyCollectionViewCell.swift */,
 			);
 			path = View;
@@ -584,7 +592,7 @@
 				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,
-				FBE7E02F24390AD9007514C1 /* MediaCollectionViewCell.swift in Sources */,
+				FBE7E02F24390AD9007514C1 /* MediaViewCollectionViewCell.swift in Sources */,
 				FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */,
 				FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */,
 				FBE7E01A2438E5B8007514C1 /* API_Interface.swift in Sources */,

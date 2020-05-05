@@ -18,11 +18,8 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
     
     var layoutType: ColumnType = .two
     
-    static var cellTest: MediaCollectionViewCell {
-        let view = UINib.init(nibName: "MediaViewCollectionViewCell", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! MediaCollectionViewCell
-        
-        return view
-    }
+    lazy var cellTest: UIView = MediaViewCollectionViewCell().cellContentView
+
     
     override func prepare() {
         super.prepare()
@@ -43,7 +40,7 @@ class ColumnFlowLayout: UICollectionViewFlowLayout {
         let maxNumColumn = maxColumns
         let cellWidth = (availableWidth / CGFloat(maxNumColumn)).rounded(.down) - 2
         
-        let desiredSize = ColumnFlowLayout.cellTest
+        let desiredSize = cellTest
             .systemLayoutSizeFitting(CGSize(width: cellWidth, height: 50), withHorizontalFittingPriority: .fittingSizeLevel,
                                      verticalFittingPriority: .defaultLow)
         
