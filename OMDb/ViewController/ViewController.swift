@@ -117,7 +117,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         }
         let detailVC = segue.destination as! DetailMediaViewController
         detailVC.media = mediaArray[selectedIndexPath.row]
-        let cellSelected = collectionView.cellForItem(at: selectedIndexPath) as! MediaViewCollectionViewCell
+        let cellSelected = collectionView.cellForItem(at: selectedIndexPath) as! MediaViewViewCellProtocol
         detailVC.mediaImage = cellSelected.posterImage.image
         detailVC.api = api
     }
@@ -139,7 +139,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MediaViewCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MediaViewViewCellProtocol
         
         guard let mediaArray = mediaArray else {
             return cell

@@ -8,7 +8,17 @@
 
 import UIKit
 
-class MediaViewCollectionViewCell: UICollectionViewCell {
+protocol MediaViewViewProtocol: UIView {
+    var titleLabel: UILabel! { get }
+    var yearLabel: UILabel! { get }
+    var typeLabel: UILabel! { get }
+    var posterImage: UIImageView! { get }
+}
+
+protocol MediaViewViewCellProtocol: UICollectionViewCell, MediaViewViewProtocol {
+}
+
+class MediaViewCollectionViewCell: UICollectionViewCell, MediaViewViewCellProtocol {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var yearLabel: UILabel!
     @IBOutlet var typeLabel: UILabel!
