@@ -67,7 +67,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
             GIDSignIn.sharedInstance()?.disconnect()
         }
         
-        let cancel = UIAlertAction(title: "cancel", style: .default) {  (action) in
+        let cancel = UIAlertAction(title: "Cancel", style: .default) {  (action) in
         }
         
         if let user = session?.user, user is UserNotLogged {
