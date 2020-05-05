@@ -39,6 +39,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     }
     
     func setupNavigationBar() {
+        title = "Discover"
         if let user = session?.user {
             let profileBarItem = ProfileImageBarButtonItem(title: "", style: .plain, target: self, action: #selector(login))
             profileBarItem.setStateFor(user: user)
