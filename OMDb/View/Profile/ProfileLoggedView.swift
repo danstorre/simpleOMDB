@@ -13,7 +13,7 @@ protocol ProfileLoggedViewProtocol: UIView {
 }
 
 class ProfileLoggedView: UIView, ProfileLoggedViewProtocol {
-    @IBOutlet var contentView: UITableView!
+    @IBOutlet var contentView: UIView!
     @IBOutlet var contentTableView: UITableView!
     
     override init(frame: CGRect) {
@@ -27,7 +27,7 @@ class ProfileLoggedView: UIView, ProfileLoggedViewProtocol {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("UserLoggedView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("ProfileLoggedView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

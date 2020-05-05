@@ -9,8 +9,8 @@
 import UIKit
 import GoogleSignIn
 
-class ProfileViewController: UIViewController {
-
+class ProfileViewController: UIViewController, ProfilePresenterDelegate {
+   
     var session: SessionProtocol?
     
     @IBOutlet var contentView: UIView!
@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     
     //presenters
     lazy var profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol = ProfileUserNotLoggedPresenter()
+    lazy var profileUserloggedPresenter: ProfilePresenterProtocol = ProfilePresenter(delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class ProfileViewController: UIViewController {
     private func prepareContentView(for user: User) {
         switch user  {
         case let x where x is UserNotLogged: prepareUserNotLoggedView()
-        case let x where x is Profile: prepareUserNotLoggedView()
+        case let x where x is Profile: prepareUserLoggedView(for: user)
         default: break
         }
     }
@@ -44,11 +45,14 @@ class ProfileViewController: UIViewController {
             subViews.removeFromSuperview()
         }
         
+        contentView.addSubview(profileUserloggedPresenter.profileView)
+        profileUserloggedPresenter.profileView.frame = contentView.bounds
+        profileUserloggedPresenter.profileView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        profileUserloggedPresenter.updateProfile(with: user)
         //prepare cell
-        //prepare header
         //prepare delegate
         //prepare datasource
-        //prepare logout button
+    
     }
     
     private func prepareUserNotLoggedView(){
@@ -78,12 +82,8 @@ class ProfileViewController: UIViewController {
         GIDSignIn.sharedInstance()?.signIn()
     }
     
-    
-    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+    func pressedButtonLogout() {
         GIDSignIn.sharedInstance()?.disconnect()
-    }
-    
-    func toggleLogoutButton(user: User){
     }
     
 }
