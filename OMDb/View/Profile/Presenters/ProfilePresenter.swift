@@ -52,7 +52,9 @@ class ProfilePresenter: NSObject, ProfilePresenterProtocol {
         profileHeader.titleLabel.attributedText = TextFactory.attributedText(for: .body(string: user.name))
         profileHeader.descriptionLabel.attributedText = TextFactory.attributedText(for: .body2(string: user.email))        
         ImageDownloader.getImageFrom(urllink: user.urlImageProfile) { [weak self] (profileImage) in
-            self?.profileHeader.profileImageView.image = profileImage
+            DispatchQueue.main.async {
+                self?.profileHeader.profileImageView.image = profileImage
+            }
         }
         profileHeader.bounds.size.height = 127
         profileHeader.profileImageView.contentMode = .scaleAspectFit

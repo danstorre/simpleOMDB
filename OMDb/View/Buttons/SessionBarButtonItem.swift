@@ -50,26 +50,28 @@ class ProfileImageBarButtonItem: UIBarButtonItem, SessionBarButtonItem {
         }
         
         ImageDownloader.getImageFrom(urllink: user.urlImageProfile) { [weak self] (profileImage) in
-            UIView.animate(withDuration: 0.3, animations: {
-                self?.customView?.alpha = 0
-            }) { (finished) in
-                guard let self = self else {
-                    return
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self?.customView?.alpha = 0
+                }) { (finished) in
+                    guard let self = self else {
+                        return
+                    }
+                    let button = UIButton(frame: .zero)
+                    button.setImage(profileImage, for: .normal)
+                    button.layer.cornerRadius = 20
+                    button.layer.masksToBounds = true
+                    self.customView = button
+                    self.customView?.widthAnchor.constraint(equalToConstant: 40).isActive = true
+                    self.customView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
+                    button.addTarget(self.target!, action: self.action!, for: .touchUpInside)
+                    self.customView?.setNeedsLayout()
+                    self.customView?.layoutIfNeeded()
+                    self.customView?.alpha = 0
+                    UIView.animate(withDuration: 0.6, animations: {
+                        self.customView?.alpha = 1
+                    })
                 }
-                let button = UIButton(frame: .zero)
-                button.setImage(profileImage, for: .normal)
-                button.layer.cornerRadius = 20
-                button.layer.masksToBounds = true
-                self.customView = button
-                self.customView?.widthAnchor.constraint(equalToConstant: 40).isActive = true
-                self.customView?.heightAnchor.constraint(equalToConstant: 40).isActive = true
-                button.addTarget(self.target!, action: self.action!, for: .touchUpInside)
-                self.customView?.setNeedsLayout()
-                self.customView?.layoutIfNeeded()
-                self.customView?.alpha = 0
-                UIView.animate(withDuration: 0.6, animations: {
-                    self.customView?.alpha = 1
-                })
             }
         }
     }
