@@ -32,7 +32,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         setupNavigationBar()
         setUpSearchBar()
         
-        collectionView.register(MediaViewCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(MediaPosterCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     
         changeLayout()
         dataSource = MediaCollectionDataSource(withArray: mediaArray!, withCellIdentifier: cellIdentifier)
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     
     @objc
     func changeLayout(){
-        let layout = ColumnFlowLayout()
+        let layout = PostersCarouselFlowLayout()
         self.collectionView.collectionViewLayout = layout
     }
     

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum ColumnType {
     case two, three
 }

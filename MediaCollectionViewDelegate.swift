@@ -25,4 +25,9 @@ class MediaCollectionViewDelegate: NSObject, UICollectionViewDelegate {
         nav?.performSegue(withIdentifier: "detail", sender: nil)
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? MediaPosterCollectionViewCell else { return }
+        cell.addShadows()
+    }
+    
 }

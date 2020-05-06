@@ -31,6 +31,10 @@
 		FB7E21F42460B6FB00F0BD6D /* ProfileLoggedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */; };
 		FB7F9A1A24621943003470DE /* MediaCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A1924621943003470DE /* MediaCollectionDataSource.swift */; };
 		FB7F9A1C24621AB1003470DE /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A1B24621AB1003470DE /* MediaCollectionViewDelegate.swift */; };
+		FB7F9A1E24622239003470DE /* MediaPosterCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A1D24622239003470DE /* MediaPosterCollectionDataSource.swift */; };
+		FB7F9A2024622475003470DE /* PostersCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A1F24622475003470DE /* PostersCarouselFlowLayout.swift */; };
+		FB7F9A22246225AA003470DE /* MediaPosterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7F9A21246225AA003470DE /* MediaPosterCollectionViewCell.xib */; };
+		FB7F9A24246225C6003470DE /* MediaPosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */; };
 		FB8203A82460BE23006648E1 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8203A72460BE23006648E1 /* ProfileHeader.xib */; };
 		FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203A92460BE34006648E1 /* ProfileHeader.swift */; };
 		FB8203AC2460C45F006648E1 /* ProfileHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */; };
@@ -100,6 +104,10 @@
 		FB7E21F32460B6FB00F0BD6D /* ProfileLoggedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileLoggedView.xib; sourceTree = "<group>"; };
 		FB7F9A1924621943003470DE /* MediaCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionDataSource.swift; sourceTree = "<group>"; };
 		FB7F9A1B24621AB1003470DE /* MediaCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		FB7F9A1D24622239003470DE /* MediaPosterCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPosterCollectionDataSource.swift; sourceTree = "<group>"; };
+		FB7F9A1F24622475003470DE /* PostersCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersCarouselFlowLayout.swift; sourceTree = "<group>"; };
+		FB7F9A21246225AA003470DE /* MediaPosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaPosterCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB8203A72460BE23006648E1 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
 		FB8203A92460BE34006648E1 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderPresenter.swift; sourceTree = "<group>"; };
@@ -239,9 +247,13 @@
 		FB7F9A17246208B3003470DE /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				FB7F9A1F24622475003470DE /* PostersCarouselFlowLayout.swift */,
+				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
 				FB7F9A1824621804003470DE /* Presenters */,
 				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
 				FBE7E02E24390AD9007514C1 /* MediaViewCollectionViewCell.swift */,
+				FB7F9A21246225AA003470DE /* MediaPosterCollectionViewCell.xib */,
+				FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -251,6 +263,7 @@
 			children = (
 				FB7F9A1924621943003470DE /* MediaCollectionDataSource.swift */,
 				FB7F9A1B24621AB1003470DE /* MediaCollectionViewDelegate.swift */,
+				FB7F9A1D24622239003470DE /* MediaPosterCollectionDataSource.swift */,
 			);
 			name = Presenters;
 			path = ../../..;
@@ -382,7 +395,6 @@
 				FB34647E2457AE2A008C4E1B /* Text Box */,
 				FB34647A24579AB6008C4E1B /* Text */,
 				FB78A530244FA101004BCB30 /* Buttons */,
-				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
 				FB23601E243971F000601D8E /* PropertyCollectionViewCell.swift */,
 			);
 			path = View;
@@ -484,6 +496,7 @@
 				FB8203A82460BE23006648E1 /* ProfileHeader.xib in Resources */,
 				FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */,
 				FBE7DFFB2438E488007514C1 /* Main.storyboard in Resources */,
+				FB7F9A22246225AA003470DE /* MediaPosterCollectionViewCell.xib in Resources */,
 				FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +616,7 @@
 				FBE7DFF82438E488007514C1 /* ViewController.swift in Sources */,
 				FBE7E0232439002C007514C1 /* OmdbRequestsFactory.swift in Sources */,
 				FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */,
+				FB7F9A24246225C6003470DE /* MediaPosterCollectionViewCell.swift in Sources */,
 				FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */,
 				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
 				FB7F9A1C24621AB1003470DE /* MediaCollectionViewDelegate.swift in Sources */,
@@ -615,8 +629,10 @@
 				FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */,
 				FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */,
 				FB78A52D244F9988004BCB30 /* Profile.swift in Sources */,
+				FB7F9A2024622475003470DE /* PostersCarouselFlowLayout.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
 				FB7F9A1A24621943003470DE /* MediaCollectionDataSource.swift in Sources */,
+				FB7F9A1E24622239003470DE /* MediaPosterCollectionDataSource.swift in Sources */,
 				FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */,
 				FBE7E01C2438E653007514C1 /* OMBDB_API.swift in Sources */,
 			);
