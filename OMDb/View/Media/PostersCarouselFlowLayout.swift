@@ -15,9 +15,6 @@ class PostersCarouselFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         
-        guard let cv = collectionView else {
-            return
-        }
         scrollDirection = .horizontal
         itemSize = CGSize(width: 119, height: 189)
         
