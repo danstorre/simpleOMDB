@@ -46,6 +46,8 @@
 		FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */; };
 		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
 		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
+		FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */; };
+		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
 		FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */; };
 		FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF32438E488007514C1 /* AppDelegate.swift */; };
 		FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF52438E488007514C1 /* SceneDelegate.swift */; };
@@ -121,6 +123,8 @@
 		FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLoggedPresenter.swift; sourceTree = "<group>"; };
 		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
 		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
+		FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBD3BECD2450F59300E420D1 /* OMDb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OMDb.entitlements; sourceTree = "<group>"; };
 		FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		FBE7DFF02438E488007514C1 /* OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +311,15 @@
 			path = "Headers ";
 			sourceTree = "<group>";
 		};
+		FBC267CC24630EF500FE2F4E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */,
+				FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +421,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FBC267CC24630EF500FE2F4E /* Search */,
 				FB7F9A282462FDA2003470DE /* Protocols */,
 				FB7F9A252462FD67003470DE /* ImageViews */,
 				FB7F9A17246208B3003470DE /* Media */,
@@ -507,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */,
 				FBE7E02D24390A6D007514C1 /* MediaViewCollectionViewCell.xib in Resources */,
 				FB3464862457CD87008C4E1B /* NormalButton.xib in Resources */,
 				FB7E21F42460B6FB00F0BD6D /* ProfileLoggedView.xib in Resources */,
@@ -644,6 +659,7 @@
 				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
 				FB7F9A1C24621AB1003470DE /* MediaCollectionViewDelegate.swift in Sources */,
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
+				FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,
 				FBE7E02F24390AD9007514C1 /* MediaViewCollectionViewCell.swift in Sources */,
 				FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */,

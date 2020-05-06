@@ -15,9 +15,18 @@ enum FilterTypes: Int {
 extension Media: Searchable {}
 
 
-class ContentMediaPresenterAPI: NSObject, UpdaterResultsAPI {
+protocol Observable {
+    var observer:PropertyObserver? {get set}
+}
+
+protocol ContentMediaPresenterAPIProtocol: UpdaterResultsAPI {
+    var api: OMBDB_API_Contract {get set}
+    var filter: FilterTypes {get set}
+}
+
+class ContentMediaPresenterAPI: NSObject, ContentMediaPresenterAPIProtocol {
     
-    let api: OMBDB_API_Contract
+    var api: OMBDB_API_Contract
     var filter: FilterTypes = FilterTypes.all
     
     init(api: OMBDB_API_Contract) {
@@ -62,4 +71,42 @@ extension UpdaterResults: UISearchResultsUpdating{
             searchBar(searchController.searchBar, textDidChange: searchController.searchBar.text ?? "")
         }
     }
+}
+
+
+protocol ContentMediaPresenterAPIObservableProtocol: ContentMediaPresenterAPIProtocol, Observable {
+}
+
+class ContentMediaPresenterAPIObservable: NSObject, ContentMediaPresenterAPIObservableProtocol{
+    var api: OMBDB_API_Contract
+    var filter: FilterTypes {
+        willSet(newValue) {
+            observer?.willChange(propertyName: ContentMediaPresenterAPIKeys.filtertTypeKey, newPropertyValue: newValue)
+        }
+        didSet {
+            observer?.didChange(propertyName: ContentMediaPresenterAPIKeys.filtertTypeKey, oldPropertyValue: oldValue)
+        }
+    }
+    
+    private let contentMediaPresenter: ContentMediaPresenterAPIProtocol
+    
+    func search(term: String, pager: Pager, searchBar: UISearchBar?, finishedBlock: @escaping ([Searchable]?) -> Void) {
+        if let selectedFilterIndex = searchBar?.selectedScopeButtonIndex {
+            filter = FilterTypes(rawValue: selectedFilterIndex) ?? .all
+        }
+        contentMediaPresenter.search(term: term, pager: pager, searchBar: searchBar, finishedBlock: finishedBlock)
+    }
+    
+    init(observedObject: ContentMediaPresenterAPIProtocol) {
+        self.api = observedObject.api
+        self.filter = observedObject.filter
+        self.contentMediaPresenter = observedObject
+    }
+    
+    enum ContentMediaPresenterAPIKeys {
+        static let filtertTypeKey = "filtertType"
+    }
+    
+    var observer: PropertyObserver?
+    
 }

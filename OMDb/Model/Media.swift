@@ -8,6 +8,12 @@
 
 import Foundation
 
+protocol Sanitazable {
+    associatedtype T
+    func sanitize() -> [T]
+}
+
+
 enum MediaType: String {
     case series = "series"
     case movie = "movie"
