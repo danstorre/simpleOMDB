@@ -48,12 +48,16 @@ class ProfileImageBarButtonItem: UIBarButtonItem, SessionBarButtonItem {
             }
             return
         }
-        if let image = try? ImageDownloader.getImageFrom(urllink: user.urlImageProfile) {
+        
+        ImageDownloader.getImageFrom(urllink: user.urlImageProfile) { [weak self] (profileImage) in
             UIView.animate(withDuration: 0.3, animations: {
-                self.customView?.alpha = 0
+                self?.customView?.alpha = 0
             }) { (finished) in
+                guard let self = self else {
+                    return
+                }
                 let button = UIButton(frame: .zero)
-                button.setImage(image, for: .normal)
+                button.setImage(profileImage, for: .normal)
                 button.layer.cornerRadius = 20
                 button.layer.masksToBounds = true
                 self.customView = button

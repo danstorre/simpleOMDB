@@ -35,6 +35,7 @@
 		FB7F9A2024622475003470DE /* PostersCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A1F24622475003470DE /* PostersCarouselFlowLayout.swift */; };
 		FB7F9A22246225AA003470DE /* MediaPosterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7F9A21246225AA003470DE /* MediaPosterCollectionViewCell.xib */; };
 		FB7F9A24246225C6003470DE /* MediaPosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */; };
+		FB7F9A2A2462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7F9A292462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift */; };
 		FB8203A82460BE23006648E1 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8203A72460BE23006648E1 /* ProfileHeader.xib */; };
 		FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203A92460BE34006648E1 /* ProfileHeader.swift */; };
 		FB8203AC2460C45F006648E1 /* ProfileHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */; };
@@ -44,6 +45,7 @@
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
 		FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */; };
 		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
+		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
 		FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */; };
 		FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF32438E488007514C1 /* AppDelegate.swift */; };
 		FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF52438E488007514C1 /* SceneDelegate.swift */; };
@@ -108,6 +110,7 @@
 		FB7F9A1F24622475003470DE /* PostersCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		FB7F9A21246225AA003470DE /* MediaPosterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaPosterCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPosterCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB7F9A292462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsAndToggleableAlphaProtocol.swift; sourceTree = "<group>"; };
 		FB8203A72460BE23006648E1 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
 		FB8203A92460BE34006648E1 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderPresenter.swift; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
 		FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLoggedPresenter.swift; sourceTree = "<group>"; };
 		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
+		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		FBD3BECD2450F59300E420D1 /* OMDb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OMDb.entitlements; sourceTree = "<group>"; };
 		FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		FBE7DFF02438E488007514C1 /* OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +273,21 @@
 			path = ../../..;
 			sourceTree = "<group>";
 		};
+		FB7F9A252462FD67003470DE /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		FB7F9A282462FDA2003470DE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FB7F9A292462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		FB88E4322460CCA500A4E0EC /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +390,7 @@
 			children = (
 				FBE7E01B2438E653007514C1 /* OMBDB_API.swift */,
 				FBE7E0222439002C007514C1 /* OmdbRequestsFactory.swift */,
+				FBC267C92463062E00FE2F4E /* CustomURLSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -388,6 +408,8 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB7F9A282462FDA2003470DE /* Protocols */,
+				FB7F9A252462FD67003470DE /* ImageViews */,
 				FB7F9A17246208B3003470DE /* Media */,
 				FB78A533244FB9B9004BCB30 /* Presenters */,
 				FB34648D2458A3B3008C4E1B /* Profile */,
@@ -602,6 +624,7 @@
 				FB2360212439815B00601D8E /* MapSearcher.swift in Sources */,
 				FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */,
 				FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */,
+				FB7F9A2A2462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift in Sources */,
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
 				FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
@@ -623,6 +646,7 @@
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,
 				FBE7E02F24390AD9007514C1 /* MediaViewCollectionViewCell.swift in Sources */,
+				FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */,
 				FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */,
 				FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */,
 				FBE7E01A2438E5B8007514C1 /* API_Interface.swift in Sources */,

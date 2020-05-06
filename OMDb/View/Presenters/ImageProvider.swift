@@ -9,16 +9,21 @@
 import UIKit
 
 enum ImageDownloader{
-    static func getImageFrom(urllink: URL) throws -> UIImage?{
-        do{
-            let data = try Data(contentsOf: URL(string: urllink.absoluteString)! )
-            guard let uiimage = UIImage(data: data) else {
-                return nil
+    static func getImageFrom(urllink: URL, completionHandler: @escaping ( (UIImage?) -> ())){
+        let task = SessionsCoordinator.cacheSession.dataTask(with: urllink) { (data, urlResponse, error) in
+            
+            guard let data = data else {
+                completionHandler(nil)
+                return
             }
-            return uiimage
-        }catch{
-            return nil
+            guard let uiimage = UIImage(data: data) else {
+                completionHandler(nil)
+                return
+            }
+            
+            completionHandler(uiimage)
         }
+        task.resume()
     }
 }
 
@@ -40,17 +45,11 @@ struct ImageProvider {
                 return
             }
             
-            do {
-                let image = try ImageDownloader.getImageFrom(urllink: urllink)
+            ImageDownloader.getImageFrom(urllink: urllink, completionHandler: {image in
                 DispatchQueue.main.async {
                     finishedBlock(image, indexPath)
                 }
-            }catch let error{
-                print(error)
-                DispatchQueue.main.async {
-                    finishedBlock(nil, indexPath)
-                }
-            }
+            })
         }
     }
     

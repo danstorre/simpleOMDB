@@ -35,6 +35,7 @@ final class MediaPosterCollectionDataSource: NSObject, MediaCollectionDataSource
         let media = mediaArray[indexPath.row]
         cell.tag = indexPath.row
         
+        cell.posterImage.alpha = 0
         ImageProvider.getImage(media: media,
                                indexPath: indexPath) { [weak cell] (image, indexPath) in
             DispatchQueue.main.async {
@@ -43,6 +44,7 @@ final class MediaPosterCollectionDataSource: NSObject, MediaCollectionDataSource
                 }
                 if cell.tag == indexPath.row {
                     cell.posterImage.image = image
+                    cell.posterImage.showAnimation()
                 }
             }
         }
