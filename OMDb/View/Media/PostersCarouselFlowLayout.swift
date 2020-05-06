@@ -18,10 +18,10 @@ class PostersCarouselFlowLayout: UICollectionViewFlowLayout {
         guard let cv = collectionView else {
             return
         }
-        
+        scrollDirection = .horizontal
         itemSize = CGSize(width: 119, height: 189)
         
-        self.sectionInset = UIEdgeInsets(top: minimumInteritemSpacing,
+        self.sectionInset = UIEdgeInsets(top: 0,
                                          left: 0,
                                          bottom: 0,
                                          right: 0)

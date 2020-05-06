@@ -41,6 +41,15 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         collectionView.delegate = delegate
     }
     
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            collectionView.reloadData()
+        }
+    }
+    
     @objc
     func changeLayout(){
         let layout = PostersCarouselFlowLayout()

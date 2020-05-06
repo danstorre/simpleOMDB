@@ -47,6 +47,14 @@ class MediaPosterCollectionViewCell: UICollectionViewCell, MediaViewViewCellProt
         layoutIfNeeded()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            finished = false
+        }
+    }
+    
     var finished = false
     
     func addShadows(){
