@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MediaPosterCollectionViewCell: UICollectionViewCell, MediaViewViewCellProtocol {
+protocol MediaCollectionViewCellPresentableProtocol: MediaViewViewCellProtocol, ShadowsAndToggleableAlphaProtocol {
+}
+
+class MediaPosterCollectionViewCell: UICollectionViewCell, MediaCollectionViewCellPresentableProtocol {
     var titleLabel: UILabel! {
         return UILabel()
     }
@@ -75,5 +78,15 @@ class MediaPosterCollectionViewCell: UICollectionViewCell, MediaViewViewCellProt
         
         finished = true
     }
+    func hideAnimation() {
+        UIView.animate(withDuration: 0.3) {
+            self.cellContentView.alpha = 0
+        }
+    }
     
+    func showAnimation() {
+        UIView.animate(withDuration: 0.6) {
+            self.cellContentView.alpha = 1
+        }
+    }
 }

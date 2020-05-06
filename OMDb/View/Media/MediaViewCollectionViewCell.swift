@@ -8,6 +8,19 @@
 
 import UIKit
 
+
+protocol ShadowsAndToggleableAlphaProtocol: ShadowsAdable, AnimatableAlpha {
+}
+
+protocol AnimatableAlpha {
+    func hideAnimation()
+    func showAnimation()
+}
+
+protocol ShadowsAdable {
+    func addShadows()
+}
+
 protocol MediaViewViewProtocol: UIView {
     var titleLabel: UILabel! { get }
     var yearLabel: UILabel! { get }
