@@ -59,7 +59,6 @@ class PresenterMediaCollection: NSObject {
         collectionView?.dataSource = datasource
         delegate = MediaCollectionViewDelegate(with: navigationController)
         collectionView?.delegate = delegate
-        
     }
 }
 
@@ -69,6 +68,17 @@ protocol SearchMediaCollectionViewDataSourceProtocol: MediaCollectionDataSourceP
 
 protocol Navigationable {
     var navigationController: UINavigationController? {get set}
+}
+
+class MediaSearchCollectionViewDelegate: NSObject, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        guard let cell = cell as? MediaCollectionViewCellPresentableProtocol else { return }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? SearchCollectionViewCellProtocol else { return }
+        cell.mediaCollectionView.reloadData()
+    }
 }
 
 class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDataSourceProtocol, Navigationable {
@@ -132,32 +142,26 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
         }
         var mediaArrayToBeUsed: [Media] = [Media]()
         
-        if searchMode != .all  {
-            mediaArrayToBeUsed = returnMediaFor(searchMode: searchMode, in: mediaArray)
+        func setCollectionView(){
             if let navigationController = navigationController {
-                
                 let presenter = PresenterMediaCollection(collectionView: cell.mediaCollectionView,
                                                          mediaArray: mediaArrayToBeUsed,
                                                          navigationController: navigationController)
                 presenters[indexPath] = presenter
                 presenter.setUp()
-                cell.mediaCollectionView.reloadData()
             }
+        }
+        
+        if searchMode != .all  {
+            mediaArrayToBeUsed = returnMediaFor(searchMode: searchMode, in: mediaArray)
+            setCollectionView()
             return cell
         }
         
         if let filterForSection = FilterTypes(rawValue: indexPath.section + 1) {
             mediaArrayToBeUsed = returnMediaFor(searchMode: filterForSection, in: mediaArray)
         }
-        if let navigationController = navigationController {
-            
-            let presenter = PresenterMediaCollection(collectionView: cell.mediaCollectionView,
-                                                     mediaArray: mediaArrayToBeUsed,
-                                                     navigationController: navigationController)
-            presenters[indexPath] = presenter
-            presenter.setUp()
-            cell.mediaCollectionView.reloadData()
-        }
+        setCollectionView()
         return cell
     }
 }
@@ -165,14 +169,9 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
 class PresenterSearchMediaCollection: NSObject {
     
     private var datasource: SearchMediaCollectionViewDataSourceProtocol?
+    private var delegate: UICollectionViewDelegate?
     private var layout: UICollectionViewFlowLayout {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-        if let collectionView = collectionView {
-            flowLayout.itemSize = CGSize(width: collectionView.bounds.size.width, height: 190)
-        }
-        
-        return flowLayout
+        return MediaSearchCollectionFlowLayout()
     }
     
     weak var collectionView: UICollectionView?
@@ -206,8 +205,10 @@ class PresenterSearchMediaCollection: NSObject {
         datasource = MediaSearchCollectionViewDataSource(withArray: mediaArray,
                                                          withCellIdentifier: cellIdentifier,
                                                          navigationController: navigationController)
+        delegate = MediaSearchCollectionViewDelegate()
         //add aloyut to colleciton
         collectionView?.dataSource = datasource
+        collectionView?.delegate = delegate
         collectionView?.collectionViewLayout = layout
     }
     

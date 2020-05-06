@@ -41,6 +41,8 @@ final class MediaCollectionDataSource: NSObject, MediaCollectionDataSourceProtoc
         cell.typeLabel.text = media.type?.rawValue
         cell.tag = indexPath.row
         
+        cell.posterImage.alpha = 0
+        
         ImageProvider.getImage(media: media,
                                indexPath: indexPath) { [weak cell] (image, indexPath) in
             DispatchQueue.main.async {
@@ -49,6 +51,7 @@ final class MediaCollectionDataSource: NSObject, MediaCollectionDataSourceProtoc
                 }
                 if cell.tag == indexPath.row {
                     cell.posterImage.image = image
+                    cell.posterImage.showAnimation()
                 }
             }
         }

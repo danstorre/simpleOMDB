@@ -26,9 +26,9 @@ class MediaCollectionViewDelegate: NSObject, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = cell as? ShadowsAndToggleableAlphaProtocol else { return }
+        guard let cell = cell as? MediaCollectionViewCellPresentableProtocol else { return }
         cell.addShadows()
-        cell.showAnimation()   
+        cell.showAnimation()
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

@@ -20,6 +20,7 @@
 		FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34648B2457CE4F008C4E1B /* FactoryButton.swift */; };
 		FB34648F2458A3CE008C4E1B /* ProfileUserNotLogged.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB34648E2458A3CE008C4E1B /* ProfileUserNotLogged.xib */; };
 		FB3464912458A3DF008C4E1B /* ProfileUserNotLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3464902458A3DF008C4E1B /* ProfileUserNotLogged.swift */; };
+		FB35667724634C530044F6EA /* MediaSearchCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35667624634C530044F6EA /* MediaSearchCollectionFlowLayout.swift */; };
 		FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */; };
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
@@ -97,6 +98,7 @@
 		FB34648B2457CE4F008C4E1B /* FactoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryButton.swift; sourceTree = "<group>"; };
 		FB34648E2458A3CE008C4E1B /* ProfileUserNotLogged.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileUserNotLogged.xib; sourceTree = "<group>"; };
 		FB3464902458A3DF008C4E1B /* ProfileUserNotLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLogged.swift; sourceTree = "<group>"; };
+		FB35667624634C530044F6EA /* MediaSearchCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSearchCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
@@ -316,6 +318,7 @@
 			children = (
 				FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */,
 				FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */,
+				FB35667624634C530044F6EA /* MediaSearchCollectionFlowLayout.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				FB7F9A2024622475003470DE /* PostersCarouselFlowLayout.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
 				FB7F9A1A24621943003470DE /* MediaCollectionDataSource.swift in Sources */,
+				FB35667724634C530044F6EA /* MediaSearchCollectionFlowLayout.swift in Sources */,
 				FB7F9A1E24622239003470DE /* MediaPosterCollectionDataSource.swift in Sources */,
 				FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */,
 				FBE7E01C2438E653007514C1 /* OMBDB_API.swift in Sources */,
