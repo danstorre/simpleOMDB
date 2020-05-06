@@ -17,10 +17,15 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
     var mediaArray: [Media]?
     var searchMode: FilterTypes = .all
     private let cellIdentifier: String
+    private let reusableViewIdentifier: String
     
-    init(withArray medias: [Media]?, withCellIdentifier cellIdentifier: String, navigationController: UINavigationController?) {
+    init(withArray medias: [Media]?,
+         withCellIdentifier cellIdentifier: String,
+         withReusableViewIdentifier reusableViewIdentifier: String,
+         navigationController: UINavigationController?) {
         self.cellIdentifier = cellIdentifier
         self.navigationController = navigationController
+        self.reusableViewIdentifier = reusableViewIdentifier
         super.init()
         mediaArray = medias
     }
@@ -52,6 +57,19 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
             }
         case .all:
             return mediaArray
+        }
+    }
+    
+    private func returnTitleHeaderMediaFor(searchMode: FilterTypes) -> String {
+        switch searchMode {
+        case .movies:
+            return "Movies"
+        case .episodes:
+            return "Episodes"
+        case .series:
+            return "Series"
+        case .all:
+            return ""
         }
     }
     
@@ -95,4 +113,29 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
         setCollectionView()
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                                 withReuseIdentifier: reusableViewIdentifier,
+                                                                                 for: indexPath)
+            as? SearchHeaderCollectionReusableView else {
+                return UICollectionReusableView()
+        }
+        
+        if let filterForSection = FilterTypes(rawValue: indexPath.section + 1) {
+            let title = returnTitleHeaderMediaFor(searchMode: filterForSection)
+            reusableView.titleLabel.attributedText = TextFactory
+                .attributedText(for:
+                .header2(string: title,
+                         withColor: UIColor(named: "Text")!))
+        }
+        
+        reusableView.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: "See All 􀆊",
+                                                                          withColor: UIColor(named: "ButtonColor"))),
+                                               for: .normal)
+        return reusableView
+    }
+    
 }

@@ -20,6 +20,7 @@ class PresenterSearchMediaCollection: NSObject {
     weak var navigationController: UINavigationController?
     
     private let cellIdentifier = "SearchCollectionViewCell"
+    private let reusableIdentifier = "HeaderSearchCollectionView"
     
     var mediaArray: [Media]? {
         didSet {
@@ -44,8 +45,12 @@ class PresenterSearchMediaCollection: NSObject {
     
     func setUp(){
         collectionView?.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView?.register(SearchHeaderCollectionReusableView.self,
+                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                 withReuseIdentifier: reusableIdentifier)
         datasource = MediaSearchCollectionViewDataSource(withArray: mediaArray,
                                                          withCellIdentifier: cellIdentifier,
+                                                         withReusableViewIdentifier: reusableIdentifier,
                                                          navigationController: navigationController)
         delegate = MediaSearchCollectionViewDelegate()
         collectionView?.dataSource = datasource

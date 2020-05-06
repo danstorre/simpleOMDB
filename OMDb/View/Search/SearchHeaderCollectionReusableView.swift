@@ -14,11 +14,11 @@ protocol SearchHeaderCollectionReusableViewProtocol {
 }
 
 protocol SearchHeaderCollectionReusableViewProtocolDelegate {
-    func buttonAllSelected()
+    func buttonAllSelected(sender: AnyObject)
 }
 
 class SearchHeaderCollectionReusableView: UICollectionReusableView, SearchHeaderCollectionReusableViewProtocol {
-        
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var button: UIButton!
     @IBOutlet var contentViewCell: UIView!
@@ -27,8 +27,23 @@ class SearchHeaderCollectionReusableView: UICollectionReusableView, SearchHeader
     
     @IBAction
     func buttonAllSelectedPressed(){
-        delegate?.buttonAllSelected()
+        delegate?.buttonAllSelected(sender: self)
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        Bundle.main.loadNibNamed("SearchHeaderCollectionReusableView", owner: self, options: nil)
+        addSubview(contentViewCell)
+        contentViewCell.frame = self.bounds
+        contentViewCell.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
     
 }
