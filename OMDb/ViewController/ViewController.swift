@@ -28,8 +28,8 @@ extension Array: Sanitazable where Element == Media {
 class PresenterMediaCollection: NSObject {
     
     private var delegate: MediaCollectionViewDelegate?
-    private var datasource: SearchMediaCollectionViewDataSourceProtocol?
-    private var layout: UICollectionViewFlowLayout?
+    private var datasource: MediaCollectionDataSourceProtocol?
+    private var layout: UICollectionViewFlowLayout = PostersCarouselFlowLayout()
     weak var navigationController: UINavigationController?
     weak var collectionView: UICollectionView?
     
@@ -39,27 +39,27 @@ class PresenterMediaCollection: NSObject {
         }
     }
     
-    private let cellIdentifier = "SearchCollectionViewCell"
+    private let cellIdentifier = "MediaPosterCollectionViewCell"
     
     init(collectionView: UICollectionView, mediaArray: [Media]? = nil, navigationController: UINavigationController){
         self.collectionView = collectionView
         self.datasource = nil
         self.delegate = nil
         self.mediaArray = mediaArray
-        self.layout = PostersCarouselFlowLayout()
         self.navigationController = navigationController
         super.init()
         setUp()
     }
     
     func setUp(){
-        collectionView?.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        datasource = MediaSearchCollectionViewDataSource(withArray: [Media](),
-                                                         withCellIdentifier: cellIdentifier,
-                                                         navigationController: navigationController)
+        collectionView?.collectionViewLayout = layout
+        collectionView?.register(MediaPosterCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        datasource = MediaCollectionDataSource(withArray: mediaArray,
+                                               withCellIdentifier: cellIdentifier)
         collectionView?.dataSource = datasource
         delegate = MediaCollectionViewDelegate(with: navigationController)
         collectionView?.delegate = delegate
+        
     }
 }
 
@@ -70,15 +70,14 @@ protocol SearchMediaCollectionViewDataSourceProtocol: MediaCollectionDataSourceP
 protocol Navigationable {
     var navigationController: UINavigationController? {get set}
 }
-    
+
 class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDataSourceProtocol, Navigationable {
     weak var navigationController: UINavigationController?
     var mediaArray: [Media]?
     var searchMode: FilterTypes = .all
     private let cellIdentifier: String
     
-    
-    init(withArray medias: [Media], withCellIdentifier cellIdentifier: String, navigationController: UINavigationController?) {
+    init(withArray medias: [Media]?, withCellIdentifier cellIdentifier: String, navigationController: UINavigationController?) {
         self.cellIdentifier = cellIdentifier
         self.navigationController = navigationController
         super.init()
@@ -116,8 +115,13 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return returnNumberOfSectionsFrom(searchMode: searchMode)
     }
+    var presenters: [IndexPath: PresenterMediaCollection] = [IndexPath: PresenterMediaCollection]()
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
@@ -126,13 +130,34 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
         guard let mediaArray = mediaArray else {
             return cell
         }
-        if let navigationController = navigationController {
-            let presenter = PresenterMediaCollection(collectionView: cell.mediaCollectionView,
-                                                     mediaArray: mediaArray,
-                                                     navigationController: navigationController)
-            presenter.setUp()
+        var mediaArrayToBeUsed: [Media] = [Media]()
+        
+        if searchMode != .all  {
+            mediaArrayToBeUsed = returnMediaFor(searchMode: searchMode, in: mediaArray)
+            if let navigationController = navigationController {
+                
+                let presenter = PresenterMediaCollection(collectionView: cell.mediaCollectionView,
+                                                         mediaArray: mediaArrayToBeUsed,
+                                                         navigationController: navigationController)
+                presenters[indexPath] = presenter
+                presenter.setUp()
+                cell.mediaCollectionView.reloadData()
+            }
+            return cell
         }
         
+        if let filterForSection = FilterTypes(rawValue: indexPath.section + 1) {
+            mediaArrayToBeUsed = returnMediaFor(searchMode: filterForSection, in: mediaArray)
+        }
+        if let navigationController = navigationController {
+            
+            let presenter = PresenterMediaCollection(collectionView: cell.mediaCollectionView,
+                                                     mediaArray: mediaArrayToBeUsed,
+                                                     navigationController: navigationController)
+            presenters[indexPath] = presenter
+            presenter.setUp()
+            cell.mediaCollectionView.reloadData()
+        }
         return cell
     }
 }
@@ -140,7 +165,15 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
 class PresenterSearchMediaCollection: NSObject {
     
     private var datasource: SearchMediaCollectionViewDataSourceProtocol?
-    private var layout: UICollectionViewFlowLayout?
+    private var layout: UICollectionViewFlowLayout {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        if let collectionView = collectionView {
+            flowLayout.itemSize = CGSize(width: collectionView.bounds.size.width, height: 190)
+        }
+        
+        return flowLayout
+    }
     
     weak var collectionView: UICollectionView?
     weak var navigationController: UINavigationController?
@@ -159,21 +192,23 @@ class PresenterSearchMediaCollection: NSObject {
         }
     }
     
-    init(collectionView: UICollectionView, mediaArray: [Media]? = nil){
+    init(collectionView: UICollectionView, mediaArray: [Media]? = nil, navigationController: UINavigationController?){
         self.collectionView = collectionView
         self.datasource = nil
         self.mediaArray = mediaArray
-        self.layout = PostersCarouselFlowLayout()
+        self.navigationController = navigationController
         super.init()
         setUp()
     }
     
     func setUp(){
         collectionView?.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        datasource = MediaSearchCollectionViewDataSource(withArray: [Media](),
+        datasource = MediaSearchCollectionViewDataSource(withArray: mediaArray,
                                                          withCellIdentifier: cellIdentifier,
                                                          navigationController: navigationController)
+        //add aloyut to colleciton
         collectionView?.dataSource = datasource
+        collectionView?.collectionViewLayout = layout
     }
     
 }
@@ -211,21 +246,23 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
-        setUpSearchBar()
-        
-        searchMediaPresenter = PresenterSearchMediaCollection(collectionView: collectionView, mediaArray: mediaArray)
+        searchMediaPresenter = PresenterSearchMediaCollection(collectionView: collectionView,
+                                                              mediaArray: mediaArray,
+                                                              navigationController: navigationController)
         searchMediaPresenter?.setUp()
         
-        let observableContentMediaPresenter = ContentMediaPresenterAPIObservable(observedObject: ContentMediaPresenterAPI(api: api))
+        let observableContentMediaPresenter = ContentMediaPresenterAPIObservable(observedObject:
+            ContentMediaPresenterAPI(api: api))
         observableContentMediaPresenter.observer = searchMediaPresenter
         updater = UpdaterResults(api: observableContentMediaPresenter)
+        setupNavigationBar()
+        setUpSearchBar()
     }
     
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-
+        
         if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
             collectionView.reloadData()
         }

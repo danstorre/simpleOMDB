@@ -18,7 +18,7 @@ final class MediaCollectionDataSource: NSObject, MediaCollectionDataSourceProtoc
     
     private let cellIdentifier: String
     
-    init(withArray medias: [Media], withCellIdentifier cellIdentifier: String) {
+    init(withArray medias: [Media]?, withCellIdentifier cellIdentifier: String) {
         self.cellIdentifier = cellIdentifier
         super.init()
         mediaArray = medias

@@ -16,11 +16,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-hF-zRD">
-                                <rect key="frame" x="0.0" y="140" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Hbd-wk-u39"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qyc-Hx-BeU">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -34,6 +31,7 @@
                         <constraints>
                             <constraint firstItem="aiJ-hF-zRD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4HN-QQ-uYo"/>
                             <constraint firstItem="aiJ-hF-zRD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MrI-OL-B80"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aiJ-hF-zRD" secondAttribute="bottom" id="YHr-fk-ALy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aiJ-hF-zRD" secondAttribute="trailing" id="YWI-sz-OF8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

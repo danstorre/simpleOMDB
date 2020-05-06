@@ -16,6 +16,7 @@ class SearchCollectionViewCell: UICollectionViewCell, SearchCollectionViewCellPr
     @IBOutlet var mediaCollectionView: UICollectionView!
     @IBOutlet var cellContentView: UIView!
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
