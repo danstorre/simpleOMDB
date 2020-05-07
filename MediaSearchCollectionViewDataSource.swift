@@ -132,9 +132,11 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
                          withColor: UIColor(named: "Text")!))
         }
         
-        reusableView.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: "See All 􀆊",
+        reusableView.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: "See All",
                                                                           withColor: UIColor(named: "ButtonColor"))),
                                                for: .normal)
+        
+        
         return reusableView
     }
     

@@ -19,13 +19,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EP-GD-jd4">
-                    <rect key="frame" x="20" y="45" width="42" height="43"/>
+                    <rect key="frame" x="20" y="56.5" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIB-8M-biH">
-                    <rect key="frame" x="401" y="44.5" width="47" height="44"/>
+                    <rect key="frame" x="401" y="45" width="47" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="af4-ib-WD3"/>
                     </constraints>
@@ -39,9 +39,8 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="nIB-8M-biH" secondAttribute="trailing" constant="20" id="GtO-tU-ygi"/>
                 <constraint firstItem="0EP-GD-jd4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="KN2-Ky-FNJ"/>
-                <constraint firstItem="0EP-GD-jd4" firstAttribute="baseline" secondItem="nIB-8M-biH" secondAttribute="firstBaseline" constant="24.5" symbolType="layoutAnchor" id="NTl-MY-PyO"/>
                 <constraint firstItem="0EP-GD-jd4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="nMi-k8-CX1"/>
-                <constraint firstItem="nIB-8M-biH" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zma-KQ-nbe"/>
+                <constraint firstItem="nIB-8M-biH" firstAttribute="firstBaseline" secondItem="0EP-GD-jd4" secondAttribute="firstBaseline" id="yl1-VO-Ufl"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

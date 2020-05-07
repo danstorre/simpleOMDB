@@ -21,9 +21,8 @@ class PostersCarouselFlowLayout: UICollectionViewFlowLayout {
         self.sectionInset = UIEdgeInsets(top: 0,
                                          left: 15,
                                          bottom: 0,
-                                         right: 20)
+                                         right: 15)
         
         self.sectionInsetReference = .fromSafeArea
-        
     }
 }
