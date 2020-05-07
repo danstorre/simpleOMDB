@@ -146,13 +146,21 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
                 return UICollectionReusableView()
         }
         
-        if let filterForSection = FilterTypes(rawValue: indexPath.section + 1) {
-            let title = returnTitleHeaderMediaFor(searchMode: filterForSection)
-            reusableView.titleLabel.attributedText = TextFactory
-                .attributedText(for:
-                    .header2(string: title,
-                             withColor: UIColor(named: "Text")!))
+        var stringTitle: String = ""
+        if searchMode == .all  {
+            if let filterForSection = FilterTypes(rawValue: indexPath.section + 1) {
+                stringTitle = returnTitleHeaderMediaFor(searchMode: filterForSection)
+            }
+        }else {
+            stringTitle = returnTitleHeaderMediaFor(searchMode: searchMode)
         }
+        
+        reusableView.titleLabel.attributedText = TextFactory
+                                  .attributedText(for:
+                                      .header2(string: stringTitle,
+                                               withColor: UIColor(named: "Text")!))
+        
+       
         
         reusableView.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: "See All",
                                                                                      withColor: UIColor(named: "ButtonColor"))),

@@ -103,11 +103,13 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
         searchController.searchResultsUpdater = updater
         searchController.showsSearchResultsController = true
         updater.delegate = self
-        
+        navigationItem.hidesSearchBarWhenScrolling = false
         // Include the search bar within the navigation bar.
         searchController.searchBar.scopeButtonTitles = ["All", "Movies", "Series", "Episodes"]
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        
     }
     
     func didReceivedNew(items: [Searchable], forQuery: String?) {
