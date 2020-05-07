@@ -36,7 +36,29 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
         case .movies, .episodes, .series:
             numberToReturn = 1
         case .all:
-            numberToReturn = 3
+            //check all.
+            var count = 0
+            guard let mediaArray = mediaArray else {
+                return count
+            }
+            
+            func mediaarrayHas(mediaType: MediaType) -> Bool {
+                if !mediaArray.filter({ (media) -> Bool in
+                    return media.type! == mediaType
+                }).isEmpty  {
+                    return true
+                }else {
+                    return false
+                }
+            }
+            
+            let arrayPossibleTypes: [MediaType] = [.episode, .movie, .series]
+            
+            for type in arrayPossibleTypes {
+                count = mediaarrayHas(mediaType: type) ? count + 1 : count
+            }
+            
+            numberToReturn = count
         }
         return numberToReturn
     }
@@ -128,12 +150,12 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
             let title = returnTitleHeaderMediaFor(searchMode: filterForSection)
             reusableView.titleLabel.attributedText = TextFactory
                 .attributedText(for:
-                .header2(string: title,
-                         withColor: UIColor(named: "Text")!))
+                    .header2(string: title,
+                             withColor: UIColor(named: "Text")!))
         }
         
         reusableView.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: "See All",
-                                                                          withColor: UIColor(named: "ButtonColor"))),
+                                                                                     withColor: UIColor(named: "ButtonColor"))),
                                                for: .normal)
         
         
