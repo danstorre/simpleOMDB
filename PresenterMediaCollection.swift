@@ -8,12 +8,11 @@
 
 import UIKit
 
-class PresenterMediaCollection: NSObject {
-    
+class PresenterMediaCollection: NSObject, HasNavigation {
     private var delegate: MediaCollectionViewDelegate?
     private var datasource: MediaCollectionDataSourceProtocol?
     private var layout: UICollectionViewFlowLayout = PostersCarouselFlowLayout()
-    weak var navigationController: UINavigationController?
+    weak var navigationObject: NavigationProtocol?
     weak var collectionView: UICollectionView?
     
     var mediaArray: [Media]? {
@@ -24,12 +23,12 @@ class PresenterMediaCollection: NSObject {
     
     private let cellIdentifier = "MediaPosterCollectionViewCell"
     
-    init(collectionView: UICollectionView, mediaArray: [Media]? = nil, navigationController: UINavigationController){
+    init(collectionView: UICollectionView, mediaArray: [Media]? = nil, navigationObject: NavigationProtocol?){
         self.collectionView = collectionView
         self.datasource = nil
         self.delegate = nil
         self.mediaArray = mediaArray
-        self.navigationController = navigationController
+        self.navigationObject = navigationObject
         super.init()
         setUp()
     }
@@ -40,7 +39,7 @@ class PresenterMediaCollection: NSObject {
         datasource = MediaCollectionDataSource(withArray: mediaArray,
                                                withCellIdentifier: cellIdentifier)
         collectionView?.dataSource = datasource
-        delegate = MediaCollectionViewDelegate(with: navigationController)
+        delegate = MediaCollectionViewDelegate(with: navigationObject, and: mediaArray)
         collectionView?.delegate = delegate
     }
 }

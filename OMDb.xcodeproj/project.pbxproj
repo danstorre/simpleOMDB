@@ -54,6 +54,8 @@
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
 		FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */; };
 		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
+		FBB17D6B24672CA1004265F5 /* FactoryViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */; };
+		FBB17D6D24674029004265F5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D6C24674029004265F5 /* CustomNavigationController.swift */; };
 		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
 		FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */; };
 		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
@@ -140,6 +142,8 @@
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
 		FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLoggedPresenter.swift; sourceTree = "<group>"; };
 		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
+		FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewcontroller.swift; sourceTree = "<group>"; };
+		FBB17D6C24674029004265F5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -335,6 +339,22 @@
 			path = "Headers ";
 			sourceTree = "<group>";
 		};
+		FBB17D662467270E004265F5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FBB17D6C24674029004265F5 /* CustomNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		FBB17D6924672C84004265F5 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 		FBC267CC24630EF500FE2F4E /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +370,8 @@
 		FBD76B6424395A9E00F81F9A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FBB17D6924672C84004265F5 /* Factories */,
+				FBB17D662467270E004265F5 /* Navigation */,
 				FBE7DFF72438E488007514C1 /* ViewController.swift */,
 				FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */,
 				FB78A52A244F9847004BCB30 /* ProfileViewController.swift */,
@@ -673,6 +695,7 @@
 				FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
 				FB8203AC2460C45F006648E1 /* ProfileHeaderPresenter.swift in Sources */,
+				FBB17D6D24674029004265F5 /* CustomNavigationController.swift in Sources */,
 				FB3566812463578A0044F6EA /* Array+extensions.swift in Sources */,
 				FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */,
 				FB8203AE2460C9E0006648E1 /* ProfilePresenter.swift in Sources */,
@@ -705,6 +728,7 @@
 				FB7F9A2024622475003470DE /* PostersCarouselFlowLayout.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
 				FB7F9A1A24621943003470DE /* MediaCollectionDataSource.swift in Sources */,
+				FBB17D6B24672CA1004265F5 /* FactoryViewcontroller.swift in Sources */,
 				FB35667724634C530044F6EA /* MediaSearchCollectionFlowLayout.swift in Sources */,
 				FB7F9A1E24622239003470DE /* MediaPosterCollectionDataSource.swift in Sources */,
 				FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */,

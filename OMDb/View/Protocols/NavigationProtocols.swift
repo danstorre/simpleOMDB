@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol Navigationable {
-    var navigationController: UINavigationController? {get set}
+protocol HasNavigation {
+    var navigationObject: NavigationProtocol? {get set}
 }

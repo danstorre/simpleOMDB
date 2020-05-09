@@ -9,8 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-class ViewController: UIViewController, UpdaterResultsDelegate {
-    
+class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
     @IBOutlet var collectionView: UICollectionView!
     var updater : UpdaterResults!
     var mediaArray: [Media]? = [Media]() {
@@ -26,12 +25,13 @@ class ViewController: UIViewController, UpdaterResultsDelegate {
     var delegate: UICollectionViewDelegate?
     
     var searchMediaPresenter: PresenterSearchMediaCollection?
+    var navigationObject: NavigationProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchMediaPresenter = PresenterSearchMediaCollection(collectionView: collectionView,
                                                               mediaArray: mediaArray,
-                                                              navigationController: navigationController)
+                                                              navigationObject: navigationObject)
         searchMediaPresenter?.setUp()
         
         let observableContentMediaPresenter = ContentMediaPresenterAPIObservable(observedObject:

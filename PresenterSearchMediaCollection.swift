@@ -8,8 +8,7 @@
 
 import UIKit
 
-class PresenterSearchMediaCollection: NSObject {
-    
+class PresenterSearchMediaCollection: NSObject, HasNavigation {
     private var datasource: SearchMediaCollectionViewDataSourceProtocol?
     private var delegate: UICollectionViewDelegate?
     private var layout: UICollectionViewFlowLayout {
@@ -17,7 +16,7 @@ class PresenterSearchMediaCollection: NSObject {
     }
     
     weak var collectionView: UICollectionView?
-    weak var navigationController: UINavigationController?
+    weak var navigationObject: NavigationProtocol?
     
     private let cellIdentifier = "SearchCollectionViewCell"
     private let reusableIdentifier = "HeaderSearchCollectionView"
@@ -34,11 +33,11 @@ class PresenterSearchMediaCollection: NSObject {
         }
     }
     
-    init(collectionView: UICollectionView, mediaArray: [Media]? = nil, navigationController: UINavigationController?){
+    init(collectionView: UICollectionView, mediaArray: [Media]? = nil, navigationObject: NavigationProtocol?){
         self.collectionView = collectionView
         self.datasource = nil
         self.mediaArray = mediaArray
-        self.navigationController = navigationController
+        self.navigationObject = navigationObject
         super.init()
         setUp()
     }
@@ -51,7 +50,7 @@ class PresenterSearchMediaCollection: NSObject {
         datasource = MediaSearchCollectionViewDataSource(withArray: mediaArray,
                                                          withCellIdentifier: cellIdentifier,
                                                          withReusableViewIdentifier: reusableIdentifier,
-                                                         navigationController: navigationController)
+                                                         navigationObject: navigationObject)
         delegate = MediaSearchCollectionViewDelegate()
         collectionView?.dataSource = datasource
         collectionView?.delegate = delegate

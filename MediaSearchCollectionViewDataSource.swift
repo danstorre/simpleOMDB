@@ -12,8 +12,8 @@ protocol SearchMediaCollectionViewDataSourceProtocol: MediaCollectionDataSourceP
     var searchMode: FilterTypes {get set}
 }
 
-class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDataSourceProtocol, Navigationable {
-    weak var navigationController: UINavigationController?
+class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDataSourceProtocol, HasNavigation {
+    weak var navigationObject: NavigationProtocol?
     var mediaArray: [Media]?
     var searchMode: FilterTypes = .all
     private let cellIdentifier: String
@@ -22,9 +22,9 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
     init(withArray medias: [Media]?,
          withCellIdentifier cellIdentifier: String,
          withReusableViewIdentifier reusableViewIdentifier: String,
-         navigationController: UINavigationController?) {
+         navigationObject: NavigationProtocol?) {
         self.cellIdentifier = cellIdentifier
-        self.navigationController = navigationController
+        self.navigationObject = navigationObject
         self.reusableViewIdentifier = reusableViewIdentifier
         super.init()
         mediaArray = medias
@@ -114,13 +114,11 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
         var mediaArrayToBeUsed: [Media] = [Media]()
         
         func setCollectionView(){
-            if let navigationController = navigationController {
-                let presenter = PresenterMediaCollection(collectionView: cell.mediaCollectionView,
-                                                         mediaArray: mediaArrayToBeUsed,
-                                                         navigationController: navigationController)
-                presenters[indexPath] = presenter
-                presenter.setUp()
-            }
+            let presenter = PresenterMediaCollection(collectionView: cell.mediaCollectionView,
+                                                     mediaArray: mediaArrayToBeUsed,
+                                                     navigationObject: navigationObject)
+            presenters[indexPath] = presenter
+            presenter.setUp()
         }
         
         if searchMode != .all  {

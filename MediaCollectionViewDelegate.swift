@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MediaCollectionViewDelegate: NSObject, UICollectionViewDelegate {
+class MediaCollectionViewDelegate: NSObject, UICollectionViewDelegate, HasNavigation {
     
-    weak var nav: UINavigationController?
+    weak var navigationObject: NavigationProtocol?
     var selectedIndexPath: IndexPath
+    var mediaArray: [Media]?
     
-    init(with nav: UINavigationController?) {
-        self.nav = nav
+    init(with navigationObject: NavigationProtocol?, and mediaArray: [Media]?) {
+        self.navigationObject = navigationObject
         selectedIndexPath = IndexPath(row: 0, section: 0)
         super.init()
     }
@@ -22,7 +23,9 @@ class MediaCollectionViewDelegate: NSObject, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         selectedIndexPath = indexPath
-        nav?.performSegue(withIdentifier: "detail", sender: nil)
+        if let mediaArray = mediaArray {
+            navigationObject?.goTo(navigationOption: .detail(media: mediaArray[indexPath.row]), presentModally: false)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

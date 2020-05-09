@@ -128,7 +128,7 @@
         <!--Search-->
         <scene sceneID="P6U-Cv-4jB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Uc-k6-h2C" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Uc-k6-h2C" customClass="CustomNavigationController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="IQ9-iu-PQB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Atb-fR-8zN">
@@ -259,7 +259,7 @@
         <!--Profile-->
         <scene sceneID="B5q-gf-bJW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xdJ-xX-RoP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xdJ-xX-RoP" customClass="CustomNavigationController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="25u-sj-AsM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="qUF-ff-2Rn">
