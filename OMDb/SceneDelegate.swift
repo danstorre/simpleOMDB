@@ -29,13 +29,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let mainTabBarViewController = storyboard
             .instantiateViewController(withIdentifier: "MainTabBarVC") as? UITabBarController,
-            let navVCForSearchVc = mainTabBarViewController.viewControllers?[0] as? UINavigationController,
+            let navVCForSearchVc = mainTabBarViewController.viewControllers?[0] as? NavigationProtocol,
             let searchVc = navVCForSearchVc.viewControllers[0] as? ViewController,
-            let profileNav = mainTabBarViewController.viewControllers?[1] as? UINavigationController,
+            let profileNav = mainTabBarViewController.viewControllers?[1] as? NavigationProtocol,
             let profileVC = profileNav.viewControllers[0] as? ProfileViewController {
             
             searchVc.session = sessionUser
+            searchVc.navigationObject = navVCForSearchVc
             profileVC.session = sessionUser
+            profileVC.navigationObject = navVCForSearchVc
             sessionObservers?.addObserver(observer: profileVC)
             sessionUser?.observer = sessionObservers
             

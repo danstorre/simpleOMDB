@@ -9,8 +9,8 @@
 import UIKit
 import GoogleSignIn
 
-class ProfileViewController: UIViewController, ProfilePresenterDelegate {
-   
+class ProfileViewController: UIViewController, ProfilePresenterDelegate, HasNavigation {
+    var navigationObject: NavigationProtocol?
     var session: SessionProtocol?
     
     @IBOutlet var contentView: UIView!

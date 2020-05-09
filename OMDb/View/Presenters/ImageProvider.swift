@@ -31,6 +31,28 @@ enum ImageDownloader{
 struct ImageProvider {
     
     static func getImage(media: Media,
+                         finishedBlock: @escaping ((UIImage?) -> ())) {
+
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            let urlImage = media.poster
+            
+            guard let urllink = URL(string: urlImage) else{
+                DispatchQueue.main.async {
+                    finishedBlock(nil)
+                }
+                return
+            }
+            
+            ImageDownloader.getImageFrom(urllink: urllink, completionHandler: {image in
+                DispatchQueue.main.async {
+                    finishedBlock(image)
+                }
+            })
+        }
+    }
+    
+    static func getImage(media: Media,
                          indexPath: IndexPath,
                          finishedBlock: @escaping ((UIImage?, IndexPath) -> ())) {
 

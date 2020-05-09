@@ -123,19 +123,6 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
         navigationController?.navigationItem.searchController?.searchBar.resignFirstResponder()
     }
     
-    private var selectedIndexPath: IndexPath?
-    
-    //MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let selectedIndexPath = selectedIndexPath, let mediaArray = mediaArray else {
-            return
-        }
-        let detailVC = segue.destination as! DetailMediaViewController
-        detailVC.media = mediaArray[selectedIndexPath.row]
-        let cellSelected = collectionView.cellForItem(at: selectedIndexPath) as! MediaViewViewCellProtocol
-        detailVC.mediaImage = cellSelected.posterImage.image
-        detailVC.api = api
-    }
 }
 
 

@@ -23,6 +23,12 @@ struct ListMediaViewControllerPresenter: NavigationPresenterProtocol {
 struct DetailMediaViewControllerPresenter: NavigationPresenterProtocol {
     var media: Media
     var vc: UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailVc = storyboard.instantiateViewController(withIdentifier: "DetailMediaViewController") as? DetailMediaViewController {
+            detailVc.media = media
+            detailVc.api = OMBDB_API()
+            return detailVc
+        }
         return UIViewController()
     }
 }

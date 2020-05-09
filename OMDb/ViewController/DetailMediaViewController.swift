@@ -21,14 +21,15 @@ class DetailMediaViewController: UIViewController, CLLocationManagerDelegate {
     private var propertyOrder = [String]()
     var api: OMBDB_API_Contract? = nil
     var media: Media!
-    var mediaImage: UIImage!
     
     var mapSearcher : MapSearcher!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSearcher = MapSearcher(mapView: mapView)
-        posterImageView.image = mediaImage
+        ImageProvider.getImage(media: media) { [weak self] (mediaImage) in
+            self?.posterImageView.image = mediaImage
+        }
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
