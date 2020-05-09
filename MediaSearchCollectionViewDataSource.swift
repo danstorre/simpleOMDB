@@ -14,6 +14,7 @@ protocol SearchMediaCollectionViewDataSourceProtocol: MediaCollectionDataSourceP
 
 class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDataSourceProtocol, HasNavigation {
     weak var navigationObject: NavigationProtocol?
+    var presenters: [IndexPath: PresenterMediaCollection] = [IndexPath: PresenterMediaCollection]()
     var mediaArray: [Media]?
     var searchMode: FilterTypes = .all
     private let cellIdentifier: String
@@ -102,7 +103,6 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return returnNumberOfSectionsFrom(searchMode: searchMode)
     }
-    var presenters: [IndexPath: PresenterMediaCollection] = [IndexPath: PresenterMediaCollection]()
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,

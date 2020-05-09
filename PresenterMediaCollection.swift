@@ -15,11 +15,7 @@ class PresenterMediaCollection: NSObject, HasNavigation {
     weak var navigationObject: NavigationProtocol?
     weak var collectionView: UICollectionView?
     
-    var mediaArray: [Media]? {
-        didSet {
-            datasource?.mediaArray = mediaArray
-        }
-    }
+    var mediaArray: [Media]?
     
     private let cellIdentifier = "MediaPosterCollectionViewCell"
     

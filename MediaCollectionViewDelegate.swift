@@ -17,6 +17,7 @@ class MediaCollectionViewDelegate: NSObject, UICollectionViewDelegate, HasNaviga
     init(with navigationObject: NavigationProtocol?, and mediaArray: [Media]?) {
         self.navigationObject = navigationObject
         selectedIndexPath = IndexPath(row: 0, section: 0)
+        self.mediaArray = mediaArray
         super.init()
     }
     
