@@ -253,7 +253,7 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		FB78A533244FB9B9004BCB30 /* Presenters */ = {
+		FB78A533244FB9B9004BCB30 /* General Presenters */ = {
 			isa = PBXGroup;
 			children = (
 				FB3AA5A224391A1A00905753 /* ImageProvider.swift */,
@@ -262,7 +262,7 @@
 				FB2360202439815B00601D8E /* MapSearcher.swift */,
 				FB78A534244FB9CA004BCB30 /* UserPresenters.swift */,
 			);
-			path = Presenters;
+			path = "General Presenters";
 			sourceTree = "<group>";
 		};
 		FB78A5362450856F004BCB30 /* BusinessModel */ = {
@@ -474,7 +474,7 @@
 				FB7F9A282462FDA2003470DE /* Protocols */,
 				FB7F9A252462FD67003470DE /* ImageViews */,
 				FB7F9A17246208B3003470DE /* Media */,
-				FB78A533244FB9B9004BCB30 /* Presenters */,
+				FB78A533244FB9B9004BCB30 /* General Presenters */,
 				FB34648D2458A3B3008C4E1B /* Profile */,
 				FBAB3F4F2460B4B40082E933 /* Headers  */,
 				FB34647E2457AE2A008C4E1B /* Text Box */,
