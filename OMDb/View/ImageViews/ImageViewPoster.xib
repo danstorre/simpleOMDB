@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageViewPoster" customModule="OMDb" customModuleProvider="target">
             <connections>
-                <outlet property="cellContentView" destination="iN0-l3-epB" id="P6E-qV-6Ny"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Qs7-kr-Oa4"/>
                 <outlet property="markViewImage" destination="2yI-zp-epd" id="Ndr-q7-fRB"/>
                 <outlet property="posterImage" destination="k4Z-oe-iwH" id="8f9-Tl-nrE"/>
             </connections>
