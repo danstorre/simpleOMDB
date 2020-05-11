@@ -65,7 +65,7 @@
 		FBB17D7D2469F458004265F5 /* PresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D7C2469F458004265F5 /* PresenterProtocols.swift */; };
 		FBB17D802469F603004265F5 /* ListMediaCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */; };
 		FBB17D822469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */; };
-		FBB17D842469FAF6004265F5 /* ListMediaCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D832469FAF6004265F5 /* ListMediaCollectionDelegate.swift */; };
+		FBB17D86246A0840004265F5 /* ListCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D85246A0840004265F5 /* ListCollectionViewLayout.swift */; };
 		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
 		FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */; };
 		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
@@ -163,7 +163,7 @@
 		FBB17D7C2469F458004265F5 /* PresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocols.swift; sourceTree = "<group>"; };
 		FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaCollectionPresenter.swift; sourceTree = "<group>"; };
 		FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaMediaCollectionDataSource.swift; sourceTree = "<group>"; };
-		FBB17D832469FAF6004265F5 /* ListMediaCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaCollectionDelegate.swift; sourceTree = "<group>"; };
+		FBB17D85246A0840004265F5 /* ListCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -383,6 +383,7 @@
 				FBB17D7E2469F5E9004265F5 /* Presenters */,
 				FBB17D742469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib */,
 				FBB17D762469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift */,
+				FBB17D85246A0840004265F5 /* ListCollectionViewLayout.swift */,
 			);
 			path = "List Items";
 			sourceTree = "<group>";
@@ -403,7 +404,6 @@
 			children = (
 				FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */,
 				FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */,
-				FBB17D832469FAF6004265F5 /* ListMediaCollectionDelegate.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -769,6 +769,7 @@
 				FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */,
 				FBB17D822469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift in Sources */,
 				FB7F9A24246225C6003470DE /* MediaPosterCollectionViewCell.swift in Sources */,
+				FBB17D86246A0840004265F5 /* ListCollectionViewLayout.swift in Sources */,
 				FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */,
 				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
 				FBB17D802469F603004265F5 /* ListMediaCollectionPresenter.swift in Sources */,
@@ -784,7 +785,6 @@
 				FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */,
 				FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */,
 				FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */,
-				FBB17D842469FAF6004265F5 /* ListMediaCollectionDelegate.swift in Sources */,
 				FBE7E01A2438E5B8007514C1 /* API_Interface.swift in Sources */,
 				FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */,
 				FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */,
