@@ -16,11 +16,12 @@ protocol ListItemMediaViewProtocol: UIView {
     var imageViewMedia: ImageViewPosterProtocol! {get set}
 }
 
-protocol ListItemMediaViewProtocolCollectionViewCellProtocol: ViewCollectionViewCellNibProtocol,
+protocol ListItemMediaViewProtocolCollectionViewCellProtocol: ShadowsAndToggleableAlphaProtocol,
                                                               ListItemMediaViewProtocol {
 }
 
 class ListItemMediaViewCollectionViewCell: UICollectionViewCell, ListItemMediaViewProtocolCollectionViewCellProtocol {
+    
     @IBOutlet var cellContentView: UIView!
     @IBOutlet var titleMedia: UILabel!
     @IBOutlet var authorMedia: UILabel!
@@ -55,5 +56,10 @@ class ListItemMediaViewCollectionViewCell: UICollectionViewCell, ListItemMediaVi
         imageViewMedia.commonInit()
         imageViewMedia.showAnimation()
     }
+    
+    func addShadows() {
+        imageViewMediaOutlet.addShadows()
+    }
+
 }
 

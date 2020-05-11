@@ -16,7 +16,7 @@ class ListMediaCollectionPresenter: NSObject, PresenterMediaCollectionProtocol {
     
     private let cellIdentifier = "ListItemMediaViewCollectionViewCell"
     private var datasource: ListMediaMediaCollectionDataSourceProtocol?
-    private var delegate: UICollectionViewDelegate?
+    private var delegate: MediaCollectionViewDelegateProtocolNavigatable?
     
     init(collectionView: UICollectionView,
          collectionViewFlowLayout: UICollectionViewFlowLayout,
@@ -35,7 +35,7 @@ class ListMediaCollectionPresenter: NSObject, PresenterMediaCollectionProtocol {
         datasource = ListMediaMediaCollectionDataSource(withArray: mediaArray,
                                                         withCellIdentifier: cellIdentifier,
                                                         navigationObject: navigationObject)
-//        delegate = MediaSearchCollectionViewDelegate()
+        delegate = MediaCollectionViewDelegate(with: navigationObject, and: mediaArray)
         collectionView?.dataSource = datasource
         collectionView?.delegate = delegate
         collectionView?.collectionViewLayout = layout

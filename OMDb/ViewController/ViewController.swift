@@ -39,7 +39,6 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
         setUpSearchBar()
     }
     
-    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         

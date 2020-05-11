@@ -14,8 +14,16 @@ protocol NavigationPresenterProtocol {
 
 struct ListMediaViewControllerPresenter: NavigationPresenterProtocol {
     var mediaArray: [Media]
+    var navigationObject: NavigationProtocol
     var vc: UIViewController {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let listVc = storyboard.instantiateViewController(withIdentifier: "ListMediaCollectionViewController") as? ListMediaCollectionViewController {
+            listVc.presenter = ListMediaCollectionPresenter(collectionView: listVc.collectionView,
+                                                            collectionViewFlowLayout: ListCollectionViewLayout(),
+                                                            navigationObject: navigationObject,
+                                                            mediaArray: mediaArray)
+            return listVc
+        }
         return UIViewController()
     }
 }
@@ -35,7 +43,7 @@ struct DetailMediaViewControllerPresenter: NavigationPresenterProtocol {
 
 
 enum NavigationOptions {
-    case list(media: [Media])
+    case list(media: [Media], navigationObject: NavigationProtocol)
     case detail(media: Media)
 }
 
@@ -43,7 +51,9 @@ enum ViewControllerFactory{
     
     static func vc(for option: NavigationOptions) -> UIViewController {
         switch option {
-        case .list(let mediaArray):  return ListMediaViewControllerPresenter(mediaArray: mediaArray).vc
+        case .list(let mediaArray, let navigationObject):
+            return ListMediaViewControllerPresenter(mediaArray: mediaArray,
+                                                    navigationObject: navigationObject).vc
         case .detail(let media): return DetailMediaViewControllerPresenter(media: media).vc
         }
         

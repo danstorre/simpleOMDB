@@ -35,7 +35,6 @@ final class ListMediaMediaCollectionDataSource: NSObject, ListMediaMediaCollecti
                 return UICollectionViewCell()
         }
         
-        //prepare list cell.
         return cell
     }
 }
