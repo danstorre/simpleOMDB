@@ -21,6 +21,7 @@ struct ListMediaViewControllerPresenter: NavigationPresenterProtocol {
             listVc.presenter = ListMediaCollectionPresenter(collectionView: listVc.collectionView,
                                                             collectionViewFlowLayout: ListCollectionViewLayout(),
                                                             navigationObject: navigationObject,
+                                                            api: OMBDB_API(session: SessionsCoordinator.cacheSession),
                                                             mediaArray: mediaArray)
             return listVc
         }

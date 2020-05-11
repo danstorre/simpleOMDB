@@ -38,7 +38,7 @@ class DetailMediaViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func searchDetails() {
-        api?.getMedia(byTitle: media.name) { [weak self] (dictMedia) in
+        api?.getMediaDict(byTitle: media.name, closure: { [weak self] (dictMedia) in
             DispatchQueue.main.async {
                 if let dictMedia = dictMedia {
                     self?.propertiesOfMedia = dictMedia
@@ -51,7 +51,7 @@ class DetailMediaViewController: UIViewController, CLLocationManagerDelegate {
                     }
                 }
             }
-        }
+        })
     }
 }
 

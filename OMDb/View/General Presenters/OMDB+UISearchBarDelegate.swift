@@ -12,7 +12,7 @@ enum FilterTypes: Int {
     case all = 0, movies, series, episodes
 }
 
-extension Media: Searchable {}
+extension MediaStruct: Searchable {}
 
 
 protocol Observable {
@@ -52,13 +52,13 @@ class ContentMediaPresenterAPI: NSObject, ContentMediaPresenterAPIProtocol {
             typeToSearch = .series
         default:
             api.getMedia(searchTerm: term, type: nil, closure: { (media) in
-                finishedBlock(media)
+                finishedBlock(media as! [MediaStruct])
             })
             return
         }
         
         api.getMedia(searchTerm: term, type: typeToSearch) { (media) in
-            finishedBlock(media)
+            finishedBlock(media as! [MediaStruct])
         }
     }
 }

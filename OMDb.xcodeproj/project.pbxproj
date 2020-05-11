@@ -66,6 +66,7 @@
 		FBB17D802469F603004265F5 /* ListMediaCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */; };
 		FBB17D822469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */; };
 		FBB17D86246A0840004265F5 /* ListCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D85246A0840004265F5 /* ListCollectionViewLayout.swift */; };
+		FBB17D88246A13A2004265F5 /* detailMediaSample.json in Resources */ = {isa = PBXBuildFile; fileRef = FBB17D87246A13A2004265F5 /* detailMediaSample.json */; };
 		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
 		FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */; };
 		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
@@ -164,6 +165,7 @@
 		FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaCollectionPresenter.swift; sourceTree = "<group>"; };
 		FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaMediaCollectionDataSource.swift; sourceTree = "<group>"; };
 		FBB17D85246A0840004265F5 /* ListCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewLayout.swift; sourceTree = "<group>"; };
+		FBB17D87246A13A2004265F5 /* detailMediaSample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = detailMediaSample.json; sourceTree = "<group>"; };
 		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */,
 				FB78A528244F7898004BCB30 /* credentials.plist */,
 				FBE7E0252439044A007514C1 /* sampleMedia.json */,
+				FBB17D87246A13A2004265F5 /* detailMediaSample.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				FB3464862457CD87008C4E1B /* NormalButton.xib in Resources */,
 				FB7E21F42460B6FB00F0BD6D /* ProfileLoggedView.xib in Resources */,
 				FB78A529244F7899004BCB30 /* credentials.plist in Resources */,
+				FBB17D88246A13A2004265F5 /* detailMediaSample.json in Resources */,
 				FBE7E0002438E489007514C1 /* LaunchScreen.storyboard in Resources */,
 				FBE7DFFD2438E489007514C1 /* Assets.xcassets in Resources */,
 				FB3566852463602C0044F6EA /* SearchHeaderCollectionReusableView.xib in Resources */,

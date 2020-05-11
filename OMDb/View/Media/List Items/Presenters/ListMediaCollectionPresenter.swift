@@ -13,6 +13,7 @@ class ListMediaCollectionPresenter: NSObject, PresenterMediaCollectionProtocol {
     var mediaArray: [Media]?
     weak var collectionView: UICollectionView?
     var layout: UICollectionViewFlowLayout
+    var api: OMBDB_API_Contract
     
     private let cellIdentifier = "ListItemMediaViewCollectionViewCell"
     private var datasource: ListMediaMediaCollectionDataSourceProtocol?
@@ -21,11 +22,13 @@ class ListMediaCollectionPresenter: NSObject, PresenterMediaCollectionProtocol {
     init(collectionView: UICollectionView,
          collectionViewFlowLayout: UICollectionViewFlowLayout,
          navigationObject: NavigationProtocol?,
+         api: OMBDB_API_Contract,
          mediaArray: [Media]?) {
         self.collectionView = collectionView
         self.navigationObject = navigationObject
         self.layout = collectionViewFlowLayout
         self.mediaArray = mediaArray
+        self.api = api
         super.init()
     }
     
@@ -34,6 +37,7 @@ class ListMediaCollectionPresenter: NSObject, PresenterMediaCollectionProtocol {
                                  forCellWithReuseIdentifier: cellIdentifier)
         datasource = ListMediaMediaCollectionDataSource(withArray: mediaArray,
                                                         withCellIdentifier: cellIdentifier,
+                                                        mediaListCellPresenter: MediaDetailsPresenter(api: api),
                                                         navigationObject: navigationObject)
         delegate = MediaCollectionViewDelegate(with: navigationObject, and: mediaArray)
         collectionView?.dataSource = datasource

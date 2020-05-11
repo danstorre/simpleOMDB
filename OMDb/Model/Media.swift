@@ -20,14 +20,22 @@ enum MediaType: String {
     case episode = "episode"
 }
 
-struct Media {
+protocol Media {
+    var poster: String {get set}
+    var name: String {get set}
+    var year: String {get set}
+    var type: MediaType? {get set}
+}
+
+struct MediaStruct : Media {
     var poster: String
     var name: String
     var year: String
     var type: MediaType? = nil
 }
 
-extension Media: Decodable{
+
+extension MediaStruct: Decodable{
     
     enum MediaCodingKeys: String, CodingKey {
         case title = "Title"
@@ -57,6 +65,36 @@ struct SearchMedia: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: MediaSearchContainer.self)
         
-        media = try values.decode([Media].self, forKey: .search)
+        media = try values.decode([MediaStruct].self, forKey: .search)
+    }
+}
+
+
+protocol MediaDetailsProtocol {
+    var media: Media {get set}
+    var director: String { get set }
+    var plot: String { get set }
+}
+
+struct MediaDetails: MediaDetailsProtocol {
+    var media: Media
+    var director: String
+    var plot: String
+}
+
+
+extension MediaDetails: Decodable{
+    
+    enum MediaDetailsCodingKeys: String, CodingKey {
+        case director = "Director"
+        case plot = "Plot"
+    }
+    
+    init(from decoder: Decoder) throws {
+        media = try MediaStruct(from: decoder)
+        let values = try decoder.container(keyedBy: MediaDetailsCodingKeys.self)
+        
+        director = try values.decode(String.self, forKey: .director)
+        plot = try values.decode(String.self, forKey: .plot)
     }
 }

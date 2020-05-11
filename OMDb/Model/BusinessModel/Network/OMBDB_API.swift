@@ -11,12 +11,14 @@ import Foundation
 protocol OMBDB_API_Contract {
     func getMedia(searchTerm: String, type: MediaType?,
                   closure: @escaping ([Media]?) -> ())
-    func getMedia(byTitle: String,
+    func getMediaDict(byTitle: String,
                   closure: @escaping ([String: AnyObject]?) -> ())
+    func getMedia(byTitle: String,
+                  closure: @escaping (MediaDetailsProtocol?) -> ())
 }
 
 class OMBDB_API: NSObject, API, OMBDB_API_Contract {
-    
+
     private var session: URLSession
     init(session: URLSession = URLSession.shared) {
         self.session = session
@@ -35,10 +37,9 @@ class OMBDB_API: NSObject, API, OMBDB_API_Contract {
             }
             closure(OMBDB_API.parseListMediaData(data))
         }
-        
     }
     
-    func getMedia(byTitle: String, closure: @escaping ([String: AnyObject]?) -> ()) {
+    func getMediaDict(byTitle: String, closure: @escaping ([String: AnyObject]?) -> ()) {
         executeDataRequestWithCustomSession(
             session: session,
             request: OMDBRequestFactory.searchDetailMedia(byTitle: byTitle).makeRequest())
@@ -51,12 +52,33 @@ class OMBDB_API: NSObject, API, OMBDB_API_Contract {
         }
     }
     
+    func getMedia(byTitle: String, closure: @escaping (MediaDetailsProtocol?) -> ()) {
+        executeDataRequestWithCustomSession(
+            session: session,
+            request: OMDBRequestFactory.searchDetailMedia(byTitle: byTitle).makeRequest())
+        { (data, response) in
+            
+            guard let data = data else{
+                return
+            }
+            closure(OMBDB_API.parseMediaDetailData(data))
+        }
+    }
+    
     static func parseListMediaData(_ data: Data) -> [Media]? {
         let jsondecoder = JSONDecoder()
         guard let mediaList = try? jsondecoder.decode(SearchMedia.self, from: data) else {
             return nil
         }
         return mediaList.media
+    }
+    
+    static func parseMediaDetailData(_ data: Data) -> MediaDetailsProtocol? {
+        let jsondecoder = JSONDecoder()
+        guard let mediaDetails = try? jsondecoder.decode(MediaDetails.self, from: data) else {
+            return nil
+        }
+        return mediaDetails
     }
     
     static func parseDetailMediaData(_ data: Data) -> [String: AnyObject]? {
