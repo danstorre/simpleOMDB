@@ -8,12 +8,10 @@
 
 import UIKit
 
-class PresenterSearchMediaCollection: NSObject, HasNavigation {
+class PresenterSearchMediaCollection: NSObject, PresenterSearchMediaCollectionProtocol {
     private var datasource: SearchMediaCollectionViewDataSourceProtocol?
     private var delegate: UICollectionViewDelegate?
-    private var layout: UICollectionViewFlowLayout {
-        return MediaSearchCollectionFlowLayout()
-    }
+    var layout: UICollectionViewFlowLayout = MediaSearchCollectionFlowLayout()
     
     weak var collectionView: UICollectionView?
     weak var navigationObject: NavigationProtocol?
@@ -56,7 +54,6 @@ class PresenterSearchMediaCollection: NSObject, HasNavigation {
         collectionView?.delegate = delegate
         collectionView?.collectionViewLayout = layout
     }
-    
 }
 
 

@@ -61,6 +61,11 @@
 		FBB17D752469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB17D742469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib */; };
 		FBB17D772469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D762469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift */; };
 		FBB17D792469BF07004265F5 /* MediaCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D782469BF07004265F5 /* MediaCellProtocols.swift */; };
+		FBB17D7B2469E01E004265F5 /* ListMediaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D7A2469E01E004265F5 /* ListMediaCollectionViewController.swift */; };
+		FBB17D7D2469F458004265F5 /* PresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D7C2469F458004265F5 /* PresenterProtocols.swift */; };
+		FBB17D802469F603004265F5 /* ListMediaCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */; };
+		FBB17D822469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */; };
+		FBB17D842469FAF6004265F5 /* ListMediaCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D832469FAF6004265F5 /* ListMediaCollectionDelegate.swift */; };
 		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
 		FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */; };
 		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
@@ -154,6 +159,11 @@
 		FBB17D742469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListItemMediaViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBB17D762469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemMediaViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		FBB17D782469BF07004265F5 /* MediaCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCellProtocols.swift; sourceTree = "<group>"; };
+		FBB17D7A2469E01E004265F5 /* ListMediaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaCollectionViewController.swift; sourceTree = "<group>"; };
+		FBB17D7C2469F458004265F5 /* PresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocols.swift; sourceTree = "<group>"; };
+		FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaCollectionPresenter.swift; sourceTree = "<group>"; };
+		FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaMediaCollectionDataSource.swift; sourceTree = "<group>"; };
+		FBB17D832469FAF6004265F5 /* ListMediaCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMediaCollectionDelegate.swift; sourceTree = "<group>"; };
 		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -327,6 +337,7 @@
 				FB3566802463578A0044F6EA /* Array+extensions.swift */,
 				FB356682246357B20044F6EA /* NavigationProtocols.swift */,
 				FBB17D782469BF07004265F5 /* MediaCellProtocols.swift */,
+				FBB17D7C2469F458004265F5 /* PresenterProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -369,6 +380,7 @@
 		FBB17D722469BC53004265F5 /* List Items */ = {
 			isa = PBXGroup;
 			children = (
+				FBB17D7E2469F5E9004265F5 /* Presenters */,
 				FBB17D742469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib */,
 				FBB17D762469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift */,
 			);
@@ -384,6 +396,16 @@
 				FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		FBB17D7E2469F5E9004265F5 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				FBB17D7F2469F603004265F5 /* ListMediaCollectionPresenter.swift */,
+				FBB17D812469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift */,
+				FBB17D832469FAF6004265F5 /* ListMediaCollectionDelegate.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		FBC267CC24630EF500FE2F4E /* Search */ = {
@@ -407,6 +429,7 @@
 				FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */,
 				FB78A52A244F9847004BCB30 /* ProfileViewController.swift */,
 				FB346478245787BC008C4E1B /* IntroViewController.swift */,
+				FBB17D7A2469E01E004265F5 /* ListMediaCollectionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -741,11 +764,15 @@
 				FBB17D792469BF07004265F5 /* MediaCellProtocols.swift in Sources */,
 				FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */,
 				FBE7DFF82438E488007514C1 /* ViewController.swift in Sources */,
+				FBB17D7B2469E01E004265F5 /* ListMediaCollectionViewController.swift in Sources */,
 				FBE7E0232439002C007514C1 /* OmdbRequestsFactory.swift in Sources */,
 				FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */,
+				FBB17D822469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift in Sources */,
 				FB7F9A24246225C6003470DE /* MediaPosterCollectionViewCell.swift in Sources */,
 				FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */,
 				FB34648A2457CDED008C4E1B /* NormalButton.swift in Sources */,
+				FBB17D802469F603004265F5 /* ListMediaCollectionPresenter.swift in Sources */,
+				FBB17D7D2469F458004265F5 /* PresenterProtocols.swift in Sources */,
 				FB356683246357B20044F6EA /* NavigationProtocols.swift in Sources */,
 				FB7F9A1C24621AB1003470DE /* MediaCollectionViewDelegate.swift in Sources */,
 				FB356679246356DF0044F6EA /* PresenterSearchMediaCollection.swift in Sources */,
@@ -757,6 +784,7 @@
 				FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */,
 				FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */,
 				FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */,
+				FBB17D842469FAF6004265F5 /* ListMediaCollectionDelegate.swift in Sources */,
 				FBE7E01A2438E5B8007514C1 /* API_Interface.swift in Sources */,
 				FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */,
 				FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */,

@@ -21,9 +21,6 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
     private let api = OMBDB_API()
     private let cellIdentifier = "MediaViewViewCellProtocol"
     
-    var dataSource: MediaCollectionDataSourceProtocol?
-    var delegate: UICollectionViewDelegate?
-    
     var searchMediaPresenter: PresenterSearchMediaCollection?
     var navigationObject: NavigationProtocol?
     
@@ -108,8 +105,6 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
         searchController.searchBar.scopeButtonTitles = ["All", "Movies", "Series", "Episodes"]
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        
     }
     
     func didReceivedNew(items: [Searchable], forQuery: String?) {

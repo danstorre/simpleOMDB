@@ -14,5 +14,4 @@ class MediaSearchCollectionViewDelegate: NSObject, UICollectionViewDelegate {
         guard let cell = cell as? SearchCollectionViewCellProtocol else { return }
         cell.mediaCollectionView.reloadData()
     }
-    
 }
