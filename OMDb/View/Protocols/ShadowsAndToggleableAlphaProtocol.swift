@@ -8,12 +8,20 @@
 
 import UIKit
 
+protocol ViewNibProtocol: UIView {
+    var contentView: UIView! {get set}
+    func commonInit()
+}
 
+protocol ViewCollectionViewCellNibProtocol: UICollectionViewCell {
+    var cellContentView: UIView! {get set}
+    func commonInit()
+}
 
 protocol ShadowsAndToggleableAlphaProtocol: ShadowsAdable, AnimatableAlpha {
 }
 
-protocol AnimatableAlpha {
+protocol AnimatableAlpha: class {
     func hideAnimation()
     func showAnimation()
 }
@@ -32,7 +40,7 @@ extension AnimatableAlpha where Self: UIView {
     }
 }
 
-protocol ShadowsAdable {
+protocol ShadowsAdable: class {
     func addShadows()
 }
 

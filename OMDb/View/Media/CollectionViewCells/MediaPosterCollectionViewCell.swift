@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol MediaCollectionViewCellPresentableProtocol: MediaViewViewCellProtocol, ShadowsAndToggleableAlphaProtocol {
-}
-
 class MediaPosterCollectionViewCell: UICollectionViewCell, MediaCollectionViewCellPresentableProtocol {
     var titleLabel: UILabel! {
         return UILabel()

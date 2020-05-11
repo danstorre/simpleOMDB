@@ -58,6 +58,9 @@
 		FBB17D6D24674029004265F5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D6C24674029004265F5 /* CustomNavigationController.swift */; };
 		FBB17D6F2469B112004265F5 /* ImageViewPoster.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB17D6E2469B112004265F5 /* ImageViewPoster.xib */; };
 		FBB17D712469B126004265F5 /* ImageViewPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D702469B126004265F5 /* ImageViewPoster.swift */; };
+		FBB17D752469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB17D742469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib */; };
+		FBB17D772469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D762469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift */; };
+		FBB17D792469BF07004265F5 /* MediaCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D782469BF07004265F5 /* MediaCellProtocols.swift */; };
 		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
 		FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */; };
 		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
@@ -148,6 +151,9 @@
 		FBB17D6C24674029004265F5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		FBB17D6E2469B112004265F5 /* ImageViewPoster.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewPoster.xib; sourceTree = "<group>"; };
 		FBB17D702469B126004265F5 /* ImageViewPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewPoster.swift; sourceTree = "<group>"; };
+		FBB17D742469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListItemMediaViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		FBB17D762469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemMediaViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		FBB17D782469BF07004265F5 /* MediaCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCellProtocols.swift; sourceTree = "<group>"; };
 		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -281,13 +287,11 @@
 		FB7F9A17246208B3003470DE /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				FBB17D732469BC61004265F5 /* CollectionViewCells */,
+				FBB17D722469BC53004265F5 /* List Items */,
 				FB7F9A1824621804003470DE /* Presenters */,
 				FB7F9A1F24622475003470DE /* PostersCarouselFlowLayout.swift */,
 				FBE7E028243907DC007514C1 /* ColumnFlowLayout.swift */,
-				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
-				FBE7E02E24390AD9007514C1 /* MediaViewCollectionViewCell.swift */,
-				FB7F9A21246225AA003470DE /* MediaPosterCollectionViewCell.xib */,
-				FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -322,6 +326,7 @@
 				FB7F9A292462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift */,
 				FB3566802463578A0044F6EA /* Array+extensions.swift */,
 				FB356682246357B20044F6EA /* NavigationProtocols.swift */,
+				FBB17D782469BF07004265F5 /* MediaCellProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -359,6 +364,26 @@
 				FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		FBB17D722469BC53004265F5 /* List Items */ = {
+			isa = PBXGroup;
+			children = (
+				FBB17D742469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib */,
+				FBB17D762469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift */,
+			);
+			path = "List Items";
+			sourceTree = "<group>";
+		};
+		FBB17D732469BC61004265F5 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				FBE7E02C24390A6D007514C1 /* MediaViewCollectionViewCell.xib */,
+				FBE7E02E24390AD9007514C1 /* MediaViewCollectionViewCell.swift */,
+				FB7F9A21246225AA003470DE /* MediaPosterCollectionViewCell.xib */,
+				FB7F9A23246225C6003470DE /* MediaPosterCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		FBC267CC24630EF500FE2F4E /* Search */ = {
@@ -587,6 +612,7 @@
 				FBE7E0262439044A007514C1 /* sampleMedia.json in Resources */,
 				FB34648F2458A3CE008C4E1B /* ProfileUserNotLogged.xib in Resources */,
 				FB8203A82460BE23006648E1 /* ProfileHeader.xib in Resources */,
+				FBB17D752469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib in Resources */,
 				FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */,
 				FBE7DFFB2438E488007514C1 /* Main.storyboard in Resources */,
 				FB7F9A22246225AA003470DE /* MediaPosterCollectionViewCell.xib in Resources */,
@@ -712,6 +738,7 @@
 				FBE7E029243907DC007514C1 /* ColumnFlowLayout.swift in Sources */,
 				FB35667B246357170044F6EA /* MediaSearchCollectionViewDataSource.swift in Sources */,
 				FB3464912458A3DF008C4E1B /* ProfileUserNotLogged.swift in Sources */,
+				FBB17D792469BF07004265F5 /* MediaCellProtocols.swift in Sources */,
 				FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */,
 				FBE7DFF82438E488007514C1 /* ViewController.swift in Sources */,
 				FBE7E0232439002C007514C1 /* OmdbRequestsFactory.swift in Sources */,
@@ -722,6 +749,7 @@
 				FB356683246357B20044F6EA /* NavigationProtocols.swift in Sources */,
 				FB7F9A1C24621AB1003470DE /* MediaCollectionViewDelegate.swift in Sources */,
 				FB356679246356DF0044F6EA /* PresenterSearchMediaCollection.swift in Sources */,
+				FBB17D772469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift in Sources */,
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
 				FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,

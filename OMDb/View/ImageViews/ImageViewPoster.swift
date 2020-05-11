@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ImageViewPoster: UIView, ShadowsAndToggleableAlphaProtocol {
+class ImageViewPoster: UIView, ImageViewPosterProtocol {
     
-    @IBOutlet var cellContentView: UIView!
+    @IBOutlet var contentView: UIView!
     @IBOutlet var markViewImage: UIView!
     @IBOutlet var posterImage: UIImageView!
     
@@ -26,9 +26,9 @@ class ImageViewPoster: UIView, ShadowsAndToggleableAlphaProtocol {
     
     func commonInit(){
         Bundle.main.loadNibNamed("ImageViewPoster", owner: self, options: nil)
-        addSubview(cellContentView)
-        cellContentView.frame = self.bounds
-        cellContentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         posterImage.contentMode = .scaleAspectFill
         posterImage.layer.cornerRadius = 14
         
@@ -66,13 +66,13 @@ class ImageViewPoster: UIView, ShadowsAndToggleableAlphaProtocol {
     }
     func hideAnimation() {
         UIView.animate(withDuration: 0.3) {
-            self.cellContentView.alpha = 0
+            self.contentView.alpha = 0
         }
     }
     
     func showAnimation() {
         UIView.animate(withDuration: 0.6) {
-            self.cellContentView.alpha = 1
+            self.contentView.alpha = 1
         }
     }
 }
