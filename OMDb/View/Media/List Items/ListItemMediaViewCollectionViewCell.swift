@@ -27,6 +27,7 @@ class ListItemMediaViewCollectionViewCell: UICollectionViewCell, ListItemMediaVi
     @IBOutlet var descriptionMedia: UILabel!
     @IBOutlet var yearReleasedMedia: UILabel!
     @IBOutlet var imageViewMediaOutlet: ImageViewPoster!
+    @IBOutlet var accessoryImageView: UIImageView!
     
     var imageViewMedia: ImageViewPosterProtocol! {
         get {
