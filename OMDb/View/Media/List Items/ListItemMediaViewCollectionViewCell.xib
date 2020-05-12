@@ -29,23 +29,23 @@
                         <constraint firstAttribute="width" constant="119" id="9fV-Qr-mwf"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0p2-u8-hNH">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0p2-u8-hNH">
                     <rect key="frame" x="124" y="11" width="290" height="182"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dMR-lX-uFk">
-                            <rect key="frame" x="0.0" y="0.0" width="290" height="61.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dMR-lX-uFk">
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="86.5"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cQN-8d-G7N">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="41"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cQN-8d-G7N">
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="61"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="The Color of Money" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJk-yq-6g8" userLabel="title">
-                                            <rect key="frame" x="0.0" y="0.0" width="142.5" height="41"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="The Color of Money The Color of Money" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJk-yq-6g8" userLabel="title">
+                                            <rect key="frame" x="0.0" y="0.0" width="145" height="61"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="1986" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRE-sX-tPg" userLabel="year">
-                                            <rect key="frame" x="147.5" y="0.0" width="142.5" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" text="1986" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRE-sX-tPg" userLabel="year">
+                                            <rect key="frame" x="251" y="0.0" width="39" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Martin Scorsese Scorsese Scorsese" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19B-yh-ruj" userLabel="author">
-                                    <rect key="frame" x="0.0" y="41" width="290" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="66" width="290" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jug-U9-Rs6" userLabel="description">
-                            <rect key="frame" x="0.0" y="81.5" width="290" height="100.5"/>
+                            <rect key="frame" x="0.0" y="116.5" width="290" height="65.5"/>
                             <string key="text">Fast Eddie Felson teaches a cocky but immensely talented protégé the ropes of pool hustling, which in turn inspires him to make an unlikely comeback.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -100,6 +100,7 @@
                 <constraint firstItem="cvj-N0-h9E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="P9S-XF-qAx"/>
                 <constraint firstItem="0p2-u8-hNH" firstAttribute="leading" secondItem="cvj-N0-h9E" secondAttribute="trailing" constant="5" id="UMX-Em-Q3K"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0p2-u8-hNH" secondAttribute="bottom" constant="11" id="UmJ-zf-UBZ"/>
+                <constraint firstAttribute="trailing" secondItem="aRE-sX-tPg" secondAttribute="trailing" constant="25" id="jde-kv-6wJ"/>
                 <constraint firstAttribute="trailing" secondItem="XaJ-L3-s2q" secondAttribute="trailing" id="mWY-GG-7l4"/>
                 <constraint firstItem="XaJ-L3-s2q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mz6-6Q-hhv"/>
                 <constraint firstAttribute="bottom" secondItem="cvj-N0-h9E" secondAttribute="bottom" constant="5" id="vqr-Cz-7n9"/>
