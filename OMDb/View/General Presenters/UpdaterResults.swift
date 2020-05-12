@@ -53,6 +53,10 @@ class UpdaterResults : NSObject, UISearchBarDelegate, PagerDelegate{
     private var selectedIndexScope = 0
     private var newIndex = 0
     
+    var lastTermSearched: String {
+        return searchedQueryString
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchBar = searchBar
         newIndex = searchBar.selectedScopeButtonIndex
