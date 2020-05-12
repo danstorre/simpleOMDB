@@ -19,12 +19,10 @@ class ListMediaCollectionPresenter: NSObject, PresenterMediaCollectionProtocol {
     private var datasource: ListMediaMediaCollectionDataSourceProtocol?
     private var delegate: MediaCollectionViewDelegateProtocolNavigatable?
     
-    init(collectionView: UICollectionView,
-         collectionViewFlowLayout: UICollectionViewFlowLayout,
+    init(collectionViewFlowLayout: UICollectionViewFlowLayout,
          navigationObject: NavigationProtocol?,
          api: OMBDB_API_Contract,
          mediaArray: [Media]?) {
-        self.collectionView = collectionView
         self.navigationObject = navigationObject
         self.layout = collectionViewFlowLayout
         self.mediaArray = mediaArray

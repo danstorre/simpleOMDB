@@ -18,11 +18,12 @@ struct ListMediaViewControllerPresenter: NavigationPresenterProtocol {
     var vc: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let listVc = storyboard.instantiateViewController(withIdentifier: "ListMediaCollectionViewController") as? ListMediaCollectionViewController {
-            listVc.presenter = ListMediaCollectionPresenter(collectionView: listVc.collectionView,
-                                                            collectionViewFlowLayout: ListCollectionViewLayout(),
+            listVc.presenter = ListMediaCollectionPresenter(collectionViewFlowLayout: ListCollectionViewLayout(),
                                                             navigationObject: navigationObject,
                                                             api: OMBDB_API(session: SessionsCoordinator.cacheSession),
                                                             mediaArray: mediaArray)
+            listVc.title = "Media List"
+            listVc.navigationController?.navigationItem.largeTitleDisplayMode = .never
             return listVc
         }
         return UIViewController()

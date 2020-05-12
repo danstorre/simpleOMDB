@@ -20,6 +20,7 @@ class ListMediaCollectionViewController: UIViewController, ListMediaScreen {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.collectionView = collectionView
         presenter?.setUp()
     }
     

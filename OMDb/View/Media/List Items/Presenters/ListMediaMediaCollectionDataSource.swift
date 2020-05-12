@@ -70,8 +70,7 @@ final class ListMediaMediaCollectionDataSource: NSObject, ListMediaCollectionDat
         cell.yearReleasedMedia.attributedText = TextFactory
             .attributedText(for: .header2(string: media.year,
                                           withColor: UIColor(named: "Gray2")!))
-        
-        //check cell info in the background.
+        cell.tag = indexPath.row
         cell.imageViewMedia.posterImage.alpha = 0
         ImageProvider.getImage(media: media,
                                indexPath: indexPath) { [weak cell] (image, indexPath) in
@@ -85,6 +84,8 @@ final class ListMediaMediaCollectionDataSource: NSObject, ListMediaCollectionDat
                 }
             }
         }
+        cell.descriptionMedia.text = ""
+        cell.authorMedia.text = ""
         
         mediaListCellPresenter.getMediaDetail(from: media, completionHandler: { [weak cell] (details) in
             guard let details = details else {
@@ -95,8 +96,8 @@ final class ListMediaMediaCollectionDataSource: NSObject, ListMediaCollectionDat
                     return
                 }
                 if cell.tag == indexPath.row {
-                    cell.descriptionMedia.attributedText = TextFactory.attributedText(for: .body(string: details.plot, withColor: UIColor(named: "Gray2")))
-                    cell.authorMedia.attributedText = TextFactory.attributedText(for: .body(string: details.plot, withColor: UIColor(named: "Text")))
+                    cell.descriptionMedia.attributedText = TextFactory.attributedText(for: .body(string: details.plot, withColor: UIColor(named: "Gray2")!))
+                    cell.authorMedia.attributedText = TextFactory.attributedText(for: .body(string: details.director, withColor: UIColor(named: "Text")!))
                 }
             }
         })
