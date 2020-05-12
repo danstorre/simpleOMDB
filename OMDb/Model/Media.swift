@@ -18,6 +18,17 @@ enum MediaType: String {
     case series = "series"
     case movie = "movie"
     case episode = "episode"
+    
+    var description: String {
+        switch self {
+        case .episode:
+            return "Episodes"
+        case .movie:
+            return "Movies"
+        case .series:
+            return "Series"
+        }
+    }
 }
 
 protocol Media {

@@ -22,7 +22,10 @@ struct ListMediaViewControllerPresenter: NavigationPresenterProtocol {
                                                             navigationObject: navigationObject,
                                                             api: OMBDB_API(session: SessionsCoordinator.cacheSession),
                                                             mediaArray: mediaArray)
-            listVc.title = "Media List"
+            if let first = mediaArray.first, let type = first.type {
+                listVc.title = type.description
+            }
+            
             listVc.navigationController?.navigationItem.largeTitleDisplayMode = .never
             return listVc
         }

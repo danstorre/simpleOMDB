@@ -20,6 +20,8 @@ class ListMediaCollectionViewController: UIViewController, ListMediaScreen {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.prefersLargeTitles = false
         presenter?.collectionView = collectionView
         presenter?.setUp()
     }
