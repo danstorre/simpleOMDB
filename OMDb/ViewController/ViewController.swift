@@ -24,16 +24,18 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
     var searchMediaPresenter: PresenterSearchMediaCollection?
     var navigationObject: NavigationProtocol?
     
+    private var contentMediaPresnterFilter: ContentMediaPresenterAPIObservableProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchMediaPresenter = PresenterSearchMediaCollection(collectionView: collectionView,
                                                               mediaArray: mediaArray,
                                                               navigationObject: navigationObject)
         searchMediaPresenter?.setUp()
-        let observableContentMediaPresenter = ContentMediaPresenterAPIObservable(observedObject:
+        contentMediaPresnterFilter = ContentMediaPresenterAPIObservable(observedObject:
             ContentMediaPresenterAPI(api: api))
-        observableContentMediaPresenter.observer = searchMediaPresenter
-        updater = UpdaterResults(api: observableContentMediaPresenter)
+        contentMediaPresnterFilter!.observer = searchMediaPresenter
+        updater = UpdaterResults(api: contentMediaPresnterFilter!)
         setupNavigationBar()
     }
     
@@ -103,12 +105,17 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.searchBarStyle = .minimal
+        searchController.searchBar.text = updater.lastTermSearched
         searchController.searchResultsUpdater = updater
         searchController.showsSearchResultsController = true
         updater.delegate = self
         navigationItem.hidesSearchBarWhenScrolling = false
         // Include the search bar within the navigation bar.
-        searchController.searchBar.scopeButtonTitles = ["All", "Movies", "Series", "Episodes"]
+        let arrayOfFilters = ["All", "Movies", "Series", "Episodes"]
+        searchController.searchBar.scopeButtonTitles = arrayOfFilters
+        if let index = contentMediaPresnterFilter?.filter.rawValue {
+            searchController.searchBar.selectedScopeButtonIndex = index
+        }
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
