@@ -58,6 +58,27 @@ struct Header2TextPresenter: TextPresenter {
     }
 }
 
+struct Body3TextPresenter: TextPresenter {
+    
+    let string: String
+    
+    var attributedText: NSAttributedString {
+        let mutuableAttString = NSMutableAttributedString(string: string)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1
+        
+        let attributes = [NSAttributedString.Key.kern: -0.41,
+                        NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                        NSAttributedString.Key.foregroundColor: UIColor.init(named: "Text")!,
+                        NSAttributedString.Key.font: UIFont(name: "DINAlternate-Bold", size: 15)!] as [NSAttributedString.Key : Any]
+
+        mutuableAttString.addAttributes(attributes, range: NSRange(location: 0,
+                                                                   length: string.count))
+        return mutuableAttString
+    }
+}
+
 struct Body2TextPresenter: TextPresenter {
     
     let string: String
@@ -117,6 +138,7 @@ struct ColorTextPresenter: TextPresenter {
 }
 
 enum TextPresenterOptions {
+    case body3(string: String, withColor: UIColor? = nil)
     case body2(string: String, withColor: UIColor? = nil)
     case body(string: String, withColor: UIColor? = nil)
     case header2(string: String, withColor: UIColor? = nil)
@@ -128,6 +150,14 @@ enum TextFactory {
     static func attributedText(for option: TextPresenterOptions) -> NSAttributedString {
 
         switch option {
+        case .body3(let string, withColor: let color):
+        let body3Text = Body3TextPresenter(string: string).attributedText
+        if let color = color {
+            let mutableString = NSMutableAttributedString(attributedString: body3Text)
+            let coloredHeader = ColorTextPresenter(attString: mutableString, color: color).attributedText
+            return coloredHeader
+        }
+        return body3Text
         case .body2(let string, withColor: let color):
             let body2Text = Body2TextPresenter(string: string).attributedText
             if let color = color {

@@ -96,7 +96,7 @@ final class ListMediaMediaCollectionDataSource: NSObject, ListMediaCollectionDat
                     return
                 }
                 if cell.tag == indexPath.row {
-                    cell.descriptionMedia.attributedText = TextFactory.attributedText(for: .body(string: details.plot, withColor: UIColor(named: "Gray2")!))
+                    cell.descriptionMedia.attributedText = TextFactory.attributedText(for: .body3(string: details.plot, withColor: UIColor(named: "Gray2")!))
                     cell.authorMedia.attributedText = TextFactory.attributedText(for: .body(string: details.director, withColor: UIColor(named: "Text")!))
                 }
             }
