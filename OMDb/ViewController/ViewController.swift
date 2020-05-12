@@ -30,12 +30,15 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
                                                               mediaArray: mediaArray,
                                                               navigationObject: navigationObject)
         searchMediaPresenter?.setUp()
-        
         let observableContentMediaPresenter = ContentMediaPresenterAPIObservable(observedObject:
             ContentMediaPresenterAPI(api: api))
         observableContentMediaPresenter.observer = searchMediaPresenter
         updater = UpdaterResults(api: observableContentMediaPresenter)
         setupNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUpSearchBar()
     }
     
@@ -48,7 +51,10 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
     }
     
     func setupNavigationBar() {
-        title = "Discover"
+        navigationObject?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = "Discover"
+        
         if let user = session?.user {
             let profileBarItem = ProfileImageBarButtonItem(title: "", style: .plain, target: self, action: #selector(login))
             profileBarItem.setStateFor(user: user)
@@ -93,6 +99,7 @@ class ViewController: UIViewController, UpdaterResultsDelegate, HasNavigation {
     
     func setUpSearchBar(){
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.navigationItem.largeTitleDisplayMode = .always
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.searchBarStyle = .minimal

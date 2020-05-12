@@ -26,7 +26,6 @@ struct ListMediaViewControllerPresenter: NavigationPresenterProtocol {
                 listVc.title = type.description
             }
             
-            listVc.navigationController?.navigationItem.largeTitleDisplayMode = .never
             return listVc
         }
         return UIViewController()
