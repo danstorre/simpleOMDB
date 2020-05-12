@@ -165,7 +165,7 @@ class MediaSearchCollectionViewDataSource: NSObject, MediaSearchCollectionViewDa
                                                withColor: UIColor(named: "Text")!))
         
        
-        reusableView.tag = indexPath.row
+        reusableView.tag = indexPath.section
         reusableView.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: "See All",
                                                                                      withColor: UIColor(named: "ButtonColor"))),
                                                for: .normal)
