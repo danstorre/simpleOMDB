@@ -12,7 +12,13 @@ protocol SearchMediaCollectionViewDataSourceProtocol: MediaCollectionDataSourceP
     var searchMode: FilterTypes {get set}
 }
 
-class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDataSourceProtocol, HasNavigation {
+protocol HeaderDelegate: SearchHeaderCollectionReusableViewProtocolDelegate {
+}
+
+protocol MediaSearchCollectionViewDataSourceProtocol: HeaderDelegate, SearchMediaCollectionViewDataSourceProtocol, HasNavigation {}
+
+class MediaSearchCollectionViewDataSource: NSObject, MediaSearchCollectionViewDataSourceProtocol {
+    
     weak var navigationObject: NavigationProtocol?
     var presenters: [IndexPath: PresenterMediaCollection] = [IndexPath: PresenterMediaCollection]()
     var mediaArray: [Media]?
@@ -159,13 +165,28 @@ class MediaSearchCollectionViewDataSource: NSObject, SearchMediaCollectionViewDa
                                                withColor: UIColor(named: "Text")!))
         
        
-        
+        reusableView.tag = indexPath.row
         reusableView.button.setAttributedTitle(TextFactory.attributedText(for: .body(string: "See All",
                                                                                      withColor: UIColor(named: "ButtonColor"))),
                                                for: .normal)
+        reusableView.delegate = self
         
         
         return reusableView
     }
+    
+    func buttonAllSelected(sender: AnyObject) {
+        guard let header = sender as? SearchHeaderCollectionReusableViewProtocol else {
+            return
+        }
+        
+        if let presenter = presenters[IndexPath(row: 0, section: header.tag)],
+            let navigationObject = navigationObject, let mediaArray = presenter.mediaArray {
+            presenter.navigationObject?.goTo(navigationOption: .list(media: mediaArray,
+                                                                     navigationObject: navigationObject),
+                                             presentModally: false)
+        }
+    }
+    
     
 }

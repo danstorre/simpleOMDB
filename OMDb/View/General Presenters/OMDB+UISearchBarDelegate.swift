@@ -52,13 +52,13 @@ class ContentMediaPresenterAPI: NSObject, ContentMediaPresenterAPIProtocol {
             typeToSearch = .series
         default:
             api.getMedia(searchTerm: term, type: nil, closure: { (media) in
-                finishedBlock(media as! [MediaStruct])
+                finishedBlock(media as? [MediaStruct])
             })
             return
         }
         
         api.getMedia(searchTerm: term, type: typeToSearch) { (media) in
-            finishedBlock(media as! [MediaStruct])
+            finishedBlock(media as? [MediaStruct])
         }
     }
 }

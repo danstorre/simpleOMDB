@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchHeaderCollectionReusableViewProtocol {
+protocol SearchHeaderCollectionReusableViewProtocol: UICollectionReusableView {
     var titleLabel: UILabel! {get set}
     var button: UIButton! {get set}
 }
