@@ -18,16 +18,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J49-QG-Q8g" customClass="MediaDetail" customModule="OMDb" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
+                    <rect key="frame" x="20" y="10" width="374" height="149"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="J49-QG-Q8g" secondAttribute="bottom" id="0aK-Vt-gi9"/>
-                <constraint firstItem="J49-QG-Q8g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3hS-bf-3w7"/>
-                <constraint firstAttribute="trailing" secondItem="J49-QG-Q8g" secondAttribute="trailing" id="uWB-Xh-RkX"/>
-                <constraint firstItem="J49-QG-Q8g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uag-Vs-PXw"/>
+                <constraint firstAttribute="bottom" secondItem="J49-QG-Q8g" secondAttribute="bottom" constant="10" id="0aK-Vt-gi9"/>
+                <constraint firstItem="J49-QG-Q8g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="3hS-bf-3w7"/>
+                <constraint firstAttribute="trailing" secondItem="J49-QG-Q8g" secondAttribute="trailing" constant="20" id="uWB-Xh-RkX"/>
+                <constraint firstItem="J49-QG-Q8g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="uag-Vs-PXw"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

@@ -19,7 +19,7 @@ class DetailCollectionFlowLayout: UICollectionViewFlowLayout {
         }
         let availableWidth = cv.bounds.size.width
         scrollDirection = .vertical
-        itemSize = CGSize(width: availableWidth, height: 144)
+        estimatedItemSize = CGSize(width: availableWidth, height: 144)
         minimumInteritemSpacing = 0
         minimumLineSpacing = 0
         headerReferenceSize = CGSize(width: availableWidth, height: 292)
@@ -31,17 +31,26 @@ class DetailCollectionFlowLayout: UICollectionViewFlowLayout {
         self.sectionInsetReference = .fromSafeArea
     }
     
+    
     override func layoutAttributesForSupplementaryView(ofKind elementKind: String,
                                               at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        let layoutAttributes = super.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath)
+        guard let layoutAttributes = super.layoutAttributesForSupplementaryView(ofKind: elementKind, at: indexPath) else {
+            return nil
+        }
         
         guard let cv = collectionView else {
             return layoutAttributes
         }
-        let availableWidth = cv.bounds.size.width
-        let height: CGFloat = 292
-        layoutAttributes?.bounds.size = CGSize(width: availableWidth, height: height)
+        let availableWidth = cv.bounds.width
+        let height: CGFloat = 189
+        layoutAttributes.bounds.size = CGSize(width: availableWidth, height: height)
+        
         
         return layoutAttributes
+    }
+    
+    override func shouldInvalidateLayout(forPreferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> Bool {
+        super.shouldInvalidateLayout(forPreferredLayoutAttributes: preferredAttributes, withOriginalAttributes: originalAttributes)
+        return preferredAttributes.frame.size != originalAttributes.frame.size
     }
 }
