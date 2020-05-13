@@ -63,11 +63,6 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate, HasNavi
                 self.profileUserloggedPresenter.profileView.alpha = 1
             }
         }
-        
-        //prepare cell
-        //prepare delegate
-        //prepare datasource
-    
     }
     
     private func prepareUserNotLoggedView(){
@@ -119,7 +114,6 @@ extension ProfileViewController: PropertyObserver {
     
     func willChange(propertyName: String, newPropertyValue: Any?) {
         if propertyName == Session.SessionKeys.userKey, let user = newPropertyValue as? User {
-            print("userNameLabel as changed to \(user.name)")
             prepareContentView(for: user)
         }
         

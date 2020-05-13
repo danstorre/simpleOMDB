@@ -52,6 +52,8 @@
 		FB835AE92439370D00966925 /* UpdaterResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AE82439370D00966925 /* UpdaterResults.swift */; };
 		FB835AEB2439380400966925 /* OMDB+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */; };
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
+		FB87BCAF246B528200C04E03 /* MediaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87BCAE246B528200C04E03 /* MediaDetail.swift */; };
+		FB87BCB1246B529700C04E03 /* MediaDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB87BCB0246B529700C04E03 /* MediaDetail.xib */; };
 		FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */; };
 		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
 		FBB17D6B24672CA1004265F5 /* FactoryViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */; };
@@ -70,6 +72,7 @@
 		FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267C92463062E00FE2F4E /* CustomURLSession.swift */; };
 		FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */; };
 		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
+		FBD2CA73246B4E55008F946C /* DetailsMediaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD2CA72246B4E55008F946C /* DetailsMediaCollectionViewController.swift */; };
 		FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */; };
 		FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF32438E488007514C1 /* AppDelegate.swift */; };
 		FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF52438E488007514C1 /* SceneDelegate.swift */; };
@@ -151,6 +154,8 @@
 		FB835AE82439370D00966925 /* UpdaterResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterResults.swift; sourceTree = "<group>"; };
 		FB835AEA2439380400966925 /* OMDB+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OMDB+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
+		FB87BCAE246B528200C04E03 /* MediaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetail.swift; sourceTree = "<group>"; };
+		FB87BCB0246B529700C04E03 /* MediaDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaDetail.xib; sourceTree = "<group>"; };
 		FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLoggedPresenter.swift; sourceTree = "<group>"; };
 		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
 		FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewcontroller.swift; sourceTree = "<group>"; };
@@ -169,6 +174,7 @@
 		FBC267C92463062E00FE2F4E /* CustomURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLSession.swift; sourceTree = "<group>"; };
 		FBC267CD24630F1400FE2F4E /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		FBD2CA72246B4E55008F946C /* DetailsMediaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMediaCollectionViewController.swift; sourceTree = "<group>"; };
 		FBD3BECD2450F59300E420D1 /* OMDb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OMDb.entitlements; sourceTree = "<group>"; };
 		FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
 		FBE7DFF02438E488007514C1 /* OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,6 +365,8 @@
 			children = (
 				FB8203A72460BE23006648E1 /* ProfileHeader.xib */,
 				FB8203A92460BE34006648E1 /* ProfileHeader.swift */,
+				FB87BCB0246B529700C04E03 /* MediaDetail.xib */,
+				FB87BCAE246B528200C04E03 /* MediaDetail.swift */,
 			);
 			path = "Headers ";
 			sourceTree = "<group>";
@@ -432,6 +440,7 @@
 				FB78A52A244F9847004BCB30 /* ProfileViewController.swift */,
 				FB346478245787BC008C4E1B /* IntroViewController.swift */,
 				FBB17D7A2469E01E004265F5 /* ListMediaCollectionViewController.swift */,
+				FBD2CA72246B4E55008F946C /* DetailsMediaCollectionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -642,6 +651,7 @@
 				FBB17D752469BC84004265F5 /* ListItemMediaViewCollectionViewCell.xib in Resources */,
 				FB3464802457AE64008C4E1B /* FeatureTextBox.xib in Resources */,
 				FBE7DFFB2438E488007514C1 /* Main.storyboard in Resources */,
+				FB87BCB1246B529700C04E03 /* MediaDetail.xib in Resources */,
 				FB7F9A22246225AA003470DE /* MediaPosterCollectionViewCell.xib in Resources */,
 				FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */,
 				FBB17D6F2469B112004265F5 /* ImageViewPoster.xib in Resources */,
@@ -744,6 +754,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB356687246360590044F6EA /* SearchHeaderCollectionReusableView.swift in Sources */,
+				FB87BCAF246B528200C04E03 /* MediaDetail.swift in Sources */,
 				FB346479245787BC008C4E1B /* IntroViewController.swift in Sources */,
 				FB34647C24579AFD008C4E1B /* TextFactory.swift in Sources */,
 				FB78A52F244F9A22004BCB30 /* Session.swift in Sources */,
@@ -752,6 +763,7 @@
 				FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */,
 				FB7F9A2A2462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift in Sources */,
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
+				FBD2CA73246B4E55008F946C /* DetailsMediaCollectionViewController.swift in Sources */,
 				FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
 				FBB17D712469B126004265F5 /* ImageViewPoster.swift in Sources */,
