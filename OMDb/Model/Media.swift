@@ -85,42 +85,42 @@ struct SearchMedia: Decodable {
 }
 
 
-protocol MediaDetailsProtocol: Codable {
-    var media: Media {get set}
+protocol MediaDetailsProtocol: Media {
     var director: String { get set }
     var plot: String { get set }
 }
 
 struct MediaDetails: MediaDetailsProtocol {
-    var media: Media{
-        set {}
-        get {
-            return mediaStruct
-        }
-    }
+    var poster: String
+    var name: String
+    var year: String
+    var type: MediaType?
     var director: String
     var plot: String
-    var mediaStruct: MediaStruct
-    
     
     enum MediaDetailsCodingKeys: String, CodingKey {
         case director = "Director"
         case plot = "Plot"
-        case media = "media"
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: MediaDetailsCodingKeys.self)
         try container.encode(director, forKey: .director)
         try container.encode(plot, forKey: .plot)
-        try container.encode(mediaStruct, forKey: .media)
     }
 
     init(from decoder: Decoder) throws {
-        mediaStruct = try MediaStruct(from: decoder)
-        let values = try decoder.container(keyedBy: MediaDetailsCodingKeys.self)
+        let mediaValues = try decoder.container(keyedBy: MediaStruct.MediaCodingKeys.self)
         
-        director = try values.decode(String.self, forKey: .director)
-        plot = try values.decode(String.self, forKey: .plot)
+        poster = try mediaValues.decode(String.self, forKey: .poster)
+        name = try mediaValues.decode(String.self, forKey: .title)
+        year = try mediaValues.decode(String.self, forKey: .year)
+        let typeString = try mediaValues.decode(String.self, forKey: .type)
+        if let typeEnum = MediaType(rawValue: typeString) {
+            type = typeEnum
+        }
+        let detailValues = try decoder.container(keyedBy: MediaDetailsCodingKeys.self)
+        director = try detailValues.decode(String.self, forKey: .director)
+        plot = try detailValues.decode(String.self, forKey: .plot)
     }
 }
