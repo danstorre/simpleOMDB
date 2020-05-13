@@ -71,7 +71,7 @@ extension DetailMediaViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "mediaPropertyCell", for: indexPath) as! PropertyTableViewCell
         
-        let property =  propertyOrder[indexPath.row]
+        let property = propertyOrder[indexPath.row]
         
         cell.keyLabel.text = property
         cell.valueLabel.text = propertiesOfMedia[property] as? String

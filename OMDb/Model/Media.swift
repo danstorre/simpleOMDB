@@ -14,7 +14,7 @@ protocol Sanitazable {
 }
 
 
-enum MediaType: String {
+enum MediaType: String, Encodable {
     case series = "series"
     case movie = "movie"
     case episode = "episode"
@@ -31,7 +31,7 @@ enum MediaType: String {
     }
 }
 
-protocol Media {
+protocol Media: Codable {
     var poster: String {get set}
     var name: String {get set}
     var year: String {get set}
@@ -43,10 +43,6 @@ struct MediaStruct : Media {
     var name: String
     var year: String
     var type: MediaType? = nil
-}
-
-
-extension MediaStruct: Decodable{
     
     enum MediaCodingKeys: String, CodingKey {
         case title = "Title"
@@ -66,6 +62,14 @@ extension MediaStruct: Decodable{
             type = typeEnum
         }
     }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: MediaCodingKeys.self)
+        try container.encode(poster, forKey: .title)
+        try container.encode(name, forKey: .year)
+        try container.encode(year, forKey: .poster)
+        try container.encodeIfPresent(type, forKey: .type)
+    }
 }
 
 struct SearchMedia: Decodable {
@@ -81,28 +85,39 @@ struct SearchMedia: Decodable {
 }
 
 
-protocol MediaDetailsProtocol {
+protocol MediaDetailsProtocol: Codable {
     var media: Media {get set}
     var director: String { get set }
     var plot: String { get set }
 }
 
 struct MediaDetails: MediaDetailsProtocol {
-    var media: Media
+    var media: Media{
+        set {}
+        get {
+            return mediaStruct
+        }
+    }
     var director: String
     var plot: String
-}
-
-
-extension MediaDetails: Decodable{
+    var mediaStruct: MediaStruct
+    
     
     enum MediaDetailsCodingKeys: String, CodingKey {
         case director = "Director"
         case plot = "Plot"
+        case media = "media"
     }
-    
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: MediaDetailsCodingKeys.self)
+        try container.encode(director, forKey: .director)
+        try container.encode(plot, forKey: .plot)
+        try container.encode(mediaStruct, forKey: .media)
+    }
+
     init(from decoder: Decoder) throws {
-        media = try MediaStruct(from: decoder)
+        mediaStruct = try MediaStruct(from: decoder)
         let values = try decoder.container(keyedBy: MediaDetailsCodingKeys.self)
         
         director = try values.decode(String.self, forKey: .director)

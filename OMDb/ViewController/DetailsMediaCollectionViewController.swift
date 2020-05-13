@@ -22,6 +22,7 @@ class DetailsMediaCollectionViewController: UIViewController, DetailsCollectionS
         presenter?.collectionView = collectionView
         presenter?.setUp()
         collectionView.reloadData()
+        navigationItem.largeTitleDisplayMode = .never
     }
 
 }
