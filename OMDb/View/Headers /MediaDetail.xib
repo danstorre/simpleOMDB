@@ -11,6 +11,7 @@
                 <outlet property="attributeStackView" destination="7eH-RQ-sNQ" id="vj3-yo-PwW"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="amT-5Z-hPd"/>
                 <outlet property="imageViewMediaOutlet" destination="JGI-rx-7sQ" id="12W-QN-7QC"/>
+                <outlet property="title" destination="vaI-gX-ft7" id="7Pd-Hq-fpT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -32,19 +33,19 @@
                             <rect key="frame" x="141" y="0.0" width="164" height="235"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="peA-hs-9YF">
-                                    <rect key="frame" x="0.0" y="0.0" width="164" height="235"/>
+                                    <rect key="frame" x="0.0" y="8" width="164" height="219"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaI-gX-ft7">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaI-gX-ft7">
                                             <rect key="frame" x="0.0" y="0.0" width="164" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ju-gB-By8">
-                                            <rect key="frame" x="0.0" y="20.5" width="164" height="214.5"/>
+                                            <rect key="frame" x="0.0" y="20.5" width="164" height="198.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7eH-RQ-sNQ">
-                                                    <rect key="frame" x="0.0" y="114.5" width="164" height="100"/>
+                                                    <rect key="frame" x="0.0" y="98.5" width="164" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="700" constant="100" id="8h7-Hx-j5E"/>
                                                     </constraints>
@@ -63,10 +64,9 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="peA-hs-9YF" firstAttribute="top" secondItem="LjG-oZ-Oxh" secondAttribute="top" id="1g3-iW-JCr"/>
+                                <constraint firstItem="peA-hs-9YF" firstAttribute="top" secondItem="LjG-oZ-Oxh" secondAttribute="top" constant="8" id="1g3-iW-JCr"/>
                                 <constraint firstAttribute="trailing" secondItem="peA-hs-9YF" secondAttribute="trailing" id="Baa-hN-5ao"/>
-                                <constraint firstItem="vaI-gX-ft7" firstAttribute="top" secondItem="LjG-oZ-Oxh" secondAttribute="top" id="H2U-TY-Uat"/>
-                                <constraint firstAttribute="bottom" secondItem="peA-hs-9YF" secondAttribute="bottom" id="YwO-c4-dgn"/>
+                                <constraint firstAttribute="bottom" secondItem="peA-hs-9YF" secondAttribute="bottom" constant="8" id="YwO-c4-dgn"/>
                                 <constraint firstItem="peA-hs-9YF" firstAttribute="leading" secondItem="LjG-oZ-Oxh" secondAttribute="leading" id="yMx-KV-5iS"/>
                             </constraints>
                         </view>

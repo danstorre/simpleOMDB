@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         GIDSignIn.sharedInstance().clientID = "215368444628-j924tqlejb6b6a0bl6u3iu47dbegjo2d.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = mySession
         
+        //Order this code properly
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let mainTabBarViewController = storyboard
             .instantiateViewController(withIdentifier: "MainTabBarVC") as? UITabBarController,

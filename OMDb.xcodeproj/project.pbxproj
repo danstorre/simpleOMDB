@@ -31,6 +31,7 @@
 		FB356687246360590044F6EA /* SearchHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB356686246360590044F6EA /* SearchHeaderCollectionReusableView.swift */; };
 		FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */; };
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
+		FB7758E8246B9D0F0036F4A3 /* PresenterDetailMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7758E7246B9D0F0036F4A3 /* PresenterDetailMedia.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
 		FB78A52B244F9847004BCB30 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52A244F9847004BCB30 /* ProfileViewController.swift */; };
 		FB78A52D244F9988004BCB30 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB78A52C244F9988004BCB30 /* Profile.swift */; };
@@ -54,6 +55,10 @@
 		FB835AED243952CD00966925 /* LayoutBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB835AEC243952CD00966925 /* LayoutBarButton.swift */; };
 		FB87BCAF246B528200C04E03 /* MediaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87BCAE246B528200C04E03 /* MediaDetail.swift */; };
 		FB87BCB1246B529700C04E03 /* MediaDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB87BCB0246B529700C04E03 /* MediaDetail.xib */; };
+		FB87BCB4246B737600C04E03 /* MediaAttributeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87BCB3246B737600C04E03 /* MediaAttributeCollectionViewCell.swift */; };
+		FB87BCB6246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB87BCB5246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib */; };
+		FB87BCB8246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87BCB7246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift */; };
+		FB87BCBA246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB87BCB9246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib */; };
 		FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */; };
 		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
 		FBB17D6B24672CA1004265F5 /* FactoryViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */; };
@@ -133,6 +138,7 @@
 		FB356686246360590044F6EA /* SearchHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		FB7758E7246B9D0F0036F4A3 /* PresenterDetailMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterDetailMedia.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
 		FB78A52A244F9847004BCB30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FB78A52C244F9988004BCB30 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -156,6 +162,10 @@
 		FB835AEC243952CD00966925 /* LayoutBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBarButton.swift; sourceTree = "<group>"; };
 		FB87BCAE246B528200C04E03 /* MediaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetail.swift; sourceTree = "<group>"; };
 		FB87BCB0246B529700C04E03 /* MediaDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaDetail.xib; sourceTree = "<group>"; };
+		FB87BCB3246B737600C04E03 /* MediaAttributeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAttributeCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB87BCB5246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaAttributeCollectionViewCell.xib; sourceTree = "<group>"; };
+		FB87BCB7246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMediaDetailCollectionReusableView.swift; sourceTree = "<group>"; };
+		FB87BCB9246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderMediaDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLoggedPresenter.swift; sourceTree = "<group>"; };
 		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
 		FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewcontroller.swift; sourceTree = "<group>"; };
@@ -350,6 +360,18 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		FB87BCB2246B734400C04E03 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FB87BCB3246B737600C04E03 /* MediaAttributeCollectionViewCell.swift */,
+				FB87BCB5246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib */,
+				FB87BCB7246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift */,
+				FB87BCB9246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib */,
+				FB7758E7246B9D0F0036F4A3 /* PresenterDetailMedia.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		FB88E4322460CCA500A4E0EC /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +558,7 @@
 		FBE7E027243907AA007514C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB87BCB2246B734400C04E03 /* Detail */,
 				FBC267CC24630EF500FE2F4E /* Search */,
 				FB7F9A282462FDA2003470DE /* Protocols */,
 				FB7F9A252462FD67003470DE /* ImageViews */,
@@ -636,6 +659,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB87BCB6246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib in Resources */,
 				FBC267CE24630F1400FE2F4E /* SearchCollectionViewCell.xib in Resources */,
 				FBE7E02D24390A6D007514C1 /* MediaViewCollectionViewCell.xib in Resources */,
 				FB3464862457CD87008C4E1B /* NormalButton.xib in Resources */,
@@ -654,6 +678,7 @@
 				FB87BCB1246B529700C04E03 /* MediaDetail.xib in Resources */,
 				FB7F9A22246225AA003470DE /* MediaPosterCollectionViewCell.xib in Resources */,
 				FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */,
+				FB87BCBA246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib in Resources */,
 				FBB17D6F2469B112004265F5 /* ImageViewPoster.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,6 +788,7 @@
 				FB78A535244FB9CB004BCB30 /* UserPresenters.swift in Sources */,
 				FB7F9A2A2462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift in Sources */,
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
+				FB7758E8246B9D0F0036F4A3 /* PresenterDetailMedia.swift in Sources */,
 				FBD2CA73246B4E55008F946C /* DetailsMediaCollectionViewController.swift in Sources */,
 				FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
@@ -783,6 +809,7 @@
 				FBB17D7B2469E01E004265F5 /* ListMediaCollectionViewController.swift in Sources */,
 				FBE7E0232439002C007514C1 /* OmdbRequestsFactory.swift in Sources */,
 				FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */,
+				FB87BCB8246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift in Sources */,
 				FBB17D822469F9E6004265F5 /* ListMediaMediaCollectionDataSource.swift in Sources */,
 				FB7F9A24246225C6003470DE /* MediaPosterCollectionViewCell.swift in Sources */,
 				FBB17D86246A0840004265F5 /* ListCollectionViewLayout.swift in Sources */,
@@ -800,6 +827,7 @@
 				FBE7E02F24390AD9007514C1 /* MediaViewCollectionViewCell.swift in Sources */,
 				FBC267CA2463062E00FE2F4E /* CustomURLSession.swift in Sources */,
 				FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */,
+				FB87BCB4246B737600C04E03 /* MediaAttributeCollectionViewCell.swift in Sources */,
 				FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */,
 				FBE7E01A2438E5B8007514C1 /* API_Interface.swift in Sources */,
 				FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */,
