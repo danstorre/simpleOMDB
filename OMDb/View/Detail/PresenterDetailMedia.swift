@@ -15,40 +15,43 @@ protocol PresenterDetailMediaProtocol: PresenterCollectionProtocol{
 class PresenterDetailMedia: NSObject, PresenterCollectionProtocol {
     private var datasource: UICollectionViewDataSource?
     private var delegate: UICollectionViewDelegate?
-    var layout: UICollectionViewFlowLayout = MediaSearchCollectionFlowLayout()
+    var layout: UICollectionViewFlowLayout = DetailCollectionFlowLayout()
     
     weak var collectionView: UICollectionView?
     
     private let cellIdentifier = "MediaAttributeCollectionViewCell"
-    private let reusableIdentifier = "HeaderMediaDetailCollectionReusableView"
+    private let reusableViewIdentifier = "HeaderMediaDetailCollectionReusableView"
     
     var media: MediaDetailsProtocol
     
-    init(collectionView: UICollectionView, media: MediaDetailsProtocol){
-        self.collectionView = collectionView
+    init(media: MediaDetailsProtocol) {
         self.media = media
         super.init()
-        setUp()
     }
     
-    func setUp(){
+    func setUp() {
         collectionView?.register(MediaAttributeCollectionViewCell.self,
                                  forCellWithReuseIdentifier: cellIdentifier)
         collectionView?.register(HeaderMediaDetailCollectionReusableView.self,
                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                 withReuseIdentifier: reusableIdentifier)
-        datasource = PresenterDetailMediaCollectionViewDataSource(media: media)
+                                 withReuseIdentifier: reusableViewIdentifier)
+        datasource = PresenterDetailMediaCollectionViewDataSource(media: media,
+                                                                  cellIdentifier: cellIdentifier,
+                                                                  reusableViewIdentifier: reusableViewIdentifier)
         collectionView?.dataSource = datasource
         collectionView?.collectionViewLayout = layout
     }
 }
 
-
 class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     var media: MediaDetailsProtocol
-    init(media: MediaDetailsProtocol) {
+    var cellIdentifier: String
+    var reusableViewIdentifier: String
+    init(media: MediaDetailsProtocol,  cellIdentifier: String, reusableViewIdentifier: String) {
         self.media = media
+        self.cellIdentifier = cellIdentifier
+        self.reusableViewIdentifier = reusableViewIdentifier
         super.init()
     }
     
@@ -60,5 +63,16 @@ class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDa
         return UICollectionViewCell()
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                                 withReuseIdentifier: reusableViewIdentifier,
+                                                                                 for: indexPath)
+            as? MediaHeaderReusableView else {
+                return UICollectionReusableView()
+        }
+        
+        return reusableView
+    }
 }

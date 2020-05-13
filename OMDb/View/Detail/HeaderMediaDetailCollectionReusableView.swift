@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MediaHeaderReusableView: ViewNibProtocol {
+protocol MediaHeaderReusableView: UICollectionReusableView, ViewNibProtocol {
     var headerMedia: MediaDetailProtocol {get set}
 }
 

@@ -21,6 +21,7 @@ class DetailsMediaCollectionViewController: UIViewController, DetailsCollectionS
         super.viewDidLoad()
         presenter?.collectionView = collectionView
         presenter?.setUp()
+        collectionView.reloadData()
     }
 
 }
