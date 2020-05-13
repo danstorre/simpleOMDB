@@ -9,26 +9,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaAttributeCollectionViewCell" customModule="OMDb" customModuleProvider="target">
             <connections>
                 <outlet property="cellContentView" destination="iN0-l3-epB" id="Ip9-41-KHg"/>
+                <outlet property="stackView" destination="aqn-ok-7II" id="mRh-UK-vJI"/>
                 <outlet property="titleAttribute" destination="XMi-38-cPl" id="rbq-l0-RmN"/>
                 <outlet property="valueAtribute" destination="YRS-od-1nd" id="kFv-93-Dzm"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+            <rect key="frame" x="0.0" y="0.0" width="386" height="195"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aqn-ok-7II">
-                    <rect key="frame" x="20" y="13" width="374" height="117"/>
+                    <rect key="frame" x="20" y="13" width="346" height="117"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Plot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-38-cPl">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" text="Plot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-38-cPl">
+                            <rect key="frame" x="0.0" y="0.0" width="346" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRS-od-1nd">
-                            <rect key="frame" x="0.0" y="35.5" width="374" height="81.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="752" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRS-od-1nd">
+                            <rect key="frame" x="0.0" y="35.5" width="346" height="81.5"/>
                             <string key="text">Fast Eddie Felson teaches a cocky but immensely talented protégé the ropes of pool hustling, which in turn inspires him to make an unlikely comeback.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -39,15 +40,15 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aqn-ok-7II" secondAttribute="bottom" id="6cm-Be-noe"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aqn-ok-7II" secondAttribute="bottom" constant="10" id="4yp-7X-pMa"/>
+                <constraint firstItem="XMi-38-cPl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="CMG-E4-yMG"/>
                 <constraint firstAttribute="trailing" secondItem="aqn-ok-7II" secondAttribute="trailing" constant="20" id="dc2-bQ-To5"/>
-                <constraint firstItem="aqn-ok-7II" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="nvm-18-30G"/>
                 <constraint firstItem="aqn-ok-7II" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="zGN-Bw-dYC"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="137.68115942028987" y="377.67857142857139"/>
+            <point key="canvasLocation" x="117.39130434782609" y="395.42410714285711"/>
         </view>
     </objects>
 </document>

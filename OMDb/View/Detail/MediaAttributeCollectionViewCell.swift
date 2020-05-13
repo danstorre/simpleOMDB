@@ -30,8 +30,26 @@ class MediaAttributeCollectionViewCell: UICollectionViewCell, MediaAttributeColl
     
     func commonInit() {
         Bundle.main.loadNibNamed("MediaAttributeCollectionViewCell", owner: self, options: nil)
-        addSubview(cellContentView)
-        cellContentView.frame = bounds
+        contentView.addSubview(cellContentView)
+        cellContentView.frame = contentView.bounds
         cellContentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        self.contentView.bounds = layoutAttributes.bounds
+        self.contentView.setNeedsLayout()
+        self.contentView.layoutIfNeeded()
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        let layoutAttr = super.preferredLayoutAttributesFitting(layoutAttributes)
+        var targeSize = layoutAttr.bounds.size
+        targeSize.height = 0
+        var prefferedSize = targeSize
+        prefferedSize.height += self.contentView.systemLayoutSizeFitting(targeSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultHigh).height
+    
+        layoutAttr.frame.size = prefferedSize
+        return layoutAttr
     }
 }
