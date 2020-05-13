@@ -38,7 +38,10 @@ class PresenterDetailMedia: NSObject, PresenterDetailMediaProtocol {
         collectionView?.register(HeaderMediaDetailCollectionReusableView.self,
                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                  withReuseIdentifier: reusableViewIdentifier)
+        delegate = PresenterDetailMediaCollectionViewDelegate(cellIdentifier: cellIdentifier,
+                                                              reusableViewIdentifier: reusableViewIdentifier)
         collectionView?.collectionViewLayout = layout
+        collectionView?.delegate = delegate
         searchMediaDetails(media: media)
     }
     

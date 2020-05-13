@@ -9,7 +9,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaAttributeCollectionViewCell" customModule="OMDb" customModuleProvider="target">
             <connections>
                 <outlet property="cellContentView" destination="iN0-l3-epB" id="Ip9-41-KHg"/>
-                <outlet property="stackView" destination="aqn-ok-7II" id="mRh-UK-vJI"/>
                 <outlet property="titleAttribute" destination="XMi-38-cPl" id="rbq-l0-RmN"/>
                 <outlet property="valueAtribute" destination="YRS-od-1nd" id="kFv-93-Dzm"/>
             </connections>
