@@ -9,10 +9,10 @@
 import UIKit
 
 protocol PresenterDetailMediaProtocol: PresenterCollectionProtocol{
-    var mediaDetails: MediaDetailsProtocol {get set}
+    var mediaDetails: MediaDetailsProtocol? {get set}
 }
 
-class PresenterDetailMedia: NSObject, PresenterCollectionProtocol {
+class PresenterDetailMedia: NSObject, PresenterDetailMediaProtocol {
     private var datasource: UICollectionViewDataSource?
     private var delegate: UICollectionViewDelegate?
     var layout: UICollectionViewFlowLayout = DetailCollectionFlowLayout()
@@ -21,10 +21,13 @@ class PresenterDetailMedia: NSObject, PresenterCollectionProtocol {
     
     private let cellIdentifier = "MediaAttributeCollectionViewCell"
     private let reusableViewIdentifier = "HeaderMediaDetailCollectionReusableView"
+    private let api: OMBDB_API_Contract
     
-    var media: MediaDetailsProtocol
+    var media: Media
+    var mediaDetails: MediaDetailsProtocol?
     
-    init(media: MediaDetailsProtocol) {
+    init(media: Media, api: OMBDB_API_Contract) {
+        self.api = api
         self.media = media
         super.init()
     }
@@ -35,11 +38,21 @@ class PresenterDetailMedia: NSObject, PresenterCollectionProtocol {
         collectionView?.register(HeaderMediaDetailCollectionReusableView.self,
                                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                  withReuseIdentifier: reusableViewIdentifier)
-        datasource = PresenterDetailMediaCollectionViewDataSource(media: media,
-                                                                  cellIdentifier: cellIdentifier,
-                                                                  reusableViewIdentifier: reusableViewIdentifier)
-        collectionView?.dataSource = datasource
         collectionView?.collectionViewLayout = layout
+        searchMediaDetails(media: media)
+    }
+    
+    func searchMediaDetails(media: Media){
+        api.getMedia(byTitle: media.name) { [weak self] (mediaDetails) in
+            guard let self = self, let mediaDetails = mediaDetails else {return }
+            DispatchQueue.main.async {
+                self.datasource = PresenterDetailMediaCollectionViewDataSource(media: mediaDetails,
+                                                                               cellIdentifier: self.cellIdentifier,
+                                                                               reusableViewIdentifier: self.reusableViewIdentifier)
+                self.collectionView?.dataSource = self.datasource
+                self.collectionView?.reloadData()
+            }
+        }
     }
 }
 
@@ -72,6 +85,8 @@ class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDa
             as? MediaHeaderReusableView else {
                 return UICollectionReusableView()
         }
+        
+        
         
         return reusableView
     }

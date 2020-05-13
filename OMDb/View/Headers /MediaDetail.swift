@@ -31,13 +31,13 @@ class AttributesPresenter: NSObject, AttributesViewProtocol{
     }
 }
 
-protocol MediaDetailProtocol: ViewNibProtocol {
+protocol MediaDetailViewProtocol: ViewNibProtocol {
     var imagePosterView: ImageViewPosterProtocol! {get set}
     var title: UILabel! {get set}
     var attributesPresenter: AttributesViewProtocol! {get set}
 }
 
-class MediaDetail: UIView, MediaDetailProtocol {
+class MediaDetail: UIView, MediaDetailViewProtocol {
     var imagePosterView: ImageViewPosterProtocol! {
         get {
             return imageViewMediaOutlet

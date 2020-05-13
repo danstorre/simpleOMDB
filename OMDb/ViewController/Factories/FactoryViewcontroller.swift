@@ -45,6 +45,19 @@ struct DetailMediaViewControllerPresenter: NavigationPresenterProtocol {
     }
 }
 
+struct DetailMediaCollectionViewControllerPresenter: NavigationPresenterProtocol {
+    var media: Media
+    var vc: UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailVc = storyboard.instantiateViewController(withIdentifier: "DetailsMediaCollectionViewController") as? DetailsMediaCollectionViewController {
+            let api = OMBDB_API(session: SessionsCoordinator.cacheSession)
+            detailVc.presenter = PresenterDetailMedia(media: media, api: api)
+            return detailVc
+        }
+        return UIViewController()
+    }
+}
+
 
 enum NavigationOptions {
     case list(media: [Media], navigationObject: NavigationProtocol)
@@ -58,8 +71,8 @@ enum ViewControllerFactory{
         case .list(let mediaArray, let navigationObject):
             return ListMediaViewControllerPresenter(mediaArray: mediaArray,
                                                     navigationObject: navigationObject).vc
-        case .detail(let media): return DetailMediaViewControllerPresenter(media: media).vc
+        case .detail(let media):
+            return DetailMediaCollectionViewControllerPresenter(media: media).vc
         }
-        
     }
 }

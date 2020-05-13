@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MediaHeaderReusableView: UICollectionReusableView, ViewNibProtocol {
-    var headerMedia: MediaDetailProtocol {get set}
+    var headerMedia: MediaDetailViewProtocol {get set}
 }
 
 class HeaderMediaDetailCollectionReusableView: UICollectionReusableView, MediaHeaderReusableView {
@@ -17,7 +17,7 @@ class HeaderMediaDetailCollectionReusableView: UICollectionReusableView, MediaHe
     @IBOutlet var headerMediaOutlet: MediaDetail!
     @IBOutlet var contentView: UIView!
     
-    var headerMedia: MediaDetailProtocol {
+    var headerMedia: MediaDetailViewProtocol {
         get{
             return headerMediaOutlet
         }
