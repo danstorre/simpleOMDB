@@ -14,6 +14,44 @@ protocol AttributesViewProtocol {
 }
 
 
+class ShadowView: UIView {
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+    }
+}
+
+class BubbleLabel: UILabel {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    func commonInit(){
+        layer.backgroundColor = UIColor.white.cgColor
+        layer.cornerRadius = 10
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(red: 0.783, green: 0.783, blue: 0.783, alpha: 1).cgColor
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        let shadowPath0 = UIBezierPath(roundedRect: rect, cornerRadius: 10)
+        layer.shadowPath = shadowPath0.cgPath
+        layer.shadowColor = UIColor(named: "ShadowColor")!.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+    }
+}
+
+
 class AttributesPresenter: NSObject, AttributesViewProtocol{
     var stackView: UIStackView
     
@@ -32,7 +70,7 @@ class AttributesPresenter: NSObject, AttributesViewProtocol{
     }
     
     func addAtribute(_ attribute: String) {
-        let labelAttribute = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 40)))
+        let labelAttribute = BubbleLabel(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 40)))
         labelAttribute.attributedText = TextFactory.attributedText(for: .body3(string: attribute, withColor: UIColor(named: "Text")!))
         stackView.addArrangedSubview(labelAttribute)
     }
