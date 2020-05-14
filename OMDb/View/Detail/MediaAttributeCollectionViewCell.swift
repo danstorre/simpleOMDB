@@ -49,7 +49,9 @@ class MediaAttributeCollectionViewCell: UICollectionViewCell, MediaAttributeColl
         var prefferedSize = targeSize
         prefferedSize.height += self.contentView.systemLayoutSizeFitting(targeSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultHigh).height
     
-        layoutAttr.frame.size = prefferedSize
+        layoutAttr.frame.size.height = prefferedSize.height
+        layoutAttr.frame.size.width = 375
+        layoutAttr.frame.origin.x = 0
         return layoutAttr
     }
 }

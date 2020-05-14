@@ -33,6 +33,6 @@ class DetailCollectionFlowLayout: UICollectionViewFlowLayout {
     
     override func shouldInvalidateLayout(forPreferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> Bool {
         super.shouldInvalidateLayout(forPreferredLayoutAttributes: preferredAttributes, withOriginalAttributes: originalAttributes)
-        return preferredAttributes.frame.size != originalAttributes.frame.size
+        return preferredAttributes.frame.height < originalAttributes.frame.height
     }
 }
