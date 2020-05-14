@@ -105,12 +105,14 @@ protocol MediaDetailsProtocol: Media {
     var imdbVotes: String { get set }
     var imdbID: String { get set }
     var typeMedia: String { get set }
-    var boxOffice: String { get set }
-    var production: String { get set }
-    var website: String { get set }
 }
 
-struct MovieDetails: MediaDetailsProtocol {
+
+protocol SeriesDetailsProtocol: MediaDetailsProtocol {
+    
+}
+
+struct SeriesDetails: SeriesDetailsProtocol {
     
     var id: String
     var poster: String
@@ -133,9 +135,7 @@ struct MovieDetails: MediaDetailsProtocol {
     var imdbVotes: String
     var imdbID: String
     var typeMedia: String
-    var boxOffice: String
-    var production: String
-    var website: String
+    var totalSeasons: String
     
     enum MediaDetailsCodingKeys: String, CodingKey {
         case director = "Director"
@@ -156,6 +156,19 @@ struct MovieDetails: MediaDetailsProtocol {
         case production = "Production"
         case website = "Website"
         case country = "Country"
+        case totalSeasons = "totalSeasons"
+        
+        static func descriptionForAttribute(string: String) -> String {
+            guard let codingKey = MediaDetailsCodingKeys(rawValue: string) else {
+                return ""
+            }
+            switch codingKey {
+            case .totalSeasons:
+                return "Total Seasons"
+            default:
+                return codingKey.rawValue
+            }
+        }
     }
     
     func encode(to encoder: Encoder) throws {
@@ -171,9 +184,7 @@ struct MovieDetails: MediaDetailsProtocol {
         try container.encode(awards                 , forKey: .awards      )
         try container.encode(country                    , forKey: .country      )
         try container.encode(typeMedia                  , forKey: .typeMedia )
-        try container.encode(boxOffice                  , forKey: .boxOffice)
-        try container.encode(production                 , forKey: .production      )
-        try container.encode(website                    , forKey: .website      )
+        try container.encode(totalSeasons                  , forKey: .totalSeasons)
     }
     
     init(from decoder: Decoder) throws {
@@ -204,8 +215,6 @@ struct MovieDetails: MediaDetailsProtocol {
         imdbVotes   = try detailValues.decode(String.self, forKey: .imdbVotes )
         imdbID      = try detailValues.decode(String.self, forKey: .imdbID )
         typeMedia   = try detailValues.decode(String.self, forKey: .typeMedia )
-        boxOffice   = try detailValues.decode(String.self, forKey: .boxOffice )
-        production  = try detailValues.decode(String.self, forKey: .production )
-        website     = try detailValues.decode(String.self, forKey: .website    )
+        totalSeasons   = try detailValues.decode(String.self, forKey: .totalSeasons )
     }
 }
