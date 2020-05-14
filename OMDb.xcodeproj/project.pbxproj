@@ -31,6 +31,7 @@
 		FB356687246360590044F6EA /* SearchHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB356686246360590044F6EA /* SearchHeaderCollectionReusableView.swift */; };
 		FB35A28F2450B5DA0021B880 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */; };
 		FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AA5A224391A1A00905753 /* ImageProvider.swift */; };
+		FB516870246E0C4A00129F88 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB51686F246E0C4A00129F88 /* MovieDetails.swift */; };
 		FB7758E8246B9D0F0036F4A3 /* PresenterDetailMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7758E7246B9D0F0036F4A3 /* PresenterDetailMedia.swift */; };
 		FB7758EA246BA0920036F4A3 /* DetailCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7758E9246BA0920036F4A3 /* DetailCollectionFlowLayout.swift */; };
 		FB78A529244F7899004BCB30 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB78A528244F7898004BCB30 /* credentials.plist */; };
@@ -141,6 +142,7 @@
 		FB356686246360590044F6EA /* SearchHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		FB35A28E2450B5DA0021B880 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB3AA5A224391A1A00905753 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		FB51686F246E0C4A00129F88 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		FB7758E7246B9D0F0036F4A3 /* PresenterDetailMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterDetailMedia.swift; sourceTree = "<group>"; };
 		FB7758E9246BA0920036F4A3 /* DetailCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		FB78A528244F7898004BCB30 /* credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = credentials.plist; path = OMDb/Utilities/Resources/credentials.plist; sourceTree = SOURCE_ROOT; };
@@ -528,6 +530,7 @@
 			children = (
 				FB78A5362450856F004BCB30 /* BusinessModel */,
 				FBE7E01F2438F125007514C1 /* Media.swift */,
+				FB51686F246E0C4A00129F88 /* MovieDetails.swift */,
 				FB78A52C244F9988004BCB30 /* Profile.swift */,
 			);
 			path = Model;
@@ -798,6 +801,7 @@
 				FB7F9A2A2462FDB6003470DE /* ShadowsAndToggleableAlphaProtocol.swift in Sources */,
 				FBE7E0182438E590007514C1 /* RequestFactory.swift in Sources */,
 				FB7758E8246B9D0F0036F4A3 /* PresenterDetailMedia.swift in Sources */,
+				FB516870246E0C4A00129F88 /* MovieDetails.swift in Sources */,
 				FBD2CA73246B4E55008F946C /* DetailsMediaCollectionViewController.swift in Sources */,
 				FB3464822457B13F008C4E1B /* FeatureTextBox.swift in Sources */,
 				FB3AA5A324391A1A00905753 /* ImageProvider.swift in Sources */,
