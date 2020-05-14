@@ -46,7 +46,7 @@ class PresenterDetailMedia: NSObject, PresenterDetailMediaProtocol {
     }
     
     func searchMediaDetails(media: Media){
-        api.getMedia(byTitle: media.name) { [weak self] (mediaDetails) in
+        api.getMediaBy(id: media.id) { [weak self] (mediaDetails) in
             guard let self = self, let mediaDetails = mediaDetails else {return }
             DispatchQueue.main.async {
                 self.datasource = PresenterDetailMediaCollectionViewDataSource(media: mediaDetails,
