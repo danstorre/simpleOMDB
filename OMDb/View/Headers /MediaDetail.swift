@@ -38,7 +38,7 @@ class BubbleLabel: UILabel {
     }
     
     func commonInit(){
-        layer.backgroundColor = UIColor.white.cgColor
+        layer.backgroundColor = UIColor(named: "bubble")!.cgColor
         layer.cornerRadius = 10
         layer.borderWidth = 1
         layer.borderColor = UIColor(red: 0.783, green: 0.783, blue: 0.783, alpha: 1).cgColor
