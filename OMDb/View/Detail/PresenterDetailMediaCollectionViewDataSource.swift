@@ -22,14 +22,26 @@ class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDa
         self.reusableViewIdentifier = reusableViewIdentifier
         let jsonEncoder = JSONEncoder()
         
-        if let media = media as? MediaDetails, let mediaEncoded = try? jsonEncoder.encode(media),
-            let jsonMediaDetails = try? JSONSerialization.jsonObject(with: mediaEncoded, options: .allowFragments),
-            let dictMediaDetails = jsonMediaDetails as? [String: String]{
-            self.dictMediaDetails = dictMediaDetails
-            dictMediaDetailsKeys = Array(dictMediaDetails.keys).sorted(by: { $0 < $1})
-        } else {
+        guard let mediaType = media.type else {
+            self.dictMediaDetails = nil
+            super.init()
+            return
+        }
+        
+        switch mediaType {
+        case .movie:
+            if let media = media as? MovieDetails, let mediaEncoded = try? jsonEncoder.encode(media),
+                let jsonMediaDetails = try? JSONSerialization.jsonObject(with: mediaEncoded, options: .allowFragments),
+                let dictMediaDetails = jsonMediaDetails as? [String: String]{
+                self.dictMediaDetails = dictMediaDetails
+                dictMediaDetailsKeys = Array(dictMediaDetails.keys).sorted(by: { $0 < $1})
+            } else {
+                self.dictMediaDetails = nil
+            }
+        case .episode, .series:
             self.dictMediaDetails = nil
         }
+        
         super.init()
     }
     

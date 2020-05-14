@@ -36,9 +36,11 @@ protocol Media: Codable {
     var name: String {get set}
     var year: String {get set}
     var type: MediaType? {get set}
+    var id: String {get set}
 }
 
 struct MediaStruct : Media {
+    var id: String
     var poster: String
     var name: String
     var year: String
@@ -49,11 +51,13 @@ struct MediaStruct : Media {
         case year = "Year"
         case poster = "Poster"
         case type = "Type"
+        case id = "imdbID"
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: MediaCodingKeys.self)
         
+        id = try values.decode(String.self, forKey: .id)
         poster = try values.decode(String.self, forKey: .poster)
         name = try values.decode(String.self, forKey: .title)
         year = try values.decode(String.self, forKey: .year)
@@ -106,9 +110,9 @@ protocol MediaDetailsProtocol: Media {
     var website: String { get set }
 }
 
-struct MediaDetails: MediaDetailsProtocol {
+struct MovieDetails: MediaDetailsProtocol {
     
-    
+    var id: String
     var poster: String
     var name: String
     var year: String
@@ -166,10 +170,6 @@ struct MediaDetails: MediaDetailsProtocol {
         try container.encode(language                   , forKey: .language      )
         try container.encode(awards                 , forKey: .awards      )
         try container.encode(country                    , forKey: .country      )
-//        try container.encode(metascore                  , forKey: .metascore      )
-//        try container.encode(imdbRating                 , forKey: .imdbRating)
-//        try container.encode(imdbVotes                  , forKey: .imdbVotes )
-//        try container.encode(imdbID                 , forKey: .imdbID    )
         try container.encode(typeMedia                  , forKey: .typeMedia )
         try container.encode(boxOffice                  , forKey: .boxOffice)
         try container.encode(production                 , forKey: .production      )
@@ -179,6 +179,7 @@ struct MediaDetails: MediaDetailsProtocol {
     init(from decoder: Decoder) throws {
         let mediaValues = try decoder.container(keyedBy: MediaStruct.MediaCodingKeys.self)
         
+        id =  try mediaValues.decode(String.self, forKey: .id)
         poster = try mediaValues.decode(String.self, forKey: .poster)
         name = try mediaValues.decode(String.self, forKey: .title)
         year = try mediaValues.decode(String.self, forKey: .year)
