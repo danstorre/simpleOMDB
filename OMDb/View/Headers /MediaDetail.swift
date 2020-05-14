@@ -23,6 +23,10 @@ class ShadowView: UIView {
 }
 
 class BubbleLabel: UILabel {
+    var topInset: CGFloat = 4.0
+    var bottomInset: CGFloat = 4.0
+    var leftInset: CGFloat = 8.0
+    var rightInset: CGFloat = 8.0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +36,7 @@ class BubbleLabel: UILabel {
         super.init(coder: coder)
         commonInit()
     }
-
+    
     func commonInit(){
         layer.backgroundColor = UIColor.white.cgColor
         layer.cornerRadius = 10
@@ -48,6 +52,17 @@ class BubbleLabel: UILabel {
         layer.shadowOpacity = 1
         layer.shadowRadius = 4
         layer.shadowOffset = CGSize(width: 0, height: 4)
+    }
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
     }
 }
 
@@ -71,6 +86,7 @@ class AttributesPresenter: NSObject, AttributesViewProtocol{
     
     func addAtribute(_ attribute: String) {
         let labelAttribute = BubbleLabel(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 40)))
+        labelAttribute.textAlignment = .center
         labelAttribute.attributedText = TextFactory.attributedText(for: .body3(string: attribute, withColor: UIColor(named: "Text")!))
         stackView.addArrangedSubview(labelAttribute)
     }
