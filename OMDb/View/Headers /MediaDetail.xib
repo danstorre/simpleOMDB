@@ -45,7 +45,7 @@
                                             <rect key="frame" x="0.0" y="20.5" width="184" height="160.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7eH-RQ-sNQ">
-                                                    <rect key="frame" x="0.0" y="140" width="184" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="133" width="184" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-F3-amZ">
                                                             <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -60,7 +60,7 @@
                                             <constraints>
                                                 <constraint firstItem="7eH-RQ-sNQ" firstAttribute="leading" secondItem="2ju-gB-By8" secondAttribute="leading" id="OFe-dC-ggz"/>
                                                 <constraint firstAttribute="trailing" secondItem="7eH-RQ-sNQ" secondAttribute="trailing" id="QLA-lR-ccM"/>
-                                                <constraint firstAttribute="bottom" secondItem="7eH-RQ-sNQ" secondAttribute="bottom" id="xw1-Un-nlo"/>
+                                                <constraint firstAttribute="bottom" secondItem="7eH-RQ-sNQ" secondAttribute="bottom" constant="7" id="xw1-Un-nlo"/>
                                             </constraints>
                                         </view>
                                     </subviews>

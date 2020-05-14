@@ -13,15 +13,6 @@ protocol AttributesViewProtocol {
     func addAtribute(_: String)
 }
 
-
-class ShadowView: UIView {
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-    }
-}
-
 class BubbleLabel: UILabel {
     var topInset: CGFloat = 4.0
     var bottomInset: CGFloat = 4.0
