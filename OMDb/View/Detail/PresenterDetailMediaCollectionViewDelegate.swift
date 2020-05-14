@@ -20,7 +20,7 @@ class PresenterDetailMediaCollectionViewDelegate: NSObject, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width: CGFloat = collectionView.bounds.size.width
-        let height: CGFloat = 189
+        let height: CGFloat = 210
         
         return CGSize(width: width, height: height)
     }

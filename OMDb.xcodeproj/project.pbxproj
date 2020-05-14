@@ -60,6 +60,7 @@
 		FB87BCB6246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB87BCB5246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib */; };
 		FB87BCB8246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB87BCB7246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift */; };
 		FB87BCBA246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB87BCB9246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib */; };
+		FB886D4D246CD6C80066E68D /* PresenterDetailMediaCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB886D4C246CD6C80066E68D /* PresenterDetailMediaCollectionViewDataSource.swift */; };
 		FB88E4342460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */; };
 		FBAB3F4E2460B3F40082E933 /* ProfileLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */; };
 		FBB17D6B24672CA1004265F5 /* FactoryViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */; };
@@ -169,6 +170,7 @@
 		FB87BCB5246B73D500C04E03 /* MediaAttributeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaAttributeCollectionViewCell.xib; sourceTree = "<group>"; };
 		FB87BCB7246B751E00C04E03 /* HeaderMediaDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderMediaDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		FB87BCB9246B752700C04E03 /* HeaderMediaDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderMediaDetailCollectionReusableView.xib; sourceTree = "<group>"; };
+		FB886D4C246CD6C80066E68D /* PresenterDetailMediaCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterDetailMediaCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserNotLoggedPresenter.swift; sourceTree = "<group>"; };
 		FBAB3F4D2460B3F40082E933 /* ProfileLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoggedView.swift; sourceTree = "<group>"; };
 		FBB17D6A24672CA1004265F5 /* FactoryViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewcontroller.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				FB7758E7246B9D0F0036F4A3 /* PresenterDetailMedia.swift */,
 				FBF85CE7246C9DD700E9B3FD /* PresenterDetailMediaCollectionViewDelegate.swift */,
 				FB7758E9246BA0920036F4A3 /* DetailCollectionFlowLayout.swift */,
+				FB886D4C246CD6C80066E68D /* PresenterDetailMediaCollectionViewDataSource.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				FB8203AA2460BE34006648E1 /* ProfileHeader.swift in Sources */,
 				FB78A52D244F9988004BCB30 /* Profile.swift in Sources */,
 				FB7F9A2024622475003470DE /* PostersCarouselFlowLayout.swift in Sources */,
+				FB886D4D246CD6C80066E68D /* PresenterDetailMediaCollectionViewDataSource.swift in Sources */,
 				FB23601F243971F000601D8E /* PropertyCollectionViewCell.swift in Sources */,
 				FB7F9A1A24621943003470DE /* MediaCollectionDataSource.swift in Sources */,
 				FBB17D6B24672CA1004265F5 /* FactoryViewcontroller.swift in Sources */,

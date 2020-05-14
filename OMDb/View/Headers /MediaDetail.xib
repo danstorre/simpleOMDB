@@ -33,7 +33,7 @@
                             <rect key="frame" x="141" y="0.0" width="184" height="189"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="peA-hs-9YF">
-                                    <rect key="frame" x="0.0" y="8" width="184" height="173"/>
+                                    <rect key="frame" x="0.0" y="8" width="184" height="181"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaI-gX-ft7">
                                             <rect key="frame" x="0.0" y="0.0" width="184" height="20.5"/>
@@ -42,10 +42,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ju-gB-By8">
-                                            <rect key="frame" x="0.0" y="20.5" width="184" height="152.5"/>
+                                            <rect key="frame" x="0.0" y="20.5" width="184" height="160.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7eH-RQ-sNQ">
-                                                    <rect key="frame" x="0.0" y="52.5" width="184" height="100"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="7eH-RQ-sNQ">
+                                                    <rect key="frame" x="0.0" y="60.5" width="184" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="700" constant="100" id="8h7-Hx-j5E"/>
                                                     </constraints>
@@ -66,7 +66,7 @@
                             <constraints>
                                 <constraint firstItem="peA-hs-9YF" firstAttribute="top" secondItem="LjG-oZ-Oxh" secondAttribute="top" constant="8" id="1g3-iW-JCr"/>
                                 <constraint firstAttribute="trailing" secondItem="peA-hs-9YF" secondAttribute="trailing" id="Baa-hN-5ao"/>
-                                <constraint firstAttribute="bottom" secondItem="peA-hs-9YF" secondAttribute="bottom" constant="8" id="YwO-c4-dgn"/>
+                                <constraint firstAttribute="bottom" secondItem="peA-hs-9YF" secondAttribute="bottom" id="YwO-c4-dgn"/>
                                 <constraint firstItem="peA-hs-9YF" firstAttribute="leading" secondItem="LjG-oZ-Oxh" secondAttribute="leading" id="yMx-KV-5iS"/>
                             </constraints>
                         </view>
