@@ -89,10 +89,18 @@ class OMBDB_API: NSObject, API, OMBDB_API_Contract {
     
     static func parseMediaDetailData(_ data: Data) -> MediaDetailsProtocol? {
         let jsondecoder = JSONDecoder()
-        guard let mediaDetails = try? jsondecoder.decode(MediaDetails.self, from: data) else {
+        guard let media = try? jsondecoder.decode(MediaStruct.self, from: data), let type = media.type else {
             return nil
         }
-        return mediaDetails
+        
+        switch type {
+        case .series:
+            return try? jsondecoder.decode(MediaDetails.self, from: data)
+        case .movie:
+            return try? jsondecoder.decode(MediaDetails.self, from: data)
+        case .episode:
+            return nil
+        }
     }
     
     static func parseDetailMediaData(_ data: Data) -> [String: AnyObject]? {
