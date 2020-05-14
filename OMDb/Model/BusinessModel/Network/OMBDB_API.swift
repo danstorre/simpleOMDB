@@ -15,6 +15,8 @@ protocol OMBDB_API_Contract {
                   closure: @escaping ([String: AnyObject]?) -> ())
     func getMedia(byTitle: String,
                   closure: @escaping (MediaDetailsProtocol?) -> ())
+    func getMediaBy(id: String,
+                  closure: @escaping (MediaDetailsProtocol?) -> ())
 }
 
 class OMBDB_API: NSObject, API, OMBDB_API_Contract {
@@ -49,6 +51,18 @@ class OMBDB_API: NSObject, API, OMBDB_API_Contract {
                 return
             }
             closure(OMBDB_API.parseDetailMediaData(data))
+        }
+    }
+    
+    func getMediaBy(id: String, closure: @escaping (MediaDetailsProtocol?) -> ()) {
+        executeDataRequestWithCustomSession(
+            session: session,
+            request: OMDBRequestFactory.searchDetailMediaById(id: id).makeRequest())
+        { (data, response) in
+            guard let data = data else{
+                return
+            }
+            closure(OMBDB_API.parseMediaDetailData(data))
         }
     }
     
