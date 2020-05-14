@@ -77,7 +77,7 @@ class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDa
             let jsonMediaDetails = try? JSONSerialization.jsonObject(with: mediaEncoded, options: .allowFragments),
             let dictMediaDetails = jsonMediaDetails as? [String: String]{
             self.dictMediaDetails = dictMediaDetails
-            dictMediaDetailsKeys = Array(dictMediaDetails.keys).sorted(by: { $0 > $1})
+            dictMediaDetailsKeys = Array(dictMediaDetails.keys).sorted(by: { $0 < $1})
         } else {
             self.dictMediaDetails = nil
         }
@@ -115,6 +115,7 @@ class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDa
         
         reusableView.headerMedia.title.attributedText = TextFactory.attributedText(for: .header2(string: media.name,
                                                                                                  withColor: UIColor(named: "Text")))
+        reusableView.headerMedia.attributesPresenter.reset()
         reusableView.headerMedia.attributesPresenter.addAtribute(media.year)
         ImageProvider.getImage(media: media) { (imagePoster) in
             DispatchQueue.main.async {

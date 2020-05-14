@@ -44,14 +44,9 @@ class MediaAttributeCollectionViewCell: UICollectionViewCell, MediaAttributeColl
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let layoutAttr = super.preferredLayoutAttributesFitting(layoutAttributes)
-        var targeSize = layoutAttr.bounds.size
-        targeSize.height = 0
-        var prefferedSize = targeSize
-        prefferedSize.height += self.contentView.systemLayoutSizeFitting(targeSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultHigh).height
-    
-        layoutAttr.frame.size.height = prefferedSize.height
-        layoutAttr.frame.size.width = 375
-        layoutAttr.frame.origin.x = 0
+        var targeSize = UIScreen.main.bounds.size
+        targeSize.height = 10
+        layoutAttr.frame.size = self.contentView.systemLayoutSizeFitting(targeSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultHigh)
         return layoutAttr
     }
 }

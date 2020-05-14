@@ -9,6 +9,7 @@
 import UIKit
 
 protocol AttributesViewProtocol {
+    func reset()
     func addAtribute(_: String)
 }
 
@@ -22,6 +23,12 @@ class AttributesPresenter: NSObject, AttributesViewProtocol{
     
     func setUp(){
         stackView.axis = .vertical
+    }
+    
+    func reset() {
+        for arrangeSubView in stackView.arrangedSubviews {
+            arrangeSubView.removeFromSuperview()
+        }
     }
     
     func addAtribute(_ attribute: String) {
