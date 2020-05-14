@@ -60,7 +60,6 @@
                                             <constraints>
                                                 <constraint firstItem="7eH-RQ-sNQ" firstAttribute="leading" secondItem="2ju-gB-By8" secondAttribute="leading" id="OFe-dC-ggz"/>
                                                 <constraint firstAttribute="trailing" secondItem="7eH-RQ-sNQ" secondAttribute="trailing" id="QLA-lR-ccM"/>
-                                                <constraint firstItem="7eH-RQ-sNQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2ju-gB-By8" secondAttribute="top" id="xn2-TR-8V6"/>
                                                 <constraint firstAttribute="bottom" secondItem="7eH-RQ-sNQ" secondAttribute="bottom" id="xw1-Un-nlo"/>
                                             </constraints>
                                         </view>

@@ -87,8 +87,19 @@ class AttributesPresenter: NSObject, AttributesViewProtocol{
     func addAtribute(_ attribute: String) {
         let labelAttribute = BubbleLabel(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 40)))
         labelAttribute.textAlignment = .center
+        labelAttribute.numberOfLines = 0
         labelAttribute.attributedText = TextFactory.attributedText(for: .body3(string: attribute, withColor: UIColor(named: "Text")!))
+        labelAttribute.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(labelAttribute)
+        let targeSize = CGSize(width: stackView.bounds.size.width - 50, height: 10)
+        
+        let resultHeight =  labelAttribute.systemLayoutSizeFitting(targeSize,
+                                               withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .defaultHigh).height + 10
+        
+        labelAttribute.heightAnchor.constraint(equalToConstant: resultHeight).isActive = true
+        labelAttribute.setNeedsLayout()
+        labelAttribute.layoutIfNeeded()
     }
 }
 
