@@ -20,28 +20,8 @@ class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDa
         self.media = media
         self.cellIdentifier = cellIdentifier
         self.reusableViewIdentifier = reusableViewIdentifier
-        let jsonEncoder = JSONEncoder()
-        
-        guard let mediaType = media.type else {
-            self.dictMediaDetails = nil
-            super.init()
-            return
-        }
-        
-        switch mediaType {
-        case .movie:
-            if let media = media as? MovieDetails, let mediaEncoded = try? jsonEncoder.encode(media),
-                let jsonMediaDetails = try? JSONSerialization.jsonObject(with: mediaEncoded, options: .allowFragments),
-                let dictMediaDetails = jsonMediaDetails as? [String: String]{
-                self.dictMediaDetails = dictMediaDetails
-                dictMediaDetailsKeys = Array(dictMediaDetails.keys).sorted(by: { $0 < $1})
-            } else {
-                self.dictMediaDetails = nil
-            }
-        case .episode, .series:
-            self.dictMediaDetails = nil
-        }
-        
+        dictMediaDetails = MediaAttributesFactory.attributes(for: .attributes(media: media))
+        dictMediaDetailsKeys = Array(dictMediaDetails!.keys).sorted(by: { $0 < $1})
         super.init()
     }
     

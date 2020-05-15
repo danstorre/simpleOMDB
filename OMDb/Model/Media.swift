@@ -121,7 +121,6 @@ struct SeriesDetails: SeriesDetailsProtocol {
     var type: MediaType?
     var director: String
     var plot: String
-    //
     var rated: String
     var runtime: String
     var genre: String

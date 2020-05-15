@@ -95,7 +95,7 @@ class OMBDB_API: NSObject, API, OMBDB_API_Contract {
         
         switch type {
         case .series:
-            return try? jsondecoder.decode(MovieDetails.self, from: data)
+            return try? jsondecoder.decode(SeriesDetails.self, from: data)
         case .movie:
             return try? jsondecoder.decode(MovieDetails.self, from: data)
         case .episode:
