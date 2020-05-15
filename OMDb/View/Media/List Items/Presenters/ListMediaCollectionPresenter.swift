@@ -16,7 +16,7 @@ class ListMediaCollectionPresenter: NSObject, PresenterMediaCollectionProtocol {
     var api: OMBDB_API_Contract
     
     private let cellIdentifier = "ListItemMediaViewCollectionViewCell"
-    private var datasource: ListMediaMediaCollectionDataSourceProtocol?
+    private var datasource: ListMediaCollectionDataSourceProtocolPresentable?
     private var delegate: MediaCollectionViewDelegateProtocolNavigatable?
     
     init(collectionViewFlowLayout: UICollectionViewFlowLayout,

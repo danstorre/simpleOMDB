@@ -58,7 +58,7 @@ final class ListMediaMediaCollectionDataSource: NSObject, ListMediaCollectionDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier,
-                                                            for: indexPath) as? ListItemMediaViewCollectionViewCell
+                                                            for: indexPath) as? ListItemMediaViewProtocolCollectionViewCellProtocol
         else {
                 return UICollectionViewCell()
         }
