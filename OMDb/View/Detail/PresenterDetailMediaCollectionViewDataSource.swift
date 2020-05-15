@@ -20,7 +20,7 @@ class PresenterDetailMediaCollectionViewDataSource: NSObject, UICollectionViewDa
         self.media = media
         self.cellIdentifier = cellIdentifier
         self.reusableViewIdentifier = reusableViewIdentifier
-        dictMediaDetails = MediaAttributesFactory.attributes(for: .attributes(media: media))
+        dictMediaDetails = media.attributes
         dictMediaDetailsKeys = Array(dictMediaDetails!.keys).sorted(by: { $0 < $1})
         super.init()
     }
