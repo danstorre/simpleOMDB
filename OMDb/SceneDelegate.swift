@@ -26,15 +26,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         GIDSignIn.sharedInstance().clientID = "215368444628-j924tqlejb6b6a0bl6u3iu47dbegjo2d.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = mySession
         
+        //Order this code properly
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let mainTabBarViewController = storyboard
             .instantiateViewController(withIdentifier: "MainTabBarVC") as? UITabBarController,
-            let navVCForSearchVc = mainTabBarViewController.viewControllers?[0] as? UINavigationController,
+            let navVCForSearchVc = mainTabBarViewController.viewControllers?[0] as? NavigationProtocol,
             let searchVc = navVCForSearchVc.viewControllers[0] as? ViewController,
-            let profileVC = mainTabBarViewController.viewControllers?[1] as? ProfileViewController {
+            let profileNav = mainTabBarViewController.viewControllers?[1] as? NavigationProtocol,
+            let profileVC = profileNav.viewControllers[0] as? ProfileViewController {
             
             searchVc.session = sessionUser
+            searchVc.navigationObject = navVCForSearchVc
             profileVC.session = sessionUser
+            profileVC.navigationObject = navVCForSearchVc
             sessionObservers?.addObserver(observer: profileVC)
             sessionUser?.observer = sessionObservers
             
@@ -42,6 +46,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
              window = UIWindow(windowScene: windowScene)
              window?.rootViewController = mainTabBarViewController
              window?.makeKeyAndVisible()
+
+            
+            if let introVC = storyboard
+                .instantiateViewController(withIdentifier: "IntroVC") as? IntroViewController {
+                mainTabBarViewController.modalPresentationStyle = .overFullScreen
+                mainTabBarViewController.present(introVC, animated: true, completion: nil)
+            }
         }
         
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()

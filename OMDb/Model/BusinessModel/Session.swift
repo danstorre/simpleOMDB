@@ -73,13 +73,17 @@ extension Session: GIDSignInDelegate{
             // Perform any operations on signed in user here.
             let userId = user.userID
             guard let givenName = user.profile.givenName,
-                let email = user.profile.email else{
+                let email = user.profile.email,
+                let image = user.profile.imageURL(withDimension: 104*3) else{
                     print("couldn't retrieve user info")
                     sSelf.user = UserNotLogged()
                     return
             }
             
-            let profileFromUserLoggedIn = Profile(id: userId ?? "1", email: email, name: givenName)
+            let profileFromUserLoggedIn = Profile(id: userId ?? "1",
+                                                  email: email,
+                                                  name: givenName,
+                                                  urlImageProfile: image)
             sSelf.user = profileFromUserLoggedIn
         }
     }

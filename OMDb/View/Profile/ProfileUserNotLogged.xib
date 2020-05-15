@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileUserNotLogged" customModule="OMDb" customModuleProvider="target">
+            <connections>
+                <outlet property="captionLabel" destination="jpq-MH-hli" id="NoZ-yw-vib"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="xfp-aO-5jj"/>
+                <outlet property="featureStackView" destination="0WE-hP-OwD" id="NNE-J2-Gb6"/>
+                <outlet property="headerLabel" destination="08t-hW-LHS" id="Jbf-Gu-8VA"/>
+                <outlet property="loginButtonsStackView" destination="g9R-ec-FwG" id="yYJ-nl-hbg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="491"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save here  use it anywhere." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08t-hW-LHS">
+                    <rect key="frame" x="27" y="27" width="362" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0WE-hP-OwD">
+                    <rect key="frame" x="27" y="154" width="362" height="82"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="6mf-Kh-41L"/>
+                        <constraint firstAttribute="height" priority="700" constant="82" id="ZqF-cf-Z7o"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="g9R-ec-FwG">
+                    <rect key="frame" x="27" y="307" width="362" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="700" constant="100" id="won-9b-0c6"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login or sign up by clicking the button above." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-MH-hli">
+                    <rect key="frame" x="108" y="428" width="200" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="tcq-az-4ag"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="jpq-MH-hli" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4FW-wj-wUk"/>
+                <constraint firstItem="0WE-hP-OwD" firstAttribute="leading" secondItem="08t-hW-LHS" secondAttribute="leading" id="6Br-kI-xTg"/>
+                <constraint firstItem="jpq-MH-hli" firstAttribute="top" secondItem="g9R-ec-FwG" secondAttribute="bottom" constant="21" id="AsJ-Rn-sE7"/>
+                <constraint firstItem="g9R-ec-FwG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0WE-hP-OwD" secondAttribute="bottom" constant="71" id="Av6-Dn-WLU"/>
+                <constraint firstAttribute="bottom" secondItem="jpq-MH-hli" secondAttribute="bottom" constant="22" id="Ekg-1S-aJq"/>
+                <constraint firstItem="08t-hW-LHS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="Qmk-Ka-aav"/>
+                <constraint firstItem="g9R-ec-FwG" firstAttribute="trailing" secondItem="08t-hW-LHS" secondAttribute="trailing" id="QuF-B5-C80"/>
+                <constraint firstItem="08t-hW-LHS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="27" id="Rrm-02-jtX"/>
+                <constraint firstItem="0WE-hP-OwD" firstAttribute="trailing" secondItem="08t-hW-LHS" secondAttribute="trailing" id="WhK-5d-iVW"/>
+                <constraint firstItem="0WE-hP-OwD" firstAttribute="top" secondItem="08t-hW-LHS" secondAttribute="bottom" constant="86" id="aZc-by-WfT"/>
+                <constraint firstAttribute="trailing" secondItem="08t-hW-LHS" secondAttribute="trailing" constant="27" id="ths-ZO-JI6"/>
+                <constraint firstItem="g9R-ec-FwG" firstAttribute="leading" secondItem="08t-hW-LHS" secondAttribute="leading" id="xWW-Ei-gHC"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139.13043478260872" y="40.513392857142854"/>
+        </view>
+    </objects>
+</document>

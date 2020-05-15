@@ -11,6 +11,7 @@ import Foundation
 enum OMDBRequestFactory: RequestMaker{
     case searchMedia(term: String, type: MediaType? = nil)
     case searchDetailMedia(byTitle: String)
+    case searchDetailMediaById(id: String)
     
     var host: String {
         return "www.omdbapi.com"
@@ -18,21 +19,21 @@ enum OMDBRequestFactory: RequestMaker{
     
     var scheme: String {
         switch self {
-        case .searchMedia, .searchDetailMedia:
+        case .searchMedia, .searchDetailMedia, .searchDetailMediaById:
             return "http"
         }
     }
     
     var httpMethod: String {
         switch self {
-        case .searchMedia, .searchDetailMedia:
+        case .searchMedia, .searchDetailMedia, .searchDetailMediaById:
             return "GET"
         }
     }
     
     var path: String {
         switch self {
-        case .searchMedia, .searchDetailMedia:
+        case .searchMedia, .searchDetailMedia, .searchDetailMediaById:
             return "/"
         }
     }
@@ -51,12 +52,18 @@ enum OMDBRequestFactory: RequestMaker{
             let queryItems = [URLQueryItem(name: "apikey", value: "c9b1a0c2"),
                               URLQueryItem(name: "t", value: title)]
             return queryItems
+            
+        case .searchDetailMediaById(let id):
+            let queryItems = [URLQueryItem(name: "apikey", value: "c9b1a0c2"),
+                              URLQueryItem(name: "i", value: id)]
+            return queryItems
+            
         }
     }
     
     var urlComponents: URLComponents{
         switch self {
-        case .searchMedia, .searchDetailMedia:
+        case .searchMedia, .searchDetailMedia, .searchDetailMediaById:
             var urlComponents = URLComponents()
             urlComponents.scheme = scheme
             urlComponents.host = host
@@ -76,7 +83,7 @@ enum OMDBRequestFactory: RequestMaker{
     
     func makeRequest() -> URLRequest {
         switch self {
-        case .searchMedia, .searchDetailMedia:
+        case .searchMedia, .searchDetailMedia, .searchDetailMediaById:
             assert(urlComponents.url != nil)
             var urlRequest = URLRequest(url: urlComponents.url!)
             urlRequest.httpMethod = httpMethod

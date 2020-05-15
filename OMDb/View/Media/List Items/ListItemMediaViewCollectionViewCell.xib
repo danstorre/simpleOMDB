@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListItemMediaViewCollectionViewCell" customModule="OMDb" customModuleProvider="target">
+            <connections>
+                <outlet property="accessoryImageView" destination="xN9-Q9-CBJ" id="kJ8-kV-BYr"/>
+                <outlet property="authorMedia" destination="19B-yh-ruj" id="15e-cG-Iv3"/>
+                <outlet property="cellContentView" destination="iN0-l3-epB" id="8bG-Ld-hXF"/>
+                <outlet property="descriptionMedia" destination="jug-U9-Rs6" id="gCj-1F-5jy"/>
+                <outlet property="imageViewMediaOutlet" destination="cvj-N0-h9E" id="6Si-gR-gYx"/>
+                <outlet property="titleMedia" destination="aJk-yq-6g8" id="GpJ-MH-7Ve"/>
+                <outlet property="yearReleasedMedia" destination="aRE-sX-tPg" id="IAX-JY-rkN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="439" height="204"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvj-N0-h9E" customClass="ImageViewPoster" customModule="OMDb" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="5" width="119" height="194"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="119" id="9fV-Qr-mwf"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0p2-u8-hNH">
+                    <rect key="frame" x="124" y="11" width="290" height="182"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dMR-lX-uFk">
+                            <rect key="frame" x="0.0" y="0.0" width="290" height="86.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cQN-8d-G7N">
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="61"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="The Color of Money The Color of Money" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJk-yq-6g8" userLabel="title">
+                                            <rect key="frame" x="0.0" y="0.0" width="145" height="61"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" text="1986" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRE-sX-tPg" userLabel="year">
+                                            <rect key="frame" x="251" y="0.0" width="39" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Martin Scorsese Scorsese Scorsese" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19B-yh-ruj" userLabel="author">
+                                    <rect key="frame" x="0.0" y="66" width="290" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jug-U9-Rs6" userLabel="description">
+                            <rect key="frame" x="0.0" y="116.5" width="290" height="65.5"/>
+                            <string key="text">Fast Eddie Felson teaches a cocky but immensely talented protégé the ropes of pool hustling, which in turn inspires him to make an unlikely comeback.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XaJ-L3-s2q">
+                    <rect key="frame" x="407" y="86" width="32" height="32"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xN9-Q9-CBJ">
+                            <rect key="frame" x="12" y="11.5" width="8" height="9.5"/>
+                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="13" id="Chn-6R-Qpk"/>
+                                <constraint firstAttribute="width" constant="8" id="Q3u-Zo-WNU"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="JAF-Rk-XxW"/>
+                        <constraint firstAttribute="width" secondItem="XaJ-L3-s2q" secondAttribute="height" multiplier="1:1" id="Mu2-PT-j4h"/>
+                        <constraint firstItem="xN9-Q9-CBJ" firstAttribute="centerY" secondItem="XaJ-L3-s2q" secondAttribute="centerY" id="YeG-ca-TW4"/>
+                        <constraint firstAttribute="width" constant="32" id="bOM-tV-M7N"/>
+                        <constraint firstItem="xN9-Q9-CBJ" firstAttribute="centerX" secondItem="XaJ-L3-s2q" secondAttribute="centerX" id="iqX-yd-I8S"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="0p2-u8-hNH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="00P-m3-NDm"/>
+                <constraint firstItem="aRE-sX-tPg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="74g-Ta-Vb8"/>
+                <constraint firstAttribute="trailing" secondItem="cQN-8d-G7N" secondAttribute="trailing" constant="25" id="BCf-Wf-r9D"/>
+                <constraint firstItem="cvj-N0-h9E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="E3I-mj-pY3"/>
+                <constraint firstItem="cvj-N0-h9E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="P9S-XF-qAx"/>
+                <constraint firstItem="0p2-u8-hNH" firstAttribute="leading" secondItem="cvj-N0-h9E" secondAttribute="trailing" constant="5" id="UMX-Em-Q3K"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0p2-u8-hNH" secondAttribute="bottom" constant="11" id="UmJ-zf-UBZ"/>
+                <constraint firstAttribute="trailing" secondItem="aRE-sX-tPg" secondAttribute="trailing" constant="25" id="jde-kv-6wJ"/>
+                <constraint firstAttribute="trailing" secondItem="XaJ-L3-s2q" secondAttribute="trailing" id="mWY-GG-7l4"/>
+                <constraint firstItem="XaJ-L3-s2q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mz6-6Q-hhv"/>
+                <constraint firstAttribute="bottom" secondItem="cvj-N0-h9E" secondAttribute="bottom" constant="5" id="vqr-Cz-7n9"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="236.95652173913047" y="258.48214285714283"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+    </resources>
+</document>

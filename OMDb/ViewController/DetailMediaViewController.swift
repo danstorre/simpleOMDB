@@ -21,14 +21,15 @@ class DetailMediaViewController: UIViewController, CLLocationManagerDelegate {
     private var propertyOrder = [String]()
     var api: OMBDB_API_Contract? = nil
     var media: Media!
-    var mediaImage: UIImage!
     
     var mapSearcher : MapSearcher!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSearcher = MapSearcher(mapView: mapView)
-        posterImageView.image = mediaImage
+        ImageProvider.getImage(media: media) { [weak self] (mediaImage) in
+            self?.posterImageView.image = mediaImage
+        }
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
@@ -37,7 +38,7 @@ class DetailMediaViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func searchDetails() {
-        api?.getMedia(byTitle: media.name) { [weak self] (dictMedia) in
+        api?.getMediaDict(byTitle: media.name, closure: { [weak self] (dictMedia) in
             DispatchQueue.main.async {
                 if let dictMedia = dictMedia {
                     self?.propertiesOfMedia = dictMedia
@@ -50,7 +51,7 @@ class DetailMediaViewController: UIViewController, CLLocationManagerDelegate {
                     }
                 }
             }
-        }
+        })
     }
 }
 
@@ -70,7 +71,7 @@ extension DetailMediaViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "mediaPropertyCell", for: indexPath) as! PropertyTableViewCell
         
-        let property =  propertyOrder[indexPath.row]
+        let property = propertyOrder[indexPath.row]
         
         cell.keyLabel.text = property
         cell.valueLabel.text = propertiesOfMedia[property] as? String
