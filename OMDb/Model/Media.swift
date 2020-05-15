@@ -105,11 +105,26 @@ protocol MediaDetailsProtocol: Media {
     var imdbVotes: String { get set }
     var imdbID: String { get set }
     var typeMedia: String { get set }
+    
+    var attributes: [String: String] {get}
+}
+
+extension MediaDetailsProtocol {
+    var attributes: [String : String] {
+        let jsonEncoder = JSONEncoder()
+        if let mediaEncoded = try? jsonEncoder.encode(self),
+            let jsonMediaDetails = try? JSONSerialization.jsonObject(with: mediaEncoded, options: .allowFragments),
+            let dictMediaDetails = jsonMediaDetails as? [String: String] {
+            return dictMediaDetails
+        }
+        return [String: String]()
+    }
 }
 
 
 protocol SeriesDetailsProtocol: MediaDetailsProtocol {
-    
+    var typeMedia: String {get set}
+    var totalSeasons: String {get set}
 }
 
 struct SeriesDetails: SeriesDetailsProtocol {
