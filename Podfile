@@ -7,6 +7,10 @@ target 'OMDb' do
 
   # Pods for OMDb
   pod 'GoogleSignIn'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
 
   target 'OMDbTests' do
     inherit! :search_paths

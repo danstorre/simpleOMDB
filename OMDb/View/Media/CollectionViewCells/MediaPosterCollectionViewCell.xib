@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaPosterCollectionViewCell" customModule="OMDb" customModuleProvider="target">
+            <connections>
+                <outlet property="cellContentView" destination="iN0-l3-epB" id="yJF-ai-Kn1"/>
+                <outlet property="imageViewPoster" destination="dPf-oe-Tz4" id="Mcq-h4-Kri"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="197" height="261"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPf-oe-Tz4" customClass="ImageViewPoster" customModule="OMDb" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="197" height="261"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dPf-oe-Tz4" secondAttribute="bottom" id="2XQ-s0-bxt"/>
+                <constraint firstItem="dPf-oe-Tz4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NVi-ab-eYQ"/>
+                <constraint firstAttribute="trailing" secondItem="dPf-oe-Tz4" secondAttribute="trailing" id="bKq-Rz-rwm"/>
+                <constraint firstItem="dPf-oe-Tz4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qEZ-yR-rLD"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-19.565217391304348" y="183.81696428571428"/>
+        </view>
+    </objects>
+</document>

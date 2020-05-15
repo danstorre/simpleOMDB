@@ -7,17 +7,55 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var sessionObservers: ObserverMediator?
+    var sessionUser: SessionProtocol?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        let mySession = Session(user: UserNotLogged())
+        sessionUser = mySession
+        sessionObservers = SessionObserverMediator()
+        
+        GIDSignIn.sharedInstance().clientID = "215368444628-j924tqlejb6b6a0bl6u3iu47dbegjo2d.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = mySession
+        
+        //Order this code properly
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let mainTabBarViewController = storyboard
+            .instantiateViewController(withIdentifier: "MainTabBarVC") as? UITabBarController,
+            let navVCForSearchVc = mainTabBarViewController.viewControllers?[0] as? NavigationProtocol,
+            let searchVc = navVCForSearchVc.viewControllers[0] as? ViewController,
+            let profileNav = mainTabBarViewController.viewControllers?[1] as? NavigationProtocol,
+            let profileVC = profileNav.viewControllers[0] as? ProfileViewController {
+            
+            searchVc.session = sessionUser
+            searchVc.navigationObject = navVCForSearchVc
+            profileVC.session = sessionUser
+            profileVC.navigationObject = navVCForSearchVc
+            sessionObservers?.addObserver(observer: profileVC)
+            sessionUser?.observer = sessionObservers
+            
+             guard let windowScene = scene as? UIWindowScene else { return }
+             window = UIWindow(windowScene: windowScene)
+             window?.rootViewController = mainTabBarViewController
+             window?.makeKeyAndVisible()
+
+            
+            if let introVC = storyboard
+                .instantiateViewController(withIdentifier: "IntroVC") as? IntroViewController {
+                mainTabBarViewController.modalPresentationStyle = .overFullScreen
+                mainTabBarViewController.present(introVC, animated: true, completion: nil)
+            }
+        }
+        
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
