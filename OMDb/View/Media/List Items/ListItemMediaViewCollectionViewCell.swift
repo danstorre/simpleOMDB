@@ -16,7 +16,8 @@ protocol ListItemMediaViewProtocol: UIView {
     var imageViewMedia: ImageViewPosterProtocol! {get set}
 }
 
-protocol ListItemMediaViewProtocolCollectionViewCellProtocol: ShadowsAndToggleableAlphaProtocol,
+protocol ListItemMediaViewProtocolCollectionViewCellProtocol: UICollectionViewCell,
+                                                              ShadowsAndToggleableAlphaProtocol,
                                                               ListItemMediaViewProtocol {
 }
 
