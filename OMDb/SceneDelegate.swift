@@ -39,7 +39,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             searchVc.navigationObject = navVCForSearchVc
             profileVC.session = sessionUser
             profileVC.navigationObject = navVCForSearchVc
-            sessionObservers?.addObserver(observer: profileVC)
+            let contentPreparator = ProfileContentPresenter(session: sessionUser,
+                                                            contentPreparators: [ProfilePresenterPreparator]())
+            sessionObservers?.addObserver(observer: contentPreparator)
+            profileVC.contentPreparator = contentPreparator
             sessionUser?.observer = sessionObservers
             
              guard let windowScene = scene as? UIWindowScene else { return }

@@ -9,6 +9,61 @@
 import UIKit
 import GoogleSignIn
 
+protocol ContentPreprable {
+    func prepareContentView()
+}
+
+protocol ManagesUser {
+    func accepts(user: User) -> Bool
+}
+
+extension ManagesUser where Self: ProfileUserNotLoggedPresenterProtocol {
+    func accepts(user: User) -> Bool{
+        return user is UserNotLogged
+    }
+}
+ 
+
+extension ManagesUser where Self: ProfilePresenterProtocol {
+    func accepts(user: User) -> Bool{
+        return user is Profile
+    }
+}
+
+protocol ProfilePresenterPreparator: ContentPreprable, ManagesUser {}
+
+class ProfileContentPresenter: NSObject, ContentPreprable{
+    var session: SessionProtocol?
+    var contentPreparators: [ProfilePresenterPreparator]
+    
+    init(session: SessionProtocol?, contentPreparators: [ProfilePresenterPreparator]) {
+        self.session = session
+        self.contentPreparators = contentPreparators
+        super.init()
+    }
+    
+    func prepareContentView() {
+        if let user = session?.user {
+            prepareContentFor(for: user)
+        }
+    }
+    
+    func prepareContentFor(for user: User) {
+        contentPreparators.first(where: { return $0.accepts(user: user)})?.prepareContentView()
+    }
+}
+
+extension ProfileContentPresenter: PropertyObserver {
+    func didChange(propertyName: String, oldPropertyValue: Any?) {
+    }
+    
+    func willChange(propertyName: String, newPropertyValue: Any?) {
+        if propertyName == Session.SessionKeys.userKey, let user = newPropertyValue as? User {
+            prepareContentFor(for: user)
+        }
+    }
+}
+
 class ProfileViewController: UIViewController, ProfilePresenterDelegate, HasNavigation {
     var navigationObject: NavigationProtocol?
     var session: SessionProtocol?
@@ -19,23 +74,16 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate, HasNavi
     lazy var profile: ProfileLoggedViewProtocol = ProfileLoggedView(frame: .zero)
     
     //presenters
-    lazy var profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol = ProfileUserNotLoggedPresenter()
-    lazy var profileUserloggedPresenter: ProfilePresenterProtocol = ProfilePresenter(delegate: self)
+    var profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol!
+    var profileUserloggedPresenter: ProfilePresenterProtocol!
+    
+    //contentPreparation
+    var contentPreparator: ContentPreprable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        if let user = session?.user {
-            prepareContentView(for: user)
-        }
-    }
-    
-    private func prepareContentView(for user: User) {
-        switch user  {
-        case let x where x is UserNotLogged: prepareUserNotLoggedView()
-        case let x where x is Profile: prepareUserLoggedView(for: user)
-        default: break
-        }
+        contentPreparator.prepareContentView()
     }
     
     private func prepareUserLoggedView(for user: User) {
@@ -108,14 +156,3 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate, HasNavi
     
 }
 
-extension ProfileViewController: PropertyObserver {
-    func didChange(propertyName: String, oldPropertyValue: Any?) {
-    }
-    
-    func willChange(propertyName: String, newPropertyValue: Any?) {
-        if propertyName == Session.SessionKeys.userKey, let user = newPropertyValue as? User {
-            prepareContentView(for: user)
-        }
-        
-    }
-}
