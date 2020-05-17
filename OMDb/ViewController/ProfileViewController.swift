@@ -17,24 +17,13 @@ protocol ManagesUser {
     func accepts(user: User) -> Bool
 }
 
-extension ManagesUser where Self: ProfileUserNotLoggedPresenterProtocol {
-    func accepts(user: User) -> Bool{
-        return user is UserNotLogged
-    }
+protocol ProfilePresenterPreparator: ContentPreprable, ManagesUser, AnimatableAlpha {
 }
- 
-
-extension ManagesUser where Self: ProfilePresenterProtocol {
-    func accepts(user: User) -> Bool{
-        return user is Profile
-    }
-}
-
-protocol ProfilePresenterPreparator: ContentPreprable, ManagesUser {}
 
 class ProfileContentPresenter: NSObject, ContentPreprable{
     var session: SessionProtocol?
     var contentPreparators: [ProfilePresenterPreparator]
+    var activeContentPreparator: ProfilePresenterPreparator?
     
     init(session: SessionProtocol?, contentPreparators: [ProfilePresenterPreparator]) {
         self.session = session
@@ -49,7 +38,9 @@ class ProfileContentPresenter: NSObject, ContentPreprable{
     }
     
     func prepareContentFor(for user: User) {
-        contentPreparators.first(where: { return $0.accepts(user: user)})?.prepareContentView()
+        activeContentPreparator?.hideAnimation()
+        activeContentPreparator = contentPreparators.first(where: { return $0.accepts(user: user)})
+        activeContentPreparator?.prepareContentView()
     }
 }
 
@@ -64,18 +55,126 @@ extension ProfileContentPresenter: PropertyObserver {
     }
 }
 
-class ProfileViewController: UIViewController, ProfilePresenterDelegate, HasNavigation {
+
+class ProfileContentUserNotLogged: NSObject, ProfilePresenterPreparator, ProfilePresenterDelegate {
+    
+    var contentView: UIView
+    var profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol
+    var navigationController: UINavigationController?
+    
+    init(contentView: UIView,
+         navigationController: UINavigationController?,
+         profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol) {
+        self.contentView = contentView
+        self.profileUserNotloggedPresenter = profileUserNotloggedPresenter
+        self.navigationController = navigationController
+        super.init()
+    }
+    
+    func prepareContentView() {
+        self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
+        let googleButton = ButtonFactory.button(for: .normalButton(text: "Login with Google")).button
+        googleButton.addTarget(self, action: #selector(self.loginWithGoogleButton), for: .touchUpInside)
+        googleButton.translatesAutoresizingMaskIntoConstraints = false
+        googleButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        self.profileUserNotloggedPresenter.addButtons([googleButton])
+        
+        self.profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.setNeedsLayout()
+        self.profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.layoutIfNeeded()
+        
+        contentView.addSubview(self.profileUserNotloggedPresenter.profileNotLoggedView)
+        self.profileUserNotloggedPresenter.profileNotLoggedView.frame = contentView.bounds
+        self.profileUserNotloggedPresenter.profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        showAnimation()
+    }
+    
+    func hideAnimation() {
+        UIView.animate(withDuration: 0.3, animations: {
+                   self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
+               }) { (_) in }
+    }
+    
+    
+    func showAnimation() {
+        self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
+    }
+    
+    func accepts(user: User) -> Bool {
+        return user is UserNotLogged
+    }
+    
+    @objc
+    func loginWithGoogleButton(_ sender: UIButton) {
+        GIDSignIn.sharedInstance()?.presentingViewController = navigationController
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+    
+    func pressedButtonLogout() {
+        GIDSignIn.sharedInstance()?.disconnect()
+    }
+}
+
+class ProfileContentUserLogged: NSObject, ProfilePresenterPreparator {
+    
+    var contentView: UIView
+    var navigationController: UINavigationController?
+    var profileUserloggedPresenter: ProfilePresenterProtocol
+    var session: SessionProtocol?
+    
+    init(contentView: UIView,
+         navigationController: UINavigationController?,
+         profileUserloggedPresenter: ProfilePresenterProtocol,
+         session: SessionProtocol?) {
+        self.contentView = contentView
+        self.navigationController = navigationController
+        self.profileUserloggedPresenter = profileUserloggedPresenter
+        self.session = session
+        super.init()
+    }
+    
+    func prepareContentView() {
+        self.profileUserloggedPresenter.profileView.alpha = 0
+        self.navigationController?.navigationBar.alpha = 0
+        contentView.addSubview(self.profileUserloggedPresenter.profileView)
+        self.profileUserloggedPresenter.profileView.frame = contentView.bounds
+        self.profileUserloggedPresenter.profileView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        if let user = session?.user {
+            self.profileUserloggedPresenter.updateProfile(with: user)
+        }
+        self.navigationController?.isNavigationBarHidden = false
+        
+        showAnimation()
+    }
+    
+    func hideAnimation() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.profileUserloggedPresenter.profileView.alpha = 0
+            self.navigationController?.navigationBar.alpha = 0
+        }) { (true) in
+            self.profileUserloggedPresenter.profileView.removeFromSuperview()
+            self.navigationController?.isNavigationBarHidden = true
+        }
+    }
+    
+    func showAnimation() {
+        UIView.animate(withDuration: 0.6) {
+            self.navigationController?.navigationBar.alpha = 1
+            self.profileUserloggedPresenter.profileView.alpha = 1
+        }
+    }
+    
+    func accepts(user: User) -> Bool {
+        return user is Profile
+    }
+    
+}
+
+class ProfileViewController: UIViewController, HasNavigation {
     var navigationObject: NavigationProtocol?
     var session: SessionProtocol?
     
     @IBOutlet var contentView: UIView!
-
-    //views
-    lazy var profile: ProfileLoggedViewProtocol = ProfileLoggedView(frame: .zero)
-    
-    //presenters
-    var profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol!
-    var profileUserloggedPresenter: ProfilePresenterProtocol!
     
     //contentPreparation
     var contentPreparator: ContentPreprable!
@@ -85,74 +184,5 @@ class ProfileViewController: UIViewController, ProfilePresenterDelegate, HasNavi
         navigationController?.isNavigationBarHidden = true
         contentPreparator.prepareContentView()
     }
-    
-    private func prepareUserLoggedView(for user: User) {
-        guard let contentView = contentView else {
-            return
-        }
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
-            
-        }) { (true) in
-            self.profileUserNotloggedPresenter.profileNotLoggedView.removeFromSuperview()
-            
-            self.profileUserloggedPresenter.profileView.alpha = 0
-            self.navigationController?.navigationBar.alpha = 0
-            contentView.addSubview(self.profileUserloggedPresenter.profileView)
-            self.profileUserloggedPresenter.profileView.frame = contentView.bounds
-            self.profileUserloggedPresenter.profileView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.profileUserloggedPresenter.updateProfile(with: user)
-            
-            self.navigationController?.isNavigationBarHidden = false
-            
-            UIView.animate(withDuration: 0.6) {
-                self.navigationController?.navigationBar.alpha = 1
-                self.profileUserloggedPresenter.profileView.alpha = 1
-            }
-        }
-    }
-    
-    private func prepareUserNotLoggedView(){
-        guard let contentView = contentView else {
-            return
-        }
-        UIView.animate(withDuration: 0.3, animations: {
-            self.profileUserloggedPresenter.profileView.alpha = 0
-            self.navigationController?.navigationBar.alpha = 0
-        }) { (true) in
-            self.profileUserloggedPresenter.profileView.removeFromSuperview()
-            self.navigationController?.isNavigationBarHidden = true
-            
-            self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
-            let googleButton = ButtonFactory.button(for: .normalButton(text: "Login with Google")).button
-            googleButton.addTarget(self, action: #selector(self.loginWithGoogleButton), for: .touchUpInside)
-            googleButton.translatesAutoresizingMaskIntoConstraints = false
-            googleButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
-            self.profileUserNotloggedPresenter.addButtons([googleButton])
-            
-            self.profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.setNeedsLayout()
-            self.profileUserNotloggedPresenter.profileNotLoggedView.loginButtons.layoutIfNeeded()
-            
-            contentView.addSubview(self.profileUserNotloggedPresenter.profileNotLoggedView)
-            self.profileUserNotloggedPresenter.profileNotLoggedView.frame = contentView.bounds
-            self.profileUserNotloggedPresenter.profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            
-            UIView.animate(withDuration: 0.6) {
-                self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
-            }
-        }
-    }
-    
-    @objc
-    func loginWithGoogleButton(_ sender: UIButton) {
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.signIn()
-    }
-    
-    func pressedButtonLogout() {
-        GIDSignIn.sharedInstance()?.disconnect()
-    }
-    
 }
 
