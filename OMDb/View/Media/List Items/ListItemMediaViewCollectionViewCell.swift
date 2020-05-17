@@ -55,7 +55,7 @@ class ListItemMediaViewCollectionViewCell: UICollectionViewCell, ListItemMediaVi
         cellContentView.frame = self.bounds
         cellContentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         imageViewMedia.commonInit()
-        imageViewMedia.showAnimation()
+        imageViewMedia.showAnimation(){ _ in }
     }
     
     func addShadows() {

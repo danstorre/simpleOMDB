@@ -39,9 +39,11 @@ class ProfileContentPresenter: NSObject, ContentPreprable{
     }
     
     func prepareContentFor(for user: User) {
-        activeContentPreparator?.hideAnimation()
-        activeContentPreparator = contentPreparators.first(where: { return $0.accepts(user: user)})
-        activeContentPreparator?.prepareContentView()
+        activeContentPreparator?.hideAnimation() { [weak self] _ in
+            guard let self = self else { return }
+            self.activeContentPreparator = self.contentPreparators.first(where: { return $0.accepts(user: user)})
+            self.activeContentPreparator?.prepareContentView()
+        }
     }
 }
 
@@ -58,7 +60,6 @@ extension ProfileContentPresenter: PropertyObserver {
 
 
 class ProfileContentUserNotLogged: NSObject, ProfilePresenterPreparator {
-    
     var contentView: UIView?
     var profileUserNotloggedPresenter: ProfileUserNotLoggedPresenterProtocol
     var navigationController: UINavigationController?
@@ -88,18 +89,24 @@ class ProfileContentUserNotLogged: NSObject, ProfilePresenterPreparator {
         self.profileUserNotloggedPresenter.profileNotLoggedView.frame = contentView.bounds
         self.profileUserNotloggedPresenter.profileNotLoggedView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        showAnimation()
+        showAnimation() {_ in}
     }
     
-    func hideAnimation() {
+    func hideAnimation(completionHandler: @escaping (Bool) -> Void) {
         UIView.animate(withDuration: 0.3, animations: {
                    self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 0
-               }) { (_) in }
+               }) { (terminated) in
+            completionHandler(terminated)
+        }
     }
     
     
-    func showAnimation() {
-        self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
+    func showAnimation(completionHandler: @escaping (Bool) -> Void) {
+        UIView.animate(withDuration: 0.6, animations: {
+            self.profileUserNotloggedPresenter.profileNotLoggedView.alpha = 1
+        }) { (terminated) in
+            completionHandler(terminated)
+        }
     }
     
     func accepts(user: User) -> Bool {
@@ -143,23 +150,26 @@ class ProfileContentUserLogged: NSObject, ProfilePresenterPreparator, ProfilePre
         }
         self.navigationController?.isNavigationBarHidden = false
         
-        showAnimation()
+        showAnimation() {_ in}
     }
     
-    func hideAnimation() {
+    func hideAnimation(completionHandler: @escaping (Bool) -> Void) {
         UIView.animate(withDuration: 0.3, animations: {
             self.profileUserloggedPresenter?.profileView.alpha = 0
             self.navigationController?.navigationBar.alpha = 0
-        }) { (true) in
+        }) { (terminated) in
             self.profileUserloggedPresenter?.profileView.removeFromSuperview()
             self.navigationController?.isNavigationBarHidden = true
+            completionHandler(terminated)
         }
     }
     
-    func showAnimation() {
-        UIView.animate(withDuration: 0.6) {
+    func showAnimation(completionHandler: @escaping (Bool) -> Void) {
+        UIView.animate(withDuration: 0.6, animations: {
             self.navigationController?.navigationBar.alpha = 1
             self.profileUserloggedPresenter?.profileView.alpha = 1
+        }) { (terminated) in
+            completionHandler(terminated)
         }
     }
     
