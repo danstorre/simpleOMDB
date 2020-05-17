@@ -44,7 +44,7 @@ final class MediaPosterCollectionDataSource: NSObject, MediaCollectionDataSource
                 }
                 if cell.tag == indexPath.row {
                     cell.posterImage.image = image
-                    cell.posterImage.showAnimation()
+                    cell.posterImage.showAnimation(){ _ in }
                 }
             }
         }

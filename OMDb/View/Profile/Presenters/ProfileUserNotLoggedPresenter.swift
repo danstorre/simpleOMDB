@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ProfileUserNotLoggedPresenterProtocol: NSObject {
+protocol ProfileUserNotLoggedPresenterProtocol: class {
     var profileNotLoggedView: ProfileNotLoggedProtocol {get set}
     func addButtons(_: [UIButton])
 }

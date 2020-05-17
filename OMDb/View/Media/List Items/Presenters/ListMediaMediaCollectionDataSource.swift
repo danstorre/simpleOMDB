@@ -80,7 +80,7 @@ final class ListMediaMediaCollectionDataSource: NSObject, ListMediaCollectionDat
                 }
                 if cell.tag == indexPath.row {
                     cell.imageViewMedia.posterImage.image = image
-                    cell.imageViewMedia.posterImage.showAnimation()
+                    cell.imageViewMedia.posterImage.showAnimation(){ _ in }
                 }
             }
         }

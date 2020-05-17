@@ -82,6 +82,9 @@
 		FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC267CF24630F5800FE2F4E /* SearchCollectionViewCell.swift */; };
 		FBD2CA73246B4E55008F946C /* DetailsMediaCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD2CA72246B4E55008F946C /* DetailsMediaCollectionViewController.swift */; };
 		FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */; };
+		FBD998482470C217009EABC5 /* ProfileContentUserNotLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD998472470C217009EABC5 /* ProfileContentUserNotLogged.swift */; };
+		FBD9984A2470C271009EABC5 /* ProfileContentUserLogged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD998492470C271009EABC5 /* ProfileContentUserLogged.swift */; };
+		FBD9984C2470C9B7009EABC5 /* ProfileContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD9984B2470C9B7009EABC5 /* ProfileContentPresenter.swift */; };
 		FBE7DFF42438E488007514C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF32438E488007514C1 /* AppDelegate.swift */; };
 		FBE7DFF62438E488007514C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF52438E488007514C1 /* SceneDelegate.swift */; };
 		FBE7DFF82438E488007514C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DFF72438E488007514C1 /* ViewController.swift */; };
@@ -194,6 +197,9 @@
 		FBD2CA72246B4E55008F946C /* DetailsMediaCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsMediaCollectionViewController.swift; sourceTree = "<group>"; };
 		FBD3BECD2450F59300E420D1 /* OMDb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OMDb.entitlements; sourceTree = "<group>"; };
 		FBD76B6524395AC200F81F9A /* DetailMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMediaViewController.swift; sourceTree = "<group>"; };
+		FBD998472470C217009EABC5 /* ProfileContentUserNotLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentUserNotLogged.swift; sourceTree = "<group>"; };
+		FBD998492470C271009EABC5 /* ProfileContentUserLogged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentUserLogged.swift; sourceTree = "<group>"; };
+		FBD9984B2470C9B7009EABC5 /* ProfileContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentPresenter.swift; sourceTree = "<group>"; };
 		FBE7DFF02438E488007514C1 /* OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBE7DFF32438E488007514C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBE7DFF52438E488007514C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -389,6 +395,9 @@
 				FB8203AB2460C45F006648E1 /* ProfileHeaderPresenter.swift */,
 				FB8203AD2460C9E0006648E1 /* ProfilePresenter.swift */,
 				FB88E4332460CCC700A4E0EC /* ProfileUserNotLoggedPresenter.swift */,
+				FBD998472470C217009EABC5 /* ProfileContentUserNotLogged.swift */,
+				FBD998492470C271009EABC5 /* ProfileContentUserLogged.swift */,
+				FBD9984B2470C9B7009EABC5 /* ProfileContentPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -794,6 +803,7 @@
 				FB87BCAF246B528200C04E03 /* MediaDetail.swift in Sources */,
 				FB346479245787BC008C4E1B /* IntroViewController.swift in Sources */,
 				FB34647C24579AFD008C4E1B /* TextFactory.swift in Sources */,
+				FBD9984C2470C9B7009EABC5 /* ProfileContentPresenter.swift in Sources */,
 				FB78A52F244F9A22004BCB30 /* Session.swift in Sources */,
 				FB2360212439815B00601D8E /* MapSearcher.swift in Sources */,
 				FB78A532244FA124004BCB30 /* SessionBarButtonItem.swift in Sources */,
@@ -837,6 +847,7 @@
 				FB356679246356DF0044F6EA /* PresenterSearchMediaCollection.swift in Sources */,
 				FBB17D772469BCA7004265F5 /* ListItemMediaViewCollectionViewCell.swift in Sources */,
 				FBE7E0202438F125007514C1 /* Media.swift in Sources */,
+				FBD9984A2470C271009EABC5 /* ProfileContentUserLogged.swift in Sources */,
 				FBC267D024630F5800FE2F4E /* SearchCollectionViewCell.swift in Sources */,
 				FBD76B6624395AC200F81F9A /* DetailMediaViewController.swift in Sources */,
 				FBE7E02F24390AD9007514C1 /* MediaViewCollectionViewCell.swift in Sources */,
@@ -855,6 +866,7 @@
 				FBB17D6B24672CA1004265F5 /* FactoryViewcontroller.swift in Sources */,
 				FB35667724634C530044F6EA /* MediaSearchCollectionFlowLayout.swift in Sources */,
 				FB7F9A1E24622239003470DE /* MediaPosterCollectionDataSource.swift in Sources */,
+				FBD998482470C217009EABC5 /* ProfileContentUserNotLogged.swift in Sources */,
 				FB34648C2457CE4F008C4E1B /* FactoryButton.swift in Sources */,
 				FB35667D246357550044F6EA /* MediaSearchCollectionViewDelegate.swift in Sources */,
 				FBE7E01C2438E653007514C1 /* OMBDB_API.swift in Sources */,
