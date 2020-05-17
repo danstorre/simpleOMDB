@@ -18,6 +18,7 @@ protocol ManagesUser {
 }
 
 protocol ProfilePresenterPreparator: ContentPreprable, ManagesUser, AnimatableAlpha {
+    var contentView: UIView? {get set}
 }
 
 class ProfileContentPresenter: NSObject, ContentPreprable{
@@ -115,22 +116,21 @@ class ProfileContentUserNotLogged: NSObject, ProfilePresenterPreparator {
 
 class ProfileContentUserLogged: NSObject, ProfilePresenterPreparator, ProfilePresenterDelegate {
     
-    var contentView: UIView
+    var contentView: UIView?
     var navigationController: UINavigationController?
     var profileUserloggedPresenter: ProfilePresenterProtocol?
     var session: SessionProtocol?
     
-    init(contentView: UIView = UIView(),
-         navigationController: UINavigationController?,
+    init(navigationController: UINavigationController?,
          session: SessionProtocol?) {
-        self.contentView = contentView
         self.navigationController = navigationController
         self.session = session
         super.init()
     }
     
     func prepareContentView() {
-        guard let profileUserloggedPresenter = profileUserloggedPresenter else {
+        guard let profileUserloggedPresenter = profileUserloggedPresenter,
+            let contentView = contentView else {
             return
         }
         profileUserloggedPresenter.profileView.alpha = 0
