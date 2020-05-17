@@ -22,20 +22,26 @@ protocol ShadowsAndToggleableAlphaProtocol: ShadowsAdable, AnimatableAlpha {
 }
 
 protocol AnimatableAlpha: class {
-    func hideAnimation()
-    func showAnimation()
+    func hideAnimation(completionHandler: @escaping (Bool) -> Void)
+    func showAnimation(completionHandler: @escaping (Bool) -> Void)
 }
 
 extension AnimatableAlpha where Self: UIView {
-    func hideAnimation() {
-        UIView.animate(withDuration: 0.3) {
+    func hideAnimation(completionHandler: @escaping ((Bool) -> Void)) {
+        UIView.animate(withDuration: 0.3,
+                       animations: {
             self.alpha = 0
+        }) { (terminated) in
+            completionHandler(terminated)
         }
     }
     
-    func showAnimation() {
-        UIView.animate(withDuration: 0.6) {
+    func showAnimation(completionHandler: @escaping (Bool) -> Void) {
+        UIView.animate(withDuration: 0.6,
+                       animations: {
             self.alpha = 1
+        }) { (terminated) in
+            completionHandler(terminated)
         }
     }
 }
