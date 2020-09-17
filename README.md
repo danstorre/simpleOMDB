@@ -1,3 +1,3 @@
 # Movio
 
-A simple app so you can search movies, series or episodes.
+Movio is a simple app so you can search movies, series or episodes.
